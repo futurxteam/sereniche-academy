@@ -4,7 +4,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Triangle, ArrowUpRight, Star, GraduationCap, User, Hexagon, Clock, BookOpen, Users, FileText, ArrowRight, ArrowLeft, Headphones, Brain, PenTool, BadgeCheck, BookMarked, Sparkles, Activity, Box, Layers, Circle, Building2, Stethoscope, CheckCircle2, Calendar, MonitorPlay, Mail, Globe, XCircle, Quote, Target, Award, Briefcase, MapPin, ShieldCheck, TrendingUp, HeartHandshake, FileCheck, Lightbulb, Check, Plus, Minus } from 'lucide-react';
+import { Triangle, ArrowUpRight, Star, GraduationCap, User, Hexagon, Clock, BookOpen, Users, FileText, ArrowRight, ArrowLeft, Headphones, Brain, PenTool, BadgeCheck, BookMarked, Sparkles, Activity, Box, Layers, Circle, Building2, Stethoscope, CheckCircle2, Calendar, MonitorPlay, Mail, Globe, XCircle, Quote, Target, Award, Briefcase, MapPin, ShieldCheck, TrendingUp, HeartHandshake, FileCheck, Lightbulb, Check, Plus, Minus, Menu, X } from 'lucide-react';
 import { motion, useMotionValue, useTransform, animate, useInView, useScroll, AnimatePresence } from 'motion/react';
 import LiveChat from './components/LiveChat';
 import InstructorPage from './pages/InstructorPage';
@@ -1013,12 +1013,12 @@ const FinalCTASection = ({ onNavigate }: { onNavigate: (page: string) => void })
       {/* Contact Quick Info Strip */}
       <div className="relative w-full border-t border-gray-200/60 bg-white/50 backdrop-blur-sm py-4">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-sm text-gray-600 font-medium">
-            <span className="flex items-center gap-2"><Mail className="w-4 h-4 text-purple-500" /> admissions@sereniche.com</span>
-            <span className="w-1 h-1 rounded-full bg-gray-300 hidden sm:block" />
-            <span className="flex items-center gap-2"><Globe className="w-4 h-4 text-purple-500" /> www.sereniche.com</span>
-            <span className="w-1 h-1 rounded-full bg-gray-300 hidden sm:block" />
-            <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-purple-500" /> Kerala, India</span>
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-base text-gray-600 font-medium">
+            <span className="flex items-center gap-2"><Mail className="w-5 h-5 text-purple-500" /> admissions@sereniche.com</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-gray-300 hidden sm:block" />
+            <span className="flex items-center gap-2"><Globe className="w-5 h-5 text-purple-500" /> www.sereniche.com</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-gray-300 hidden sm:block" />
+            <span className="flex items-center gap-2"><MapPin className="w-5 h-5 text-purple-500" /> Kerala, India</span>
           </div>
         </div>
       </div>
@@ -1047,8 +1047,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {['Courses', 'Instructors', 'Testimonials', 'Contact'].map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-gray-500 hover:text-purple-600 transition-colors duration-300 text-sm flex items-center gap-2 group">
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-200 group-hover:bg-yellow-400 transition-colors duration-300" />
+                  <a href="#" className="text-gray-500 hover:text-purple-600 transition-colors duration-300 text-base flex items-center gap-2 group">
+                    <span className="w-2 h-2 rounded-full bg-purple-200 group-hover:bg-yellow-400 transition-colors duration-300" />
                     {link}
                   </a>
                 </li>
@@ -1093,6 +1093,7 @@ const Footer = () => {
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden relative font-sans selection:bg-purple-500/30">
@@ -1116,9 +1117,9 @@ export default function App() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-50 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-6"
+        className="relative z-[100] max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-6"
       >
-        <div className="bg-gray-50 border border-gray-200 backdrop-blur-md rounded-full px-4 py-2.5 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+        <div className="bg-gray-50/90 border border-gray-200 backdrop-blur-lg rounded-full px-4 py-2.5 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
           {/* Logo */}
           <div 
             className="flex items-center pl-2 cursor-pointer"
@@ -1127,38 +1128,88 @@ export default function App() {
             <SerenicheLogo />
           </div>
 
-          {/* Links */}
-          <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
-            <button onClick={() => setCurrentPage('courses')} className={`relative transition-colors duration-300 ${currentPage === 'courses' ? 'text-gray-900 font-bold' : 'hover:text-purple-600'}`}>
-              Courses
-              {currentPage === 'courses' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-yellow-500 rounded-full" />}
-            </button>
-            <button onClick={() => setCurrentPage('instructor')} className={`relative transition-colors duration-300 ${currentPage === 'instructor' ? 'text-gray-900 font-bold' : 'hover:text-purple-600'}`}>
-              Instructor
-              {currentPage === 'instructor' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-yellow-500 rounded-full" />}
-            </button>
-            <button onClick={() => setCurrentPage('testimonials')} className={`relative transition-colors duration-300 ${currentPage === 'testimonials' ? 'text-gray-900 font-bold' : 'hover:text-purple-600'}`}>
-              Testimonials
-              {currentPage === 'testimonials' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-yellow-500 rounded-full" />}
-            </button>
-            <button onClick={() => setCurrentPage('more')} className={`relative transition-colors duration-300 ${currentPage === 'more' ? 'text-gray-900 font-bold' : 'hover:text-purple-600'}`}>
-              More
-              {currentPage === 'more' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-yellow-500 rounded-full" />}
-            </button>
-            <button onClick={() => setCurrentPage('contact')} className={`relative transition-colors duration-300 ${currentPage === 'contact' ? 'text-gray-900 font-bold' : 'hover:text-purple-600'}`}>
-              Contact
-              {currentPage === 'contact' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-yellow-500 rounded-full" />}
-            </button>
+          {/* Desktop Links - Hidden on Mobile */}
+          <div className="hidden md:flex items-center gap-8 text-xl font-bold text-gray-800">
+            {[
+              { id: 'home', label: 'Home' },
+              { id: 'courses', label: 'Courses' },
+              { id: 'instructor', label: 'Instructor' },
+              { id: 'testimonials', label: 'Testimonials' },
+              { id: 'more', label: 'More' },
+              { id: 'contact', label: 'Contact' }
+            ].map((item) => (
+              <button 
+                key={item.id}
+                onClick={() => setCurrentPage(item.id)} 
+                className={`relative px-1 py-2 transition-all duration-300 ${currentPage === item.id ? 'text-purple-600' : 'hover:text-purple-600 text-gray-600'}`}
+              >
+                {item.label}
+                {currentPage === item.id && (
+                  <motion.span 
+                    layoutId="nav-underline" 
+                    className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-600 rounded-full"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+              </button>
+            ))}
           </div>
 
-          {/* CTA */}
-          <button 
-            onClick={() => setCurrentPage('contact')}
-            className="bg-[#7C3AED] hover:bg-purple-700 hover:scale-105 active:scale-95 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] border border-transparent hover:border-purple-400 group flex items-center gap-2"
-          >
-            Enroll Now <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-          </button>
+          {/* Right Side: CTA & Mobile Toggle */}
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={() => setCurrentPage('contact')}
+              className="hover:scale-105 active:scale-95 text-[#7C3AED] px-4 py-2 rounded-full text-base font-bold transition-all duration-300 flex items-center gap-2 group border border-transparent hover:border-purple-100"
+            >
+              <span>Enroll Now</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden w-12 h-12 flex items-center justify-center rounded-xl text-[#7C3AED] hover:bg-purple-50 transition-all"
+              aria-label="Toggle Menu"
+            >
+              {isMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              className="absolute top-full left-0 right-0 mt-4 px-2 md:hidden"
+            >
+              <div className="bg-white border border-gray-200 rounded-3xl p-4 shadow-2xl overflow-hidden">
+                <div className="flex flex-col gap-2">
+                  {[
+                    { id: 'home', label: 'Home' },
+                    { id: 'courses', label: 'Courses' },
+                    { id: 'instructor', label: 'Instructor' },
+                    { id: 'testimonials', label: 'Testimonials' },
+                    { id: 'more', label: 'More' },
+                    { id: 'contact', label: 'Contact' }
+                  ].map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => {
+                        setCurrentPage(item.id);
+                        setIsMenuOpen(false);
+                      }}
+                      className={`text-lg font-bold text-left px-5 py-4 rounded-2xl transition-colors ${currentPage === item.id ? 'bg-purple-50 text-purple-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.nav>
 
       <AnimatePresence mode="wait">
