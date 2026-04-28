@@ -24,6 +24,16 @@ const instructors = [
     courses: ["Behavioural Interventions", "Client Motivation Strategies"]
   },
   {
+    id: 2,
+    name: "Uveysudheen KH",
+    title: "Consultant Psychotherapist",
+    image: "/Uveysudheen%20KH.jpg",
+    bio: "Uveysudheen KH specialises in integrative psychotherapy approaches, supporting clients through complex emotional and relational difficulties with a person-centred lens.",
+    expertise: ["Integrative Therapy", "Person-Centered", "Relational Work"],
+    experience: "10+ Years",
+    courses: ["Managing Client Dynamics", "Core Counselling Skills"]
+  },
+  {
     id: 4,
     name: "Dr Aswathy Anand",
     title: "Child & Adolescent Psychologist",
@@ -53,6 +63,7 @@ const instructors = [
     experience: "15+ Years",
     courses: ["Therapist Ethics & Development", "Grief & Bereavement"]
   },
+
   {
     id: 3,
     name: "Mary Anusha Sebastain",
@@ -62,17 +73,8 @@ const instructors = [
     expertise: ["Family Therapy", "Couples Counseling", "Systemic Work"],
     experience: "11+ Years",
     courses: ["Relational & Systemic Work", "Emotional Regulation"]
-  },
-  {
-    id: 2,
-    name: "Uveysudheen KH",
-    title: "Consultant Psychotherapist",
-    image: "/Uveysudheen%20KH.jpg",
-    bio: "Uveysudheen KH specialises in integrative psychotherapy approaches, supporting clients through complex emotional and relational difficulties with a person-centred lens.",
-    expertise: ["Integrative Therapy", "Person-Centered", "Relational Work"],
-    experience: "10+ Years",
-    courses: ["Managing Client Dynamics", "Core Counselling Skills"]
   }
+
 ];
 
 export default function InstructorPage() {
