@@ -80,28 +80,73 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Curriculum Overview</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Programme Highlights</h2>
                 <div className="grid grid-cols-1 gap-4">
-                  {course.curriculum.map((item, i) => (
+                  {course.highlights.map((highlight, i) => (
                     <div key={i} className="flex items-start gap-4 bg-gray-50 border border-gray-100 p-5 rounded-2xl hover:border-purple-200 transition-colors">
                       <div className="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0">
-                        <BookOpen className="w-5 h-5 text-purple-600" />
+                        <CheckCircle2 className="w-5 h-5 text-purple-600" />
                       </div>
-                      <span className="text-gray-700 font-medium leading-relaxed">{item}</span>
+                      <span className="text-gray-700 font-medium leading-relaxed">{highlight}</span>
                     </div>
                   ))}
                 </div>
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">What You Will Learn</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {course.outcomes.map((outcome, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-600 leading-relaxed">{outcome}</span>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Who This Is For</h2>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  {course.whoThisIsFor}
+                </p>
+              </section>
+
+              {course.trackOptions && (
+                <section>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Track Options</h2>
+                  <div className="grid grid-cols-1 gap-6">
+                    {course.trackOptions.map((track, i) => (
+                      <div key={i} className="bg-gray-50 border border-purple-100 p-6 rounded-2xl">
+                        <h3 className="font-bold text-xl text-gray-900 mb-2">{track.title}</h3>
+                        <p className="text-gray-600">{track.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              <section>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Format Details</h2>
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-purple-50 p-5 rounded-xl border border-purple-100">
+                    <span className="block text-xs font-bold text-purple-500 uppercase mb-1">Mode</span>
+                    <span className="font-medium text-gray-900">{course.formatDetails.mode}</span>
+                  </div>
+                  <div className="bg-purple-50 p-5 rounded-xl border border-purple-100">
+                    <span className="block text-xs font-bold text-purple-500 uppercase mb-1">Duration</span>
+                    <span className="font-medium text-gray-900">{course.formatDetails.duration}</span>
+                  </div>
+                  {course.formatDetails.schedule && (
+                     <div className="bg-purple-50 p-5 rounded-xl border border-purple-100">
+                      <span className="block text-xs font-bold text-purple-500 uppercase mb-1">Schedule</span>
+                      <span className="font-medium text-gray-900">{course.formatDetails.schedule}</span>
                     </div>
-                  ))}
+                  )}
+                  {course.formatDetails.location && (
+                    <div className="bg-purple-50 p-5 rounded-xl border border-purple-100">
+                      <span className="block text-xs font-bold text-purple-500 uppercase mb-1">Location</span>
+                      <span className="font-medium text-gray-900">{course.formatDetails.location}</span>
+                    </div>
+                  )}
+                  <div className="bg-purple-50 p-5 rounded-xl border border-purple-100">
+                    <span className="block text-xs font-bold text-purple-500 uppercase mb-1">Language</span>
+                    <span className="font-medium text-gray-900">{course.formatDetails.language}</span>
+                  </div>
+                  {course.formatDetails.certification && (
+                    <div className="bg-purple-50 p-5 rounded-xl border border-purple-100 col-span-2 lg:col-span-3">
+                      <span className="block text-xs font-bold text-purple-500 uppercase mb-1">Certification</span>
+                      <span className="font-medium text-gray-900">{course.formatDetails.certification}</span>
+                    </div>
+                  )}
                 </div>
               </section>
             </div>
@@ -115,7 +160,11 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
                 <div className="space-y-5 mb-10">
                   <div className="flex items-center gap-3 text-gray-700 font-medium">
                     <MonitorPlay className="w-5 h-5 text-purple-600" />
-                    <span>Live Online + Clinical Lab</span>
+                    <span>
+                      {course.type === 'online' && 'Live Online + Clinical Lab'}
+                      {course.type === 'offline' && 'In-Person + Clinical Immersion'}
+                      {course.type === 'internship' && 'Clinical Setting Experience'}
+                    </span>
                   </div>
                   <div className="flex items-center gap-3 text-gray-700 font-medium">
                     <Users className="w-5 h-5 text-purple-600" />

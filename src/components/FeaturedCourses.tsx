@@ -1,49 +1,10 @@
 import { useState } from 'react';
 import { Star, Users, BookOpen, GraduationCap } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-
-const courses = [
-  {
-    id: 1,
-    title: "Ultimate UI/UX Design Bootcamp",
-    description: "Master the art of web design with our comprehensive course. Learn HTML, CSS, and cutting-edge design principles.",
-    instructor: "David Warner",
-    avatar: "https://i.pravatar.cc/100?img=11",
-    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&q=80&w=800&h=600",
-    rating: 5.0,
-    students: "8500+",
-    level: "Intermediate",
-    price: "$300"
-  },
-  {
-    id: 2,
-    title: "Interactive Design Fundamentals",
-    description: "Master the art of web design with our comprehensive course. Learn HTML, CSS, and cutting-edge design principles.",
-    instructor: "Jessica Taylor",
-    avatar: "https://i.pravatar.cc/100?img=5",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800&h=600",
-    rating: 4.9,
-    students: "6200+",
-    level: "Beginner",
-    price: "$250"
-  },
-  {
-    id: 3,
-    title: "Creative Web Design Essentials",
-    description: "Master Figma with industry-leading tactics that will help you complete projects with confidence.",
-    instructor: "James Anderson",
-    avatar: "https://i.pravatar.cc/100?img=8",
-    image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=800&h=600",
-    rating: 4.8,
-    students: "4100+",
-    level: "Advanced",
-    price: "$400"
-  }
-];
-
+import { courses } from '../data/courses';
 export default function FeaturedCourses() {
   const [filter, setFilter] = useState('All');
-  const levels = ['All', 'Beginner', 'Intermediate', 'Advanced'];
+  const levels = ['All', ...Array.from(new Set(courses.map(c => c.level)))];
 
   const filteredCourses = filter === 'All' ? courses : courses.filter(c => c.level === filter);
 
@@ -115,7 +76,7 @@ export default function FeaturedCourses() {
                 </div>
 
                 <div className="flex items-center gap-3 mb-4">
-                  <img src={course.avatar} alt={course.instructor} className="w-8 h-8 rounded-full" referrerPolicy="no-referrer" />
+                  <div className="w-8 h-8 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold text-xs uppercase">{course.instructor.charAt(0)}</div>
                   <span className="text-sm font-medium text-gray-300">{course.instructor}</span>
                 </div>
 
@@ -127,7 +88,7 @@ export default function FeaturedCourses() {
                 <div className="flex items-center gap-6 mb-8 text-sm text-gray-400 border-t border-white/10 pt-6">
                   <div className="flex items-center gap-2">
                     <Users className="w-4 h-4" />
-                    <span>{course.students}</span>
+                    <span>{course.reviews}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <BookOpen className="w-4 h-4" />

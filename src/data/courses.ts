@@ -12,226 +12,138 @@ export interface Course {
   rating: number;
   reviews: number;
   fullDescription: string;
-  curriculum: string[];
-  outcomes: string[];
+  highlights: string[];
+  trackOptions?: { title: string; description: string; }[];
+  whoThisIsFor: string;
+  formatDetails: {
+    mode: string;
+    duration: string;
+    schedule?: string;
+    location?: string;
+    certification?: string;
+    language: string;
+  };
 }
 
 export const courses: Course[] = [
   {
     id: 1,
-    type: 'offline',
-    slug: 'clinical-psychology-finishing-school',
-    title: "Clinical Psychology Finishing School",
-    description: "Transform your psychology degree into confident, real-world clinical practice in just 50 days.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=600",
-    instructor: "Dr. Sarah Jenkins & Panel",
+    type: 'online',
+    slug: 'psychology-finishing-school-online',
+    title: "Psychology Finishing School — Online",
+    description: "Creating therapy-ready therapists.",
+    image: "/course-finishing school-online.jpg",
+    instructor: "Expert Faculty Panel",
     duration: "50 Days",
-    level: "Intermediate",
-    price: "₹45,000",
+    level: "Postgraduates / Final Year",
+    price: "Contact for Details",
     rating: 4.9,
-    reviews: 128,
-    fullDescription: "This intensive 50-day program is designed specifically for psychology graduates who want to bridge the gap between academic theory and real-world clinical practice. You will be immersed in a hospital-integrated ecosystem, learning directly from senior psychiatrists and clinical psychologists.",
-    curriculum: [
-      "Week 1-2: Foundations of Clinical Practice",
-      "Week 3-4: Advanced Therapeutic Modalities",
-      "Week 5-6: Psychiatric Interface & Medication",
-      "Week 7: Clinical Case Formulation"
+    reviews: 154,
+    fullDescription: "The Online Psychology Finishing School is Sereniche Academy's flagship 50-day therapist development programme — delivered entirely through live, interactive online sessions. Designed for psychology post graduates who are ready to move beyond theory and step into confident, session-ready practice, this programme brings together clinical psychologists, psychiatrists, and specialist faculty into a structured, progressive learning ecosystem — accessible from wherever you are.",
+    highlights: [
+      "50 structured days across 8 clinical modules",
+      "Live online sessions — interactive, not pre-recorded",
+      "Led by clinical psychologists, psychiatrists, and specialist faculty",
+      "Covers therapy foundations, major modalities (CBT, DBT, REBT, Trauma-Informed, Couple Therapy, and more)",
+      "Case history taking, diagnosis, and clinical formulation training",
+      "Crisis intervention and high-risk client management",
+      "Weekly clinical labs — simulated, case-based practice sessions",
+      "Mock therapy sessions — full intake to closure simulation",
+      "Peer supervision circles — daily guided reflection and feedback",
+      "Case diary and case archive development",
+      "Professional portfolio building",
+      "Psychiatry-integrated module — understanding medications, referrals, and interdisciplinary care",
+      "Business and career development module for new therapists",
+      "Certificate of completion from Sereniche Academy"
     ],
-    outcomes: [
-      "Conduct therapy sessions confidently",
-      "Apply multiple therapy models (CBT, REBT, DBT)",
-      "Understand psychiatric referrals and medication",
-      "Build a professional clinical case portfolio"
-    ]
+    whoThisIsFor: "Psychology graduates, MSc/MA Psychology students in their final year, and early-career mental health professionals looking to build structured clinical competence.",
+    formatDetails: {
+      mode: "Live Online",
+      duration: "50 Days",
+      schedule: "Weekday sessions with structured weekly progression",
+      language: "Malayalam / English"
+    }
   },
   {
     id: 2,
-    type: 'online',
-    slug: 'advanced-cbt-masterclass',
-    title: "Advanced CBT Masterclass",
-    description: "Deep dive into Cognitive Behavioral Therapy techniques for complex clinical presentations.",
-    image: "https://images.unsplash.com/photo-1551847677-dc82d7624f5b?auto=format&fit=crop&q=80&w=600",
-    instructor: "Dr. Sarah Jenkins",
-    duration: "4 Weeks",
-    level: "Advanced",
-    price: "₹15,000",
-    rating: 4.8,
-    reviews: 85,
-    fullDescription: "Take your CBT skills to the next level. This masterclass focuses on applying CBT to treatment-resistant depression, severe anxiety disorders, and personality disorders. Includes live demonstrations and intensive role-play.",
-    curriculum: [
-      "Module 1: Advanced Cognitive Restructuring",
-      "Module 2: Schema-Focused CBT",
-      "Module 3: Behavioral Experiments",
-      "Module 4: Relapse Prevention Strategies"
+    type: 'offline',
+    slug: 'psychology-finishing-school-offline',
+    title: "Psychology Finishing School — Offline",
+    description: "The full clinical experience. In a real clinical world.",
+    image: "/course-finishing school.jpg",
+    instructor: "Expert Faculty Panel",
+    duration: "50 Days",
+    level: "Postgraduates",
+    price: "Contact for Details",
+    rating: 4.9,
+    reviews: 128,
+    fullDescription: "The Offline Psychology Finishing School is the premium, in-person format of Sereniche Academy's 50-day flagship programme — and it goes one significant step further. In addition to everything covered in the online format, offline participants receive an exclusive Clinical Immersion component conducted inside a real hospital setting. Under the direct supervision of psychiatrists and clinical psychologists, participants observe live clinical processes, engage with real cases, and experience the full reality of mental health practice in a professional healthcare environment. This is therapist training at its most complete.",
+    highlights: [
+      "Everything included in the Online format, delivered in person",
+      "Exclusive Hospital-Based Clinical Immersion — available only in the offline format",
+      "Direct observation of clinical cases in a real hospital environment",
+      "Supervised exposure to psychiatric assessments and clinical consultations",
+      "Interaction with interdisciplinary clinical teams",
+      "Live Mental Status Examination (MSE) observation and learning",
+      "In-person clinical labs with hands-on therapy skill practice",
+      "Face-to-face mock therapy sessions with expert feedback",
+      "In-person peer supervision and case discussion circles",
+      "Real-time mentoring and clinical guidance from psychiatrists and clinical psychologists",
+      "Case diary, case archive, and professional portfolio development",
+      "Certificate of completion from Sereniche Academy",
+      "Offline graduation and certification ceremony"
     ],
-    outcomes: [
-      "Master advanced cognitive restructuring",
-      "Develop complex case formulations",
-      "Handle therapeutic resistance",
-      "Integrate mindfulness with traditional CBT"
-    ]
+    whoThisIsFor: "Psychology graduates who want the deepest, most immersive clinical training experience — combining structured programme learning with real hospital exposure in a mentored environment.",
+    formatDetails: {
+      mode: "In-Person (Offline) + Hospital Clinical Immersion",
+      duration: "50 Days",
+      location: "Sereniche Academy",
+      language: "Malayalam / English"
+    }
   },
   {
     id: 3,
-    type: 'online',
-    slug: 'family-therapy-foundations',
-    title: "Foundations of Family Therapy",
-    description: "Learn to navigate complex family dynamics and systemic interventions.",
-    image: "https://images.unsplash.com/photo-1529156069898-49953eb1b5ae?auto=format&fit=crop&q=80&w=600",
-    instructor: "Dr. Maya Patel",
-    duration: "6 Weeks",
-    level: "Beginner to Intermediate",
-    price: "₹18,000",
-    rating: 4.9,
-    reviews: 102,
-    fullDescription: "Move beyond individual therapy and learn to treat the family system. This course covers structural, strategic, and Bowenian family therapy models, providing you with the tools to conduct effective multi-person sessions.",
-    curriculum: [
-      "Week 1: Systems Theory Basics",
-      "Week 2-3: Structural Family Therapy",
-      "Week 4: Strategic Interventions",
-      "Week 5-6: Bowenian Models & Genograms"
-    ],
-    outcomes: [
-      "Conduct systemic assessments",
-      "Manage conflict in session",
-      "Apply circular questioning techniques",
-      "Create genograms and family maps"
-    ]
-  },
-  {
-    id: 4,
-    type: 'offline',
-    slug: 'trauma-informed-therapy-certification',
-    title: "Trauma-Informed Therapy Certification",
-    description: "Equip yourself with the skills to safely and effectively treat trauma survivors.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600",
-    instructor: "Dr. Sarah Jenkins",
-    duration: "6 Weeks",
-    level: "Intermediate",
-    price: "₹22,000",
-    rating: 4.9,
-    reviews: 156,
-    fullDescription: "Understand the neurobiology of trauma and learn evidence-based interventions to help clients process traumatic memories safely without re-traumatization.",
-    curriculum: [
-      "Week 1: Neurobiology of Trauma",
-      "Week 2: Safety and Stabilization",
-      "Week 3-4: Processing Traumatic Memories",
-      "Week 5-6: Integration and Post-Traumatic Growth"
-    ],
-    outcomes: [
-      "Understand trauma responses in the brain",
-      "Implement grounding and stabilization techniques",
-      "Safely process traumatic memories",
-      "Foster post-traumatic growth"
-    ]
-  },
-  {
-    id: 5,
-    type: 'online',
-    slug: 'child-adolescent-counselling',
-    title: "Child & Adolescent Counselling",
-    description: "Specialized training for working with younger populations and their unique challenges.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600",
-    instructor: "Dr. Maya Patel",
-    duration: "5 Weeks",
-    level: "Beginner",
-    price: "₹16,000",
-    rating: 4.7,
-    reviews: 92,
-    fullDescription: "Learn age-appropriate therapeutic interventions, play therapy basics, and how to effectively engage with parents and schools to support child and adolescent mental health.",
-    curriculum: [
-      "Week 1: Developmental Psychology Review",
-      "Week 2: Engaging Children in Therapy",
-      "Week 3: Play Therapy Techniques",
-      "Week 4: Adolescent Challenges & Interventions",
-      "Week 5: Working with Parents & Schools"
-    ],
-    outcomes: [
-      "Build rapport with children and teens",
-      "Utilize play therapy techniques",
-      "Address behavioral and emotional issues",
-      "Collaborate effectively with parents"
-    ]
-  },
-  {
-    id: 6,
-    type: 'online',
-    slug: 'advanced-dbt-skills-training',
-    title: "Advanced DBT Skills Training",
-    description: "Master Dialectical Behavior Therapy skills for emotional dysregulation.",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600",
-    instructor: "Prof. David Chen",
-    duration: "4 Weeks",
-    level: "Advanced",
-    price: "₹19,000",
-    rating: 4.8,
-    reviews: 114,
-    fullDescription: "An intensive dive into the four modules of DBT: Mindfulness, Distress Tolerance, Emotion Regulation, and Interpersonal Effectiveness. Ideal for treating BPD and severe emotional dysregulation.",
-    curriculum: [
-      "Module 1: Core Mindfulness",
-      "Module 2: Distress Tolerance",
-      "Module 3: Emotion Regulation",
-      "Module 4: Interpersonal Effectiveness"
-    ],
-    outcomes: [
-      "Teach core mindfulness skills",
-      "Implement distress tolerance strategies",
-      "Guide clients in emotion regulation",
-      "Improve interpersonal effectiveness"
-    ]
-  },
-  {
-    id: 7,
     type: 'internship',
-    slug: 'clinical-case-formulation-bootcamp',
-    title: "Clinical Case Formulation Bootcamp",
-    description: "Learn how to conceptualize cases effectively to guide your treatment plans.",
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=600",
-    instructor: "Dr. Sarah Jenkins",
-    duration: "3 Weeks",
-    level: "Intermediate",
-    price: "₹12,000",
-    rating: 4.9,
-    reviews: 78,
-    fullDescription: "Move beyond symptom management. Learn how to connect the dots between a client's history, current presentation, and underlying mechanisms to create a cohesive and actionable treatment plan.",
-    curriculum: [
-      "Week 1: The Art of Assessment",
-      "Week 2: Connecting the Dots (Formulation)",
-      "Week 3: Translating Formulation to Treatment"
-    ],
-    outcomes: [
-      "Conduct comprehensive clinical assessments",
-      "Develop accurate case conceptualizations",
-      "Create targeted treatment plans",
-      "Adjust formulations based on client progress"
-    ]
-  },
-  {
-    id: 8,
-    type: 'internship',
-    slug: 'relationship-couple-therapy',
-    title: "Relationship & Couple Therapy",
-    description: "Evidence-based approaches to helping couples navigate conflict and rebuild connection.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
-    instructor: "Dr. Maya Patel",
-    duration: "6 Weeks",
-    level: "Intermediate",
-    price: "₹18,000",
+    slug: 'clinical-internship-programme',
+    title: "Clinical Internship Programme",
+    description: "Real cases. Real settings. Real clinical growth.",
+    image: "/internship1.png",
+    instructor: "Expert Faculty Panel",
+    duration: "15 Days / 30 Days",
+    level: "UG & PG Students",
+    price: "Contact for Details",
     rating: 4.8,
-    reviews: 135,
-    fullDescription: "Learn how to manage high-conflict couples, address infidelity, and foster secure attachment using principles from Gottman Method and Emotionally Focused Therapy (EFT).",
-    curriculum: [
-      "Week 1: Assessment of Couples",
-      "Week 2: Managing High Conflict",
-      "Week 3-4: Emotionally Focused Interventions",
-      "Week 5: Addressing Infidelity & Betrayal",
-      "Week 6: Fostering Secure Attachment"
+    reviews: 86,
+    fullDescription: "The Sereniche Academy Clinical Internship Programme is a structured, supervised clinical exposure programme designed specifically for psychology students who want meaningful, hands-on experience in a real clinical environment — before they graduate. Offered as intensive 15-day and 30-day tracks, this internship places participants at the centre of active clinical practice, under the direct mentorship of experienced clinical psychologists and psychiatrists. Every day is purposeful, every session is guided, and every observation becomes a learning opportunity.",
+    highlights: [
+      "Live clinical case observations in a hospital and clinical setting",
+      "Structured case discussions with clinical psychologists and psychiatrists",
+      "Mental Status Examination (MSE) — observation, understanding, and application",
+      "Case history taking — process, structure, and clinical reasoning",
+      "Clinical documentation — exposure to real case files, notes, and records",
+      "Diagnostic discussions — understanding how clinical formulations are built",
+      "Supervised interaction with the clinical assessment process",
+      "Understanding the psychiatrist-psychologist-counsellor collaboration model",
+      "Exposure to diverse clinical presentations — mood disorders, anxiety, psychosis, neurodevelopmental conditions, and more",
+      "Daily debriefs and guided reflection sessions"
     ],
-    outcomes: [
-      "Assess relationship dynamics accurately",
-      "De-escalate high-conflict situations",
-      "Facilitate emotional connection",
-      "Guide couples through betrayal recovery"
-    ]
+    trackOptions: [
+      {
+        title: "15-Day Intensive Track",
+        description: "A focused, immersive two-week clinical exposure programme. Ideal for students seeking a structured introduction to real clinical environments during semester breaks or holidays."
+      },
+      {
+        title: "30-Day Comprehensive Track",
+        description: "A deeper, month-long clinical immersion experience with broader case exposure, more supervised clinical interaction, and a more complete understanding of the clinical process from assessment to formulation. Recommended for students in their final year or those preparing to enter clinical roles."
+      }
+    ],
+    whoThisIsFor: "Undergraduate and postgraduate psychology students looking to supplement their academic learning with real clinical exposure, build observational and clinical thinking skills, and strengthen their professional foundation before entering practice.",
+    formatDetails: {
+      mode: "In-Person (Clinical Setting)",
+      duration: "15 Days / 30 Days",
+      location: "Sereniche Academy / Futureace Hospital",
+      certification: "Certificate of Internship Completion provided",
+      language: "Malayalam / English"
+    }
   }
 ];

@@ -334,29 +334,25 @@ const LightSection = ({ onNavigate }: { onNavigate: (page: string) => void }) =>
         className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-24"
       >
         <div className="flex flex-col items-center gap-8 overflow-hidden w-full">
-          <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Trusted by Industry Leaders</p>
+          <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Associated Partners</p>
 
-          <div className="relative w-full flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <div className="flex animate-scroll-left whitespace-nowrap opacity-60 grayscale hover:grayscale-0 transition-all duration-500 w-max">
+          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex animate-scroll-left whitespace-nowrap opacity-60 grayscale hover:grayscale-0 transition-all duration-500 w-max items-center shrink-0">
               {/* First set */}
-              <div className="flex items-center gap-16 pr-16">
-                <div className="flex items-center gap-2 font-bold text-xl hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"><Hexagon className="w-6 h-6" /> OBOS</div>
-                <div className="flex items-center gap-2 font-bold text-xl hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"><Triangle className="w-6 h-6" /> Veidekke</div>
-                <div className="flex items-center gap-2 font-bold text-xl hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"><Sparkles className="w-6 h-6" /> sparkle</div>
-                <div className="flex items-center gap-2 font-bold text-xl hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"><Activity className="w-6 h-6" /> Pulse</div>
-                <div className="flex items-center gap-2 font-bold text-xl hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"><Box className="w-6 h-6" /> AF</div>
-                <div className="flex items-center gap-2 font-bold text-xl hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"><Layers className="w-6 h-6" /> PEAB</div>
-                <div className="flex items-center gap-2 font-bold text-xl tracking-widest uppercase hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer">Nordr</div>
+              <div className="flex items-center gap-24 pr-24 shrink-0 min-w-max">
+                <img src="/associates/FA.png" alt="Partner FA" className="h-[50px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer" />
+                <img src="/associates/FAH.png" alt="Partner FAH" className="h-[50px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer" />
+                <img src="/associates/JBI.jpg" alt="Partner JBI" className="h-[105px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
+                <img src="/associates/cps.jpg" alt="Partner CPS" className="h-[100px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
+                <img src="/associates/kmm.jpg" alt="Partner KMM" className="h-[150px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
               </div>
               {/* Second set for seamless loop */}
-              <div className="flex items-center gap-16 pr-16">
-                <div className="flex items-center gap-2 font-bold text-xl hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"><Hexagon className="w-6 h-6" /> OBOS</div>
-                <div className="flex items-center gap-2 font-bold text-xl hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"><Triangle className="w-6 h-6" /> Veidekke</div>
-                <div className="flex items-center gap-2 font-bold text-xl hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"><Sparkles className="w-6 h-6" /> sparkle</div>
-                <div className="flex items-center gap-2 font-bold text-xl hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"><Activity className="w-6 h-6" /> Pulse</div>
-                <div className="flex items-center gap-2 font-bold text-xl hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"><Box className="w-6 h-6" /> AF</div>
-                <div className="flex items-center gap-2 font-bold text-xl hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"><Layers className="w-6 h-6" /> PEAB</div>
-                <div className="flex items-center gap-2 font-bold text-xl tracking-widest uppercase hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer">Nordr</div>
+              <div className="flex items-center gap-24 pr-24 shrink-0 min-w-max">
+                <img src="/associates/FA.png" alt="Partner FA" className="h-[50px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer" />
+                <img src="/associates/FAH.png" alt="Partner FAH" className="h-[50px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer" />
+                <img src="/associates/JBI.jpg" alt="Partner JBI" className="h-[105px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
+                <img src="/associates/cps.jpg" alt="Partner CPS" className="h-[100px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
+                <img src="/associates/kmm.jpg" alt="Partner KMM" className="h-[150px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
               </div>
             </div>
           </div>
@@ -558,22 +554,22 @@ const CurriculumSection = () => {
 
         {/* Horizontal Timeline */}
         <div className="relative mb-24 group">
-          
-          <button 
+
+          <button
             onClick={() => scroll('left')}
             className="absolute left-0 top-1/2 -translate-y-1/2 -ml-2 sm:-ml-6 md:-ml-8 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_rgba(124,58,237,0.15)] border border-purple-100 text-purple-600 flex items-center justify-center z-30 hover:scale-110 hover:bg-purple-50 transition-all opacity-0 group-hover:opacity-100 hidden md:flex"
           >
             <ArrowLeft className="w-6 h-6" />
           </button>
 
-          <button 
+          <button
             onClick={() => scroll('right')}
             className="absolute right-0 top-1/2 -translate-y-1/2 -mr-2 sm:-mr-6 md:-mr-8 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_rgba(124,58,237,0.15)] border border-purple-100 text-purple-600 flex items-center justify-center z-30 hover:scale-110 hover:bg-purple-50 transition-all opacity-0 group-hover:opacity-100 hidden md:flex"
           >
             <ArrowRight className="w-6 h-6" />
           </button>
 
-          <div 
+          <div
             ref={scrollRef}
             className="overflow-x-auto pb-12 pt-12 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-px-4 scroll-smooth"
           >
@@ -905,8 +901,12 @@ function AppContent() {
       'more': '/more',
       'contact': '/contact'
     };
-    // Only navigate if we're not already on the correct path AND not on a course detail page
-    if (stateMap[currentPage] && location.pathname !== stateMap[currentPage] && !location.pathname.startsWith('/courses/')) {
+    // Only navigate if we're not already on the correct path
+    if (stateMap[currentPage] && location.pathname !== stateMap[currentPage]) {
+      // Prevent redirecting to /courses if we are already seeing a specific course
+      if (location.pathname.startsWith('/courses/') && currentPage === 'courses') {
+        return;
+      }
       navigate(stateMap[currentPage]);
     }
   }, [currentPage]);
@@ -918,7 +918,7 @@ function AppContent() {
         {/* Background Glows */}
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#7C3AED]/20 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-pink-500/10 blur-[120px] rounded-full" />
-        
+
         {/* Contact & More Page Glow */}
         <div className={`absolute top-[200px] md:top-[150px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-purple-600/20 blur-[150px] rounded-full transition-opacity duration-700 delay-150 ${(currentPage === 'contact' || currentPage === 'more') ? 'opacity-100' : 'opacity-0'}`} />
 
