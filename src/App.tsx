@@ -343,16 +343,16 @@ const LightSection = ({ onNavigate }: { onNavigate: (page: string) => void }) =>
                 <img src="/associates/FA.png" alt="Partner FA" className="h-[50px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer" />
                 <img src="/associates/FAH.png" alt="Partner FAH" className="h-[50px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer" />
                 <img src="/associates/JBI.jpg" alt="Partner JBI" className="h-[105px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
-                <img src="/associates/cps.jpg" alt="Partner CPS" className="h-[100px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
-                <img src="/associates/kmm.jpg" alt="Partner KMM" className="h-[150px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
+                <img src="/associates/cps.jpg" alt="Partner CPS" className="h-[90px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
+                <img src="/associates/kmm.jpg" alt="Partner KMM" className="h-[110px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
               </div>
               {/* Second set for seamless loop */}
               <div className="flex items-center gap-24 pr-24 shrink-0 min-w-max">
                 <img src="/associates/FA.png" alt="Partner FA" className="h-[50px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer" />
                 <img src="/associates/FAH.png" alt="Partner FAH" className="h-[50px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer" />
                 <img src="/associates/JBI.jpg" alt="Partner JBI" className="h-[105px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
-                <img src="/associates/cps.jpg" alt="Partner CPS" className="h-[100px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
-                <img src="/associates/kmm.jpg" alt="Partner KMM" className="h-[150px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
+                <img src="/associates/cps.jpg" alt="Partner CPS" className="h-[90px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
+                <img src="/associates/kmm.jpg" alt="Partner KMM" className="h-[110px] w-auto shrink-0 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer mix-blend-multiply" />
               </div>
             </div>
           </div>
