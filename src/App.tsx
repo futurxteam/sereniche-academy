@@ -4,6 +4,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { Triangle, ArrowUpRight, Star, GraduationCap, User, Hexagon, Clock, BookOpen, Users, FileText, ArrowRight, ArrowLeft, Headphones, Brain, PenTool, BadgeCheck, BookMarked, Sparkles, Activity, Box, Layers, Circle, Building2, Stethoscope, CheckCircle2, Calendar, MonitorPlay, Mail, Globe, XCircle, Quote, Target, Award, Briefcase, MapPin, ShieldCheck, TrendingUp, HeartHandshake, FileCheck, Lightbulb, Check, Plus, Minus, Menu, X } from 'lucide-react';
 import { motion, useMotionValue, useTransform, animate, useInView, useScroll, AnimatePresence } from 'motion/react';
 import LiveChat from './components/LiveChat';
@@ -12,6 +13,7 @@ import CoursesPage from './pages/CoursesPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import MorePage from './pages/MorePage';
 import ContactPage from './pages/ContactPage';
+import CourseDetailPage from './pages/CourseDetailPage';
 import { SerenicheLogo } from './components/Logo';
 
 const featuredCourses = [
@@ -67,28 +69,28 @@ const FeaturedCourseCard = ({ course, index, onNavigate }: { course: any, index:
       onClick={handleViewCourse}
     >
       <div className="h-48 overflow-hidden relative shrink-0">
-        <img 
-          src={course.image} 
-          alt={course.title} 
+        <img
+          src={course.image}
+          alt={course.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent opacity-90 pointer-events-none" />
       </div>
-      
+
       <div className="p-6 flex flex-col flex-grow relative z-10 -mt-6">
         <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight drop-shadow-md">{course.title}</h3>
         <p className="text-gray-500 text-sm mb-6 flex-grow line-clamp-2">{course.description}</p>
-        
+
         <div className="flex items-center gap-4 text-xs font-medium text-gray-500 uppercase tracking-wider mb-6">
           <span className="flex items-center gap-1.5"><Users className="w-3.5 h-3.5" /> {course.students}</span>
           <span className="flex items-center gap-1.5"><Activity className="w-3.5 h-3.5" /> {course.level}</span>
         </div>
-        
+
         <div className="flex items-center justify-between pt-4 border-t border-gray-200 mt-auto">
           <div className="flex items-center gap-2">
-            <img 
-              src={course.instructor.avatar} 
-              alt={course.instructor.name} 
+            <img
+              src={course.instructor.avatar}
+              alt={course.instructor.name}
               className="w-6 h-6 rounded-full object-cover"
             />
             <span className="text-sm text-gray-600">{course.instructor.name}</span>
@@ -107,18 +109,18 @@ const FeaturedCoursesSection = ({ onNavigate }: { onNavigate: (page: string) => 
     <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-[1200px] mx-auto z-20 bg-[#F8F7FF] rounded-3xl mt-12 mb-12">
       {/* Noise Texture */}
       <div className="absolute inset-0 opacity-[0.015] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
-      
+
       {/* Background Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#7C3AED]/10 blur-[120px] rounded-full pointer-events-none" />
-      
+
       {/* Decorative Wireframe Spring */}
       <div className="absolute -bottom-20 -right-20 pointer-events-none z-0 opacity-40 hidden lg:block">
         <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="200" cy="200" rx="150" ry="60" transform="rotate(-45 200 200)" stroke="#E5E7EB" strokeWidth="4"/>
-          <ellipse cx="220" cy="220" rx="150" ry="60" transform="rotate(-45 220 220)" stroke="#E5E7EB" strokeWidth="4"/>
-          <ellipse cx="240" cy="240" rx="150" ry="60" transform="rotate(-45 240 240)" stroke="#E5E7EB" strokeWidth="4"/>
-          <ellipse cx="260" cy="260" rx="150" ry="60" transform="rotate(-45 260 260)" stroke="#E5E7EB" strokeWidth="4"/>
-          <ellipse cx="280" cy="280" rx="150" ry="60" transform="rotate(-45 280 280)" stroke="#E5E7EB" strokeWidth="4"/>
+          <ellipse cx="200" cy="200" rx="150" ry="60" transform="rotate(-45 200 200)" stroke="#E5E7EB" strokeWidth="4" />
+          <ellipse cx="220" cy="220" rx="150" ry="60" transform="rotate(-45 220 220)" stroke="#E5E7EB" strokeWidth="4" />
+          <ellipse cx="240" cy="240" rx="150" ry="60" transform="rotate(-45 240 240)" stroke="#E5E7EB" strokeWidth="4" />
+          <ellipse cx="260" cy="260" rx="150" ry="60" transform="rotate(-45 260 260)" stroke="#E5E7EB" strokeWidth="4" />
+          <ellipse cx="280" cy="280" rx="150" ry="60" transform="rotate(-45 280 280)" stroke="#E5E7EB" strokeWidth="4" />
         </svg>
       </div>
 
@@ -143,8 +145,8 @@ const FeaturedCoursesSection = ({ onNavigate }: { onNavigate: (page: string) => 
             From critical skills to technical topics, we support your professional development with courses that help you grow and succeed.
           </motion.p>
         </div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -166,14 +168,14 @@ const FeaturedCoursesSection = ({ onNavigate }: { onNavigate: (page: string) => 
         ))}
       </div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="mt-16 flex justify-center relative z-10"
       >
-        <button 
+        <button
           onClick={() => {
             window.location.hash = ''; // clear hash to just show top of courses page
             onNavigate('courses');
@@ -191,7 +193,7 @@ const FeaturedCoursesSection = ({ onNavigate }: { onNavigate: (page: string) => 
 const CourseCard = ({ image, name, course, hasPlay = false, className = "", index = 0 }: { image: string, name: string, course: string, hasPlay?: boolean, className?: string, index?: number, key?: React.Key }) => {
   return (
     <div className={`w-[240px] h-[320px] flex-shrink-0`}>
-      <div 
+      <div
         className={`relative rounded-[2rem] overflow-hidden w-full h-full shadow-[0_8px_32px_rgba(124,58,237,0.15)] border border-gray-200 bg-white transition-all duration-500 hover:scale-[1.02] hover:border-purple-500/30 hover:shadow-[0_8px_32px_rgba(124,58,237,0.3)] ${className}`}
       >
         <img src={image} alt={name} className="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-110" />
@@ -217,21 +219,24 @@ const CourseCard = ({ image, name, course, hasPlay = false, className = "", inde
 };
 
 const col1 = [
-  { image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600", name: "Abhishek S.", course: "UX Research Course", hasPlay: true },
-  { image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600", name: "Abhishek S.", course: "UX Research Course", hasPlay: true },
-  { image: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=600", name: "Preston B.", course: "UX Research Course", hasPlay: true }
+  { image: "/Student%201.jpg", name: "Student", course: "Clinical Psychology", hasPlay: false },
+  { image: "/Student%202.jpg", name: "Student", course: "Counselling Skills", hasPlay: false },
+  { image: "/Student%203.jpg", name: "Student", course: "CBT Practitioner", hasPlay: false },
+  { image: "/Student%204.jpg", name: "Student", course: "Mental Health", hasPlay: false },
 ];
 
 const col2 = [
-  { image: "https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&q=80&w=600", name: "Abhishek S.", course: "UX Research Course", hasPlay: true },
-  { image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600", name: "Miles M.", course: "UX Research Course", hasPlay: true },
-  { image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600", name: "Preston B.", course: "UX Research Course", hasPlay: true }
+  { image: "/Student%202.jpg", name: "Student", course: "Counselling Skills", hasPlay: false },
+  { image: "/Student%203.jpg", name: "Student", course: "CBT Practitioner", hasPlay: false },
+  { image: "/Student%204.jpg", name: "Student", course: "Mental Health", hasPlay: false },
+  { image: "/Student%201.jpg", name: "Student", course: "Clinical Psychology", hasPlay: false },
 ];
 
 const col3 = [
-  { image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=600", name: "Preston B.", course: "UX Research Course", hasPlay: true },
-  { image: "https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&q=80&w=600", name: "Abhishek S.", course: "UX Research Course", hasPlay: true },
-  { image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600", name: "Elena R.", course: "UX Research Course", hasPlay: true }
+  { image: "/Student%203.jpg", name: "Student", course: "CBT Practitioner", hasPlay: false },
+  { image: "/Student%204.jpg", name: "Student", course: "Mental Health", hasPlay: false },
+  { image: "/Student%201.jpg", name: "Student", course: "Clinical Psychology", hasPlay: false },
+  { image: "/Student%202.jpg", name: "Student", course: "Counselling Skills", hasPlay: false },
 ];
 
 const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => {
@@ -325,7 +330,7 @@ const AdmissionProcessSection = ({ onNavigate }: { onNavigate: (page: string) =>
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -334,7 +339,7 @@ const AdmissionProcessSection = ({ onNavigate }: { onNavigate: (page: string) =>
           >
             Admission Process · 2025
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -345,7 +350,7 @@ const AdmissionProcessSection = ({ onNavigate }: { onNavigate: (page: string) =>
           </motion.p>
         </div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -373,7 +378,7 @@ const AdmissionProcessSection = ({ onNavigate }: { onNavigate: (page: string) =>
         </motion.div>
 
         {/* Advantages Row */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -383,8 +388,8 @@ const AdmissionProcessSection = ({ onNavigate }: { onNavigate: (page: string) =>
           {advantages.map((adv, idx) => {
             const Icon = adv.icon;
             return (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="group flex items-center gap-2.5 bg-white border border-gray-200 text-gray-900 px-6 py-3 rounded-full text-sm font-semibold shadow-sm hover:bg-purple-600 hover:text-white hover:border-purple-600 hover:shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:scale-105 transition-all duration-300 cursor-default"
               >
                 <Icon className={`w-4 h-4 ${adv.iconColor} group-hover:text-yellow-300 transition-colors duration-300`} />
@@ -395,7 +400,7 @@ const AdmissionProcessSection = ({ onNavigate }: { onNavigate: (page: string) =>
         </motion.div>
 
         {/* CTA */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -403,7 +408,7 @@ const AdmissionProcessSection = ({ onNavigate }: { onNavigate: (page: string) =>
           className="text-center"
         >
           <h3 className="text-2xl font-bold text-gray-900 mb-6">Apply Today — Seats Are Limited</h3>
-          <button 
+          <button
             onClick={() => onNavigate('contact')}
             className="group bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 hover:scale-105 hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] active:scale-95 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 flex items-center gap-2 mx-auto cursor-pointer border border-transparent hover:border-purple-300"
           >
@@ -439,7 +444,7 @@ const LightSection = ({ onNavigate }: { onNavigate: (page: string) => void }) =>
   return (
     <section className="bg-white text-black pt-24 pb-16 relative z-20">
       {/* Logos */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -448,7 +453,7 @@ const LightSection = ({ onNavigate }: { onNavigate: (page: string) => void }) =>
       >
         <div className="flex flex-col items-center gap-8 overflow-hidden w-full">
           <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Trusted by Industry Leaders</p>
-          
+
           <div className="relative w-full flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex animate-scroll-left whitespace-nowrap opacity-60 grayscale hover:grayscale-0 transition-all duration-500 w-max">
               {/* First set */}
@@ -479,7 +484,7 @@ const LightSection = ({ onNavigate }: { onNavigate: (page: string) => void }) =>
       {/* Why Choose Us & Features */}
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mt-24">
         {/* Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -493,7 +498,7 @@ const LightSection = ({ onNavigate }: { onNavigate: (page: string) => void }) =>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Skill up, stand out</h2>
             <p className="text-gray-500 text-lg">
-              We equip designers with creative skills and a strong business<br/>mindset. Here's how we do it:
+              We equip designers with creative skills and a strong business<br />mindset. Here's how we do it:
             </p>
           </div>
           <button onClick={() => onNavigate('courses')} className="bg-[#7C3AED] hover:bg-purple-700 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 active:scale-95 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 flex-shrink-0">
@@ -502,7 +507,7 @@ const LightSection = ({ onNavigate }: { onNavigate: (page: string) => void }) =>
         </motion.div>
 
         {/* Features Grid */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -510,56 +515,56 @@ const LightSection = ({ onNavigate }: { onNavigate: (page: string) => void }) =>
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           <motion.div variants={itemVariants}>
-            <FeatureCard 
+            <FeatureCard
               icon={<BookOpen className="w-8 h-8 stroke-[1.5]" />}
               title="ESYR Learning"
               description="Explain, show, you and review. Our innovative approach makes learning fun and immersive."
             />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <FeatureCard 
+            <FeatureCard
               icon={<User className="w-8 h-8 stroke-[1.5]" />}
               title="Industry Expert-Led"
               description="Our products and courses have been crafted by experienced industry experts."
             />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <FeatureCard 
+            <FeatureCard
               icon={<Headphones className="w-8 h-8 stroke-[1.5]" />}
               title="Active Support"
               description="Got questions? Get your questions answered directly via our email channels."
             />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <FeatureCard 
+            <FeatureCard
               icon={<Brain className="w-8 h-8 stroke-[1.5]" />}
               title="Accessible Learning"
               description="All of our courses have subtitles enabled so you don't miss out on any important details."
             />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <FeatureCard 
+            <FeatureCard
               icon={<PenTool className="w-8 h-8 stroke-[1.5]" />}
               title="Practical & Hands-on"
               description="Develop your skills from theory and applied learning exercises to set you up for success."
             />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <FeatureCard 
+            <FeatureCard
               icon={<FileText className="w-8 h-8 stroke-[1.5]" />}
               title="Proven Track Record"
               description="Our students have landed dream jobs and secured higher freelance rates."
             />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <FeatureCard 
+            <FeatureCard
               icon={<BadgeCheck className="w-8 h-8 stroke-[1.5]" />}
               title="Highly Rated"
               description="With an impressive 4.9/5 rating, the impact of our courses and products is clear."
             />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <FeatureCard 
+            <FeatureCard
               icon={<BookMarked className="w-8 h-8 stroke-[1.5]" />}
               title="Flexible Learning"
               description="Our courses allow you to start whenever you're ready and learn at your own pace."
@@ -583,7 +588,7 @@ const ProgramPositioningSection = () => {
     <section className="relative z-20 pt-24 pb-16 bg-white">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20px" }}
@@ -592,7 +597,7 @@ const ProgramPositioningSection = () => {
           >
             Finishing School for Psychology Graduates
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20px" }}
@@ -603,7 +608,7 @@ const ProgramPositioningSection = () => {
           </motion.p>
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -640,17 +645,17 @@ const CurriculumSection = () => {
   ];
 
   const models = [
-    "CBT", "REBT", "DBT", "Person-Centered", "Psychodynamic", 
-    "Trauma-Informed", "Motivational Interviewing", "Behaviour Therapy", 
+    "CBT", "REBT", "DBT", "Person-Centered", "Psychodynamic",
+    "Trauma-Informed", "Motivational Interviewing", "Behaviour Therapy",
     "Family Therapy", "Integrative Models"
   ];
 
   return (
     <section className="relative z-20 pt-24 pb-16 bg-white overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-purple-600/5 to-yellow-500/5 blur-[120px] rounded-full pointer-events-none" />
-      
+
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-20px" }}
@@ -667,7 +672,7 @@ const CurriculumSection = () => {
             <div className="absolute top-[23px] left-0 right-0 h-[2px] bg-gray-200 hidden md:block" />
 
             {weeks.map((week, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -677,7 +682,7 @@ const CurriculumSection = () => {
               >
                 {/* Timeline Dot */}
                 <div className="hidden md:flex absolute -top-[32px] left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-gray-300 group-hover:border-purple-500 group-hover:bg-purple-500 transition-colors duration-300 z-10 shadow-[0_0_0_4px_white] group-hover:shadow-[0_0_15px_rgba(124,58,237,0.5)]" />
-                
+
                 {/* Card */}
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] group-hover:shadow-[0_8px_30px_rgba(124,58,237,0.15)] group-hover:-translate-y-2 group-hover:border-yellow-400 transition-all duration-500 h-full relative z-20">
                   <div className="inline-block bg-yellow-50 text-yellow-600 font-bold text-xs px-3 py-1 rounded-full mb-4 border border-yellow-200">
@@ -691,7 +696,7 @@ const CurriculumSection = () => {
         </div>
 
         {/* Therapy Models */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -701,8 +706,8 @@ const CurriculumSection = () => {
           <h4 className="text-gray-500 text-sm uppercase tracking-widest mb-8 font-semibold">Therapy Models Covered</h4>
           <div className="flex flex-wrap justify-center gap-3 md:gap-4">
             {models.map((model, idx) => (
-              <span 
-                key={idx} 
+              <span
+                key={idx}
                 className="bg-[#F3F0FF] border border-purple-200 text-purple-700 px-5 py-2.5 rounded-full text-sm font-medium hover:bg-purple-600 hover:text-white hover:border-purple-600 transition-all duration-300 cursor-default shadow-sm hover:shadow-md"
               >
                 {model}
@@ -715,146 +720,7 @@ const CurriculumSection = () => {
   );
 };
 
-const ExpertFacultySection = ({ onNavigate }: { onNavigate?: (page: string) => void }) => {
-  const facultyData = [
-    {
-      id: 1,
-      name: "Dr. Sarah Jenkins",
-      title: "Senior Clinical Psychologist",
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400",
-      experience: "15+ Years Experience",
-      expertise: ["CBT", "Trauma-Informed Care"],
-      bio: "Dr. Jenkins specializes in cognitive behavioral therapy and trauma-informed care in hospital settings."
-    },
-    {
-      id: 2,
-      name: "Prof. David Chen",
-      title: "Consultant Psychiatrist",
-      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400",
-      experience: "20+ Years Experience",
-      expertise: ["Psychopharmacology", "Severe Mental Illness"],
-      bio: "Prof. Chen is a leading voice in psychiatry, blending medical knowledge with psychotherapy."
-    },
-    {
-      id: 3,
-      name: "Dr. Maya Patel",
-      title: "Family & Couples Therapist",
-      image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400",
-      experience: "12+ Years Experience",
-      expertise: ["Family Therapy", "Couples Counseling"],
-      bio: "Dr. Patel focuses on systemic therapy and conflict resolution for diverse family structures."
-    }
-  ];
 
-  return (
-    <section className="relative z-20 pt-24 pb-16 bg-[#F8F7FF] overflow-hidden">
-      {/* Background glow behind cards */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-gradient-to-r from-purple-600/10 to-yellow-500/10 blur-[120px] rounded-full pointer-events-none" />
-
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight"
-          >
-            Learn From Industry Experts
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-gray-500 text-lg max-w-2xl mx-auto"
-          >
-            Guided by experienced clinical psychologists, psychiatrists, and therapists with real-world hospital expertise.
-          </motion.p>
-        </div>
-
-        {/* Horizontal Card Layout (Carousel feel on mobile) */}
-        <div className="flex overflow-x-auto lg:grid lg:grid-cols-3 gap-6 lg:gap-8 pb-10 snap-x snap-mandatory hide-scrollbar">
-          {facultyData.map((faculty, idx) => (
-            <motion.div
-              key={faculty.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="relative min-w-[300px] sm:min-w-[340px] lg:min-w-0 snap-center group rounded-[24px]"
-            >
-              {/* Gradient border wrapper hover glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-300 via-transparent to-yellow-200 rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-[2px] -z-10" />
-              
-              <div className="relative h-full bg-white border border-purple-100 rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] group-hover:shadow-[0_20px_40px_rgba(124,58,237,0.15)] group-hover:border-purple-300 transition-all duration-500 group-hover:-translate-y-2 flex flex-col">
-                {/* Image */}
-                <div className="h-56 sm:h-64 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 to-transparent z-10 mix-blend-multiply" />
-                  <img 
-                    src={faculty.image} 
-                    alt={faculty.name} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-6 sm:p-8 flex-1 flex flex-col relative bg-white z-10 transition-transform duration-500 group-hover:-translate-y-[60px]">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">{faculty.name}</h3>
-                  <p className="text-yellow-600 font-medium mb-4">{faculty.title}</p>
-                  
-                  <div className="flex items-center gap-2 text-gray-500 text-sm mb-6">
-                    <Briefcase className="w-4 h-4 opacity-70" />
-                    <span className="font-medium tracking-wide">{faculty.experience}</span>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {faculty.expertise.map((skill, i) => (
-                      <span key={i} className="text-xs font-semibold bg-gray-50 border border-purple-50 text-purple-700 px-3 py-1.5 rounded-full">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Hover Overlay Panel */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white via-white to-white/95 backdrop-blur-sm px-6 pb-6 pt-12 translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] z-20 flex flex-col justify-end">
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-2">
-                    {faculty.bio}
-                  </p>
-                  <div className="flex items-center justify-between mt-2 pt-4 border-t border-gray-100">
-                    <div>
-                      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Specializations</p>
-                      <p className="text-xs font-medium text-gray-700">
-                        {faculty.expertise.join(", ")}
-                      </p>
-                    </div>
-                    <button 
-                      onClick={() => onNavigate?.('instructor')}
-                      className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-purple-50 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors flex-shrink-0 relative group/btn"
-                    >
-                      <ArrowRight className="w-5 h-5 absolute group-hover/btn:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      <style>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
-    </section>
-  );
-};
 
 const FAQSection = () => {
   const faqs = [
@@ -890,9 +756,9 @@ const FAQSection = () => {
     <section className="relative z-20 pt-24 pb-16 bg-[#F8F7FF]/50 overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          
+
           {/* Left Column: Heading */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -968,9 +834,9 @@ const FinalCTASection = ({ onNavigate }: { onNavigate: (page: string) => void })
       {/* Soft gradient blob behind CTA */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-purple-400/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-yellow-400/10 blur-[80px] rounded-full pointer-events-none" />
-      
+
       <div className="max-w-[800px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pb-16">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-20px" }}
@@ -979,7 +845,7 @@ const FinalCTASection = ({ onNavigate }: { onNavigate: (page: string) => void })
         >
           Ready to Begin Your Journey?
         </motion.h2>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-20px" }}
@@ -988,21 +854,21 @@ const FinalCTASection = ({ onNavigate }: { onNavigate: (page: string) => void })
         >
           Transform your psychology degree into real-world clinical confidence with Sereniche Academy.
         </motion.p>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-20px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-col items-center gap-6"
         >
-          <button 
+          <button
             onClick={() => onNavigate('contact')}
             className="group bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 hover:scale-105 hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] active:scale-95 text-white px-10 py-4 rounded-full text-lg font-semibold transition-all duration-300 flex items-center gap-3 border border-transparent hover:border-purple-300"
           >
             Apply Now <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
-          
+
           <div className="flex items-center gap-2 text-sm text-gray-500 font-medium">
             <ShieldCheck className="w-4 h-4 text-purple-500" />
             Limited seats · Cohort 2025
@@ -1092,8 +958,49 @@ const Footer = () => {
 };
 
 export default function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
+
+function AppContent() {
   const [currentPage, setCurrentPage] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // 1. Sync URL to State (Direct links, Back button)
+    const pathMap: Record<string, string> = {
+      '/': 'home',
+      '/courses': 'courses',
+      '/instructor': 'instructor',
+      '/testimonials': 'testimonials',
+      '/more': 'more',
+      '/contact': 'contact'
+    };
+    if (pathMap[location.pathname] && pathMap[location.pathname] !== currentPage) {
+      setCurrentPage(pathMap[location.pathname]);
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
+    // 2. Sync State to URL (Navbar clicks)
+    const stateMap: Record<string, string> = {
+      'home': '/',
+      'courses': '/courses',
+      'instructor': '/instructor',
+      'testimonials': '/testimonials',
+      'more': '/more',
+      'contact': '/contact'
+    };
+    // Only navigate if we're not already on the correct path AND not on a course detail page
+    if (stateMap[currentPage] && location.pathname !== stateMap[currentPage] && !location.pathname.startsWith('/courses/')) {
+      navigate(stateMap[currentPage]);
+    }
+  }, [currentPage]);
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden relative font-sans selection:bg-purple-500/30">
@@ -1102,7 +1009,7 @@ export default function App() {
         {/* Background Glows */}
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#7C3AED]/20 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-pink-500/10 blur-[120px] rounded-full" />
-        
+
         {/* Particles */}
         <div className="absolute top-[20%] left-[10%] w-2 h-2 bg-purple-400/40 rounded-full blur-[1px] animate-particle" style={{ animationDelay: '0s' }} />
         <div className="absolute top-[60%] left-[5%] w-3 h-3 bg-pink-400/30 rounded-full blur-[2px] animate-particle" style={{ animationDelay: '2s' }} />
@@ -1113,7 +1020,7 @@ export default function App() {
       </div>
 
       {/* Navbar */}
-      <motion.nav 
+      <motion.nav
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -1121,7 +1028,7 @@ export default function App() {
       >
         <div className="bg-gray-50/90 border border-gray-200 backdrop-blur-lg rounded-full px-4 py-2.5 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
           {/* Logo */}
-          <div 
+          <div
             className="flex items-center pl-2 cursor-pointer"
             onClick={() => setCurrentPage('home')}
           >
@@ -1135,18 +1042,18 @@ export default function App() {
               { id: 'courses', label: 'Courses' },
               { id: 'instructor', label: 'Instructor' },
               { id: 'testimonials', label: 'Testimonials' },
-              { id: 'more', label: 'More' },
+              { id: 'more', label: 'Others' },
               { id: 'contact', label: 'Contact' }
             ].map((item) => (
-              <button 
+              <button
                 key={item.id}
-                onClick={() => setCurrentPage(item.id)} 
+                onClick={() => setCurrentPage(item.id)}
                 className={`relative px-1 py-2 transition-all duration-300 ${currentPage === item.id ? 'text-purple-600' : 'hover:text-purple-600 text-gray-600'}`}
               >
                 {item.label}
                 {currentPage === item.id && (
-                  <motion.span 
-                    layoutId="nav-underline" 
+                  <motion.span
+                    layoutId="nav-underline"
                     className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-600 rounded-full"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
@@ -1157,7 +1064,7 @@ export default function App() {
 
           {/* Right Side: CTA & Mobile Toggle */}
           <div className="flex items-center gap-2">
-            <button 
+            <button
               onClick={() => setCurrentPage('contact')}
               className="hover:scale-105 active:scale-95 text-[#7C3AED] px-4 py-2 rounded-full text-base font-bold transition-all duration-300 flex items-center gap-2 group border border-transparent hover:border-purple-100"
             >
@@ -1165,7 +1072,7 @@ export default function App() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
             </button>
 
-            <button 
+            <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden w-12 h-12 flex items-center justify-center rounded-xl text-[#7C3AED] hover:bg-purple-50 transition-all"
               aria-label="Toggle Menu"
@@ -1191,7 +1098,7 @@ export default function App() {
                     { id: 'courses', label: 'Courses' },
                     { id: 'instructor', label: 'Instructor' },
                     { id: 'testimonials', label: 'Testimonials' },
-                    { id: 'more', label: 'More' },
+                    { id: 'more', label: 'Others' },
                     { id: 'contact', label: 'Contact' }
                   ].map((item) => (
                     <button
@@ -1212,224 +1119,227 @@ export default function App() {
         </AnimatePresence>
       </motion.nav>
 
-      <AnimatePresence mode="wait">
-        {currentPage === 'home' && (
-          <motion.div
-            key="home"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            {/* Main Content Wrapper */}
-            <div className="relative w-full min-h-[calc(100vh-100px)] flex items-center overflow-hidden">
-        
-        {/* Right Column - Tilted Floating Columns (Moved outside max-w container to bleed to edge) */}
-        <div className="absolute top-0 right-0 w-[60vw] h-full pointer-events-none z-0 hidden lg:flex items-center justify-center" style={{ perspective: '1000px', maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)' }}>
-          <div className="absolute top-[-50%] right-[-15%] w-[130%] h-[200%] flex gap-6 justify-center items-center [transform:rotateX(10deg)_rotateY(-15deg)_rotateZ(-15deg)_scale(0.95)] origin-center">
-            
-            {/* Column 1 (Scrolls Down) */}
-            <div className="flex flex-col gap-6 animate-scroll-down relative z-10">
-              {[...col1, ...col1, ...col1, ...col1].map((item, i) => (
-                <CourseCard key={`col1-${i}`} index={i} {...item} />
-              ))}
-            </div>
+      <Routes>
+        <Route path="/courses/:slug" element={<CourseDetailPage onNavigate={setCurrentPage} />} />
+        <Route path="*" element={
+          <AnimatePresence mode="wait">
+            {currentPage === 'home' && (
+              <motion.div
+                key="home"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+              >
+                {/* Main Content Wrapper */}
+                <div className="relative w-full min-h-[calc(100vh-100px)] flex items-center overflow-hidden">
 
-            {/* Column 2 (Scrolls Up) */}
-            <div className="flex flex-col gap-6 animate-scroll-up-slow relative z-20">
-              {[...col2, ...col2, ...col2, ...col2].map((item, i) => (
-                <CourseCard key={`col2-${i}`} index={i + 3} {...item} />
-              ))}
-            </div>
+                  {/* Right Column - Tilted Floating Columns (Moved outside max-w container to bleed to edge) */}
+                  <div className="absolute top-0 right-0 w-[60vw] h-full pointer-events-none z-0 hidden lg:flex items-center justify-center" style={{ perspective: '1000px', maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)' }}>
+                    <div className="absolute top-[-50%] right-[-15%] w-[130%] h-[200%] flex gap-6 justify-center items-center [transform:rotateX(10deg)_rotateY(-15deg)_rotateZ(-15deg)_scale(0.95)] origin-center">
 
-            {/* Column 3 (Scrolls Down) */}
-            <div className="flex flex-col gap-6 animate-scroll-down relative z-30">
-              {[...col3, ...col3, ...col3, ...col3].map((item, i) => (
-                <CourseCard key={`col3-${i}`} index={i + 6} {...item} />
-              ))}
-            </div>
+                      {/* Column 1 (Scrolls Down) */}
+                      <div className="flex flex-col gap-6 animate-scroll-down relative z-10">
+                        {[...col1, ...col1, ...col1, ...col1].map((item, i) => (
+                          <CourseCard key={`col1-${i}`} index={i} {...item} />
+                        ))}
+                      </div>
 
-          </div>
-        </div>
+                      {/* Column 2 (Scrolls Up) */}
+                      <div className="flex flex-col gap-6 animate-scroll-up-slow relative z-20">
+                        {[...col2, ...col2, ...col2, ...col2].map((item, i) => (
+                          <CourseCard key={`col2-${i}`} index={i + 3} {...item} />
+                        ))}
+                      </div>
 
-        <main className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 lg:pt-32 flex flex-col lg:flex-row items-center">
-          
-          {/* Left Column (Text) */}
-          <div className="w-full lg:w-[50%] pr-0 lg:pr-8 relative z-20">
-          {/* Badge */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-3 bg-gray-50 border border-gray-200 rounded-full p-1 pr-4 mb-8 backdrop-blur-sm"
-          >
-            <span className="bg-[#7C3AED] text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
-            <span className="text-sm text-gray-600">Registrations are now open!</span>
-          </motion.div>
+                      {/* Column 3 (Scrolls Down) */}
+                      <div className="flex flex-col gap-6 animate-scroll-down relative z-30">
+                        {[...col3, ...col3, ...col3, ...col3].map((item, i) => (
+                          <CourseCard key={`col3-${i}`} index={i + 6} {...item} />
+                        ))}
+                      </div>
 
-          {/* Heading */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-6 tracking-tight"
-          >
-            Your Thoughts <br />
-            Are <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600">Not Facts</span><br />
-            But They Shape <br />
-            Your World
-          </motion.h1>
+                    </div>
+                  </div>
 
-          {/* Subheading */}
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-gray-500 text-lg mb-10 max-w-xl leading-relaxed"
-          >
-            Learn highly demanded skills through practical online courses, created by trusted industry professionals, that focus on real-world applications.
-          </motion.p>
+                  <main className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 lg:pt-32 flex flex-col lg:flex-row items-center">
 
-          {/* Buttons */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-wrap items-center gap-4 mb-16"
-          >
-            <button onClick={() => setCurrentPage('courses')} className="bg-[#7C3AED] hover:bg-purple-700 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 active:scale-95 text-white px-8 py-4 rounded-full font-medium flex items-center gap-2 transition-all duration-300">
-              View Courses
-              <ArrowUpRight className="w-5 h-5" />
-            </button>
-            <button className="bg-gray-50 hover:bg-gray-100 hover:scale-105 active:scale-95 border border-gray-200 text-gray-900 px-8 py-4 rounded-full font-medium flex items-center gap-2 transition-all duration-300 backdrop-blur-sm">
-              Watch Preview
-              <Triangle className="w-5 h-5 fill-white rotate-90" />
-            </button>
-          </motion.div>
+                    {/* Left Column (Text) */}
+                    <div className="w-full lg:w-[50%] pr-0 lg:pr-8 relative z-20">
+                      {/* Badge */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        className="inline-flex items-center gap-3 bg-gray-50 border border-gray-200 rounded-full p-1 pr-4 mb-8 backdrop-blur-sm"
+                      >
+                        <span className="bg-[#7C3AED] text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
+                        <span className="text-sm text-gray-600">Registrations are now open!</span>
+                      </motion.div>
 
-          {/* Social Proof */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center gap-8"
-          >
-            <div className="flex items-center gap-4">
-              <div className="flex -space-x-3">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0B0410] object-cover" />
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0B0410] object-cover" />
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0B0410] object-cover" />
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0B0410] object-cover" />
-              </div>
-              <div className="text-sm text-gray-500 leading-tight">
-                Loved by 500+<br />Founders
-              </div>
-            </div>
-            <div className="w-px h-10 bg-gray-100" />
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                 <span className="text-black font-extrabold text-xl tracking-tighter">C.</span>
-              </div>
-              <div>
-                <div className="flex text-[#FFB800] mb-1 gap-0.5">
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <Star className="w-3.5 h-3.5 fill-current" />
+                      {/* Heading */}
+                      <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-6 tracking-tight"
+                      >
+                        Expert <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600">Psychiatric &amp; <br />Psychological Care</span><br />
+                        — Right When <br />
+                        You Need It
+                      </motion.h1>
+
+                      {/* Subheading */}
+                      <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-gray-500 text-lg mb-10 max-w-xl leading-relaxed"
+                      >
+                        Clinical expertise, compassionate care, and evidence-based treatment available to you through Sereniche Academy's mental health services wing.
+                      </motion.p>
+
+                      {/* Buttons */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="flex flex-wrap items-center gap-4 mb-16"
+                      >
+                        <button onClick={() => setCurrentPage('courses')} className="bg-[#7C3AED] hover:bg-purple-700 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 active:scale-95 text-white px-8 py-4 rounded-full font-medium flex items-center gap-2 transition-all duration-300">
+                          View Courses
+                          <ArrowUpRight className="w-5 h-5" />
+                        </button>
+                        <button className="bg-gray-50 hover:bg-gray-100 hover:scale-105 active:scale-95 border border-gray-200 text-gray-900 px-8 py-4 rounded-full font-medium flex items-center gap-2 transition-all duration-300 backdrop-blur-sm">
+                          Watch Preview
+                          <Triangle className="w-5 h-5 fill-white rotate-90" />
+                        </button>
+                      </motion.div>
+
+                      {/* Social Proof */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="flex items-center gap-8"
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className="flex -space-x-3">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0B0410] object-cover" />
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0B0410] object-cover" />
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0B0410] object-cover" />
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0B0410] object-cover" />
+                          </div>
+                          <div className="text-sm text-gray-500 leading-tight">
+                            Loved by 500+<br />Founders
+                          </div>
+                        </div>
+                        <div className="w-px h-10 bg-gray-100" />
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                            <span className="text-black font-extrabold text-xl tracking-tighter">C.</span>
+                          </div>
+                          <div>
+                            <div className="flex text-[#FFB800] mb-1 gap-0.5">
+                              <Star className="w-3.5 h-3.5 fill-current" />
+                              <Star className="w-3.5 h-3.5 fill-current" />
+                              <Star className="w-3.5 h-3.5 fill-current" />
+                              <Star className="w-3.5 h-3.5 fill-current" />
+                              <Star className="w-3.5 h-3.5 fill-current" />
+                            </div>
+                            <div className="text-xs text-gray-500 font-medium">13 Reviews</div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
+
+                  </main>
                 </div>
-                <div className="text-xs text-gray-500 font-medium">13 Reviews</div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
 
-        </main>
-      </div>
+                {/* Admission Process Section */}
+                <AdmissionProcessSection onNavigate={setCurrentPage} />
 
-      {/* Admission Process Section */}
-      <AdmissionProcessSection onNavigate={setCurrentPage} />
+                {/* Light Section */}
+                <LightSection onNavigate={setCurrentPage} />
 
-      {/* Light Section */}
-      <LightSection onNavigate={setCurrentPage} />
+                {/* Featured Courses Section */}
+                <FeaturedCoursesSection onNavigate={setCurrentPage} />
 
-      {/* Featured Courses Section */}
-      <FeaturedCoursesSection onNavigate={setCurrentPage} />
+                {/* Program Positioning Section */}
+                <ProgramPositioningSection />
 
-      {/* Program Positioning Section */}
-      <ProgramPositioningSection />
+                {/* Curriculum Section */}
+                <CurriculumSection />
 
-      {/* Curriculum Section */}
-      <CurriculumSection />
 
-      {/* Expert Faculty Section */}
-      <ExpertFacultySection onNavigate={setCurrentPage} />
 
-      {/* FAQ Section */}
-      <FAQSection />
-          </motion.div>
-        )}
+                {/* FAQ Section */}
+                <FAQSection />
+              </motion.div>
+            )}
 
-        {currentPage === 'courses' && (
-          <motion.div
-            key="courses"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <CoursesPage onNavigate={setCurrentPage} />
-          </motion.div>
-        )}
+            {currentPage === 'courses' && (
+              <motion.div
+                key="courses"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+              >
+                <CoursesPage />
+              </motion.div>
+            )}
 
-        {currentPage === 'instructor' && (
-          <motion.div
-            key="instructor"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <InstructorPage />
-          </motion.div>
-        )}
+            {currentPage === 'instructor' && (
+              <motion.div
+                key="instructor"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+              >
+                <InstructorPage />
+              </motion.div>
+            )}
 
-        {currentPage === 'testimonials' && (
-          <motion.div
-            key="testimonials"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <TestimonialsPage />
-          </motion.div>
-        )}
+            {currentPage === 'testimonials' && (
+              <motion.div
+                key="testimonials"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+              >
+                <TestimonialsPage />
+              </motion.div>
+            )}
 
-        {currentPage === 'more' && (
-          <motion.div
-            key="more"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <MorePage onNavigate={setCurrentPage} />
-          </motion.div>
-        )}
+            {currentPage === 'more' && (
+              <motion.div
+                key="more"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+              >
+                <MorePage onNavigate={setCurrentPage} />
+              </motion.div>
+            )}
 
-        {currentPage === 'contact' && (
-          <motion.div
-            key="contact"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <ContactPage />
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {currentPage === 'contact' && (
+              <motion.div
+                key="contact"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+              >
+                <ContactPage />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        } />
+      </Routes>
 
       {currentPage !== 'contact' && <FinalCTASection onNavigate={setCurrentPage} />}
       <Footer />

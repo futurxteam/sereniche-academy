@@ -2,10 +2,10 @@ import { Play, Star, ArrowUpRight, User, GraduationCap } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
 
 const instructors = [
-  { name: "Abhishek S.", role: "UX Designer", img: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=400&h=600" },
-  { name: "Preston B.", role: "Prototyping", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400&h=600" },
-  { name: "Miles M.", role: "Design Systems", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&h=600" },
-  { name: "Sarah K.", role: "UI Designer", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=600" },
+  { name: "Student", role: "Clinical Psychology", img: "/Student%201.jpg" },
+  { name: "Student", role: "Counselling Skills", img: "/Student%202.jpg" },
+  { name: "Student", role: "CBT Practitioner", img: "/Student%203.jpg" },
+  { name: "Student", role: "Mental Health", img: "/Student%204.jpg" },
 ];
 
 export default function Hero() {

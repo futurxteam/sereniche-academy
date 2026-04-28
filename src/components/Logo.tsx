@@ -6,10 +6,10 @@ interface LogoProps {
   symbolOnly?: boolean;
 }
 
-export const SerenicheLogo: React.FC<LogoProps> = ({ 
-  className = "", 
+export const SerenicheLogo: React.FC<LogoProps> = ({
+  className = "",
   variant = 'dark',
-  symbolOnly = false 
+  symbolOnly = false
 }) => {
   const isLight = variant === 'light';
   const textColor = isLight ? 'text-white' : 'text-[#0B0410]';
@@ -18,7 +18,7 @@ export const SerenicheLogo: React.FC<LogoProps> = ({
     <div className={`flex items-center gap-3 transition-transform duration-300 hover:scale-[1.03] origin-left group ${className}`}>
       {/* Logo Container with conditional glassmorphism/shadow for visibility if needed */}
       <div className={`relative flex items-center justify-center shrink-0 w-10 h-10 md:w-11 md:h-11 ${!isLight ? 'drop-shadow-sm' : ''}`}>
-        
+
         {/* Soft background glow if on dark background to make the logo pop, as per instructions */}
         {isLight && (
           <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-full shadow-[0_0_15px_rgba(255,255,255,0.1)] scale-110" />
@@ -29,11 +29,11 @@ export const SerenicheLogo: React.FC<LogoProps> = ({
           {/* Outer teal/green ring */}
           <path d="M 68 18 A 36 36 0 1 0 72 82" stroke="#00A388" strokeWidth="2.5" strokeLinecap="round" />
           <path d="M 76 74 A 36 36 0 0 0 86 50" stroke="#00A388" strokeWidth="2.5" strokeLinecap="round" />
-          
+
           {/* Middle dark blue ring */}
           <path d="M 63 22 A 30 30 0 0 0 54 80" stroke="#004B87" strokeWidth="2.5" strokeLinecap="round" />
           <path d="M 62 80 A 30 30 0 0 0 82 50" stroke="#004B87" strokeWidth="2.5" strokeLinecap="round" />
-          
+
           {/* Inner cyan ring */}
           <path d="M 66 28 A 24 24 0 1 0 62 70" stroke="#009EB0" strokeWidth="2.5" strokeLinecap="round" />
 
