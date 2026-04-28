@@ -100,8 +100,9 @@ export default function InstructorPage() {
           <motion.div
             key={instructor.id}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4 }}
             onClick={() => setSelectedInstructor(instructor)}
             className="bg-white border border-gray-100 rounded-[20px] overflow-hidden cursor-pointer hover:-translate-y-2.5 shadow-[0_10px_25px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-500 group"
           >

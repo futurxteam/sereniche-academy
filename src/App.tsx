@@ -16,41 +16,7 @@ import ContactPage from './pages/ContactPage';
 import CourseDetailPage from './pages/CourseDetailPage';
 import { SerenicheLogo } from './components/Logo';
 
-const featuredCourses = [
-  {
-    title: "Ultimate UI/UX Design Bootcamp",
-    slug: "uiux-bootcamp",
-    description: "Master the art of web design with our comprehensive course. Learn HTML, CSS, and cutting-edge design principles.",
-    rating: 5.0,
-    students: "8500+",
-    level: "Intermediate",
-    instructor: { name: "David Warner", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100" },
-    price: "$300",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    title: "Interactive Design Fundamentals",
-    slug: "design-fundamentals",
-    description: "Master the art of web design with our comprehensive course. Learn HTML, CSS, and cutting-edge design principles.",
-    rating: 4.9,
-    students: "8500+",
-    level: "Intermediate",
-    instructor: { name: "Jessica Taylor", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" },
-    price: "$300",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    title: "Creative Web Design Essentials",
-    slug: "creative-web",
-    description: "Master Figma with industry-leading tactics that will help you complete projects with confidence.",
-    rating: 4.8,
-    students: "8500+",
-    level: "Intermediate",
-    instructor: { name: "James Anderson", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100" },
-    price: "$400",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
-  }
-];
+
 
 const FeaturedCourseCard = ({ course, index, onNavigate }: { course: any, index: number, onNavigate: (page: string) => void, key?: React.Key }) => {
   const handleViewCourse = () => {
@@ -64,7 +30,7 @@ const FeaturedCourseCard = ({ course, index, onNavigate }: { course: any, index:
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5 }}
       className="bg-white backdrop-blur-xl border border-gray-200 rounded-[24px] overflow-hidden flex flex-col hover:-translate-y-2 hover:border-violet-300 hover:shadow-[0_8px_30px_rgba(124,58,237,0.3)] shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-all duration-500 group h-full cursor-pointer"
       onClick={handleViewCourse}
     >
@@ -104,91 +70,7 @@ const FeaturedCourseCard = ({ course, index, onNavigate }: { course: any, index:
   );
 };
 
-const FeaturedCoursesSection = ({ onNavigate }: { onNavigate: (page: string) => void }) => {
-  return (
-    <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-[1200px] mx-auto z-20 bg-[#F8F7FF] rounded-3xl mt-12 mb-12">
-      {/* Noise Texture */}
-      <div className="absolute inset-0 opacity-[0.015] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
 
-      {/* Background Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#7C3AED]/10 blur-[120px] rounded-full pointer-events-none" />
-
-      {/* Decorative Wireframe Spring */}
-      <div className="absolute -bottom-20 -right-20 pointer-events-none z-0 opacity-40 hidden lg:block">
-        <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="200" cy="200" rx="150" ry="60" transform="rotate(-45 200 200)" stroke="#E5E7EB" strokeWidth="4" />
-          <ellipse cx="220" cy="220" rx="150" ry="60" transform="rotate(-45 220 220)" stroke="#E5E7EB" strokeWidth="4" />
-          <ellipse cx="240" cy="240" rx="150" ry="60" transform="rotate(-45 240 240)" stroke="#E5E7EB" strokeWidth="4" />
-          <ellipse cx="260" cy="260" rx="150" ry="60" transform="rotate(-45 260 260)" stroke="#E5E7EB" strokeWidth="4" />
-          <ellipse cx="280" cy="280" rx="150" ry="60" transform="rotate(-45 280 280)" stroke="#E5E7EB" strokeWidth="4" />
-        </svg>
-      </div>
-
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 relative z-10">
-        <div className="text-left max-w-2xl">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-gray-900"
-          >
-            Start Learning<br />With Our Courses
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-gray-600 text-lg"
-          >
-            From critical skills to technical topics, we support your professional development with courses that help you grow and succeed.
-          </motion.p>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="hidden md:flex items-center gap-4"
-        >
-          <button className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-gray-900 hover:bg-gray-100 hover:border-yellow-400 transition-all duration-300 group">
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-          </button>
-          <button className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-gray-900 hover:bg-gray-100 hover:border-yellow-400 transition-all duration-300 group">
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
-        </motion.div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10 pb-12">
-        {featuredCourses.map((course, index) => (
-          <FeaturedCourseCard key={index} course={course} index={index} onNavigate={onNavigate} />
-        ))}
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="mt-16 flex justify-center relative z-10"
-      >
-        <button
-          onClick={() => {
-            window.location.hash = ''; // clear hash to just show top of courses page
-            onNavigate('courses');
-          }}
-          className="flex items-center gap-2 bg-white border border-gray-200 hover:bg-gray-50 hover:scale-105 hover:shadow-[0_0_15px_rgba(124,58,237,0.3)] active:scale-95 text-gray-900 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 group"
-        >
-          View All Courses
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-purple-600" />
-        </button>
-      </motion.div>
-    </section>
-  );
-};
 
 const CourseCard = ({ image, name, course, hasPlay = false, className = "", index = 0 }: { image: string, name: string, course: string, hasPlay?: boolean, className?: string, index?: number, key?: React.Key }) => {
   return (
@@ -361,10 +243,10 @@ const AdmissionProcessSection = ({ onNavigate }: { onNavigate: (page: string) =>
             <motion.div key={idx} variants={itemVariants} className="h-full">
               <div className="bg-white backdrop-blur-xl border border-gray-200 rounded-[24px] p-8 h-full flex flex-col hover:-translate-y-2 hover:border-yellow-400 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgba(124,58,237,0.15)] transition-all duration-500 group">
                 <div className="flex items-center justify-between mb-6">
-                  <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white/80 to-white/20 group-hover:from-pink-400 group-hover:to-purple-600 transition-all duration-500">
+                  <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-gray-300 to-gray-400 group-hover:from-pink-400 group-hover:to-purple-600 transition-all duration-500">
                     {step.num}
                   </span>
-                  <span className="bg-gray-50 border border-gray-200 text-xs font-medium text-purple-300 px-3 py-1 rounded-full">
+                  <span className="bg-gray-50 border border-gray-200 text-xs font-bold text-purple-600 px-3 py-1 rounded-full">
                     {step.tag}
                   </span>
                 </div>
@@ -631,6 +513,15 @@ const ProgramPositioningSection = () => {
 };
 
 const CurriculumSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = 320;
+      scrollRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   const weeks = [
     { w: "W1", title: "Therapist Foundation & Orientation" },
     { w: "W2", title: "Core Counselling & Presence Skills" },
@@ -666,32 +557,52 @@ const CurriculumSection = () => {
         </motion.h2>
 
         {/* Horizontal Timeline */}
-        <div className="relative mb-24">
-          <div className="flex overflow-x-auto pb-12 pt-12 snap-x snap-mandatory gap-6 md:gap-8 px-4 md:px-0 relative [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            {/* Connecting Line */}
-            <div className="absolute top-[23px] left-0 right-0 h-[2px] bg-gray-200 hidden md:block" />
+        <div className="relative mb-24 group">
+          
+          <button 
+            onClick={() => scroll('left')}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -ml-2 sm:-ml-6 md:-ml-8 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_rgba(124,58,237,0.15)] border border-purple-100 text-purple-600 flex items-center justify-center z-30 hover:scale-110 hover:bg-purple-50 transition-all opacity-0 group-hover:opacity-100 hidden md:flex"
+          >
+            <ArrowLeft className="w-6 h-6" />
+          </button>
 
-            {weeks.map((week, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="relative flex-shrink-0 w-[280px] snap-center group"
-              >
-                {/* Timeline Dot */}
-                <div className="hidden md:flex absolute -top-[32px] left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-gray-300 group-hover:border-purple-500 group-hover:bg-purple-500 transition-colors duration-300 z-10 shadow-[0_0_0_4px_white] group-hover:shadow-[0_0_15px_rgba(124,58,237,0.5)]" />
+          <button 
+            onClick={() => scroll('right')}
+            className="absolute right-0 top-1/2 -translate-y-1/2 -mr-2 sm:-mr-6 md:-mr-8 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_rgba(124,58,237,0.15)] border border-purple-100 text-purple-600 flex items-center justify-center z-30 hover:scale-110 hover:bg-purple-50 transition-all opacity-0 group-hover:opacity-100 hidden md:flex"
+          >
+            <ArrowRight className="w-6 h-6" />
+          </button>
 
-                {/* Card */}
-                <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] group-hover:shadow-[0_8px_30px_rgba(124,58,237,0.15)] group-hover:-translate-y-2 group-hover:border-yellow-400 transition-all duration-500 h-full relative z-20">
-                  <div className="inline-block bg-yellow-50 text-yellow-600 font-bold text-xs px-3 py-1 rounded-full mb-4 border border-yellow-200">
-                    {week.w}
+          <div 
+            ref={scrollRef}
+            className="overflow-x-auto pb-12 pt-12 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-px-4 scroll-smooth"
+          >
+            <div className="flex gap-6 md:gap-8 px-4 md:px-0 relative min-w-max">
+              {/* Connecting Line */}
+              <div className="absolute top-[23px] left-0 right-0 h-[2px] bg-gray-200 hidden md:block" />
+
+              {weeks.map((week, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5 }}
+                  className="relative flex-shrink-0 w-[280px] snap-center group/card"
+                >
+                  {/* Timeline Dot */}
+                  <div className="hidden md:flex absolute -top-[32px] left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-gray-300 group-hover/card:border-purple-500 group-hover/card:bg-purple-500 transition-colors duration-300 z-10 shadow-[0_0_0_4px_white] group-hover/card:shadow-[0_0_15px_rgba(124,58,237,0.5)]" />
+
+                  {/* Card */}
+                  <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] group-hover/card:shadow-[0_8px_30px_rgba(124,58,237,0.15)] group-hover/card:-translate-y-2 group-hover/card:border-yellow-400 transition-all duration-500 h-full relative z-20">
+                    <div className="inline-block bg-yellow-50 text-yellow-600 font-bold text-xs px-3 py-1 rounded-full mb-4 border border-yellow-200">
+                      {week.w}
+                    </div>
+                    <h3 className="text-gray-900 font-bold text-lg leading-snug">{week.title}</h3>
                   </div>
-                  <h3 className="text-gray-900 font-bold text-lg leading-snug">{week.title}</h3>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -786,7 +697,7 @@ const FAQSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  transition={{ duration: 0.4 }}
                   className={`bg-white rounded-[16px] overflow-hidden transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:-translate-y-1 hover:shadow-lg border ${isOpen ? 'border-purple-300 ring-1 ring-purple-100 shadow-purple-900/5' : 'border-gray-100 hover:border-purple-200'}`}
                 >
                   <button
@@ -871,7 +782,7 @@ const FinalCTASection = ({ onNavigate }: { onNavigate: (page: string) => void })
 
           <div className="flex items-center gap-2 text-sm text-gray-500 font-medium">
             <ShieldCheck className="w-4 h-4 text-purple-500" />
-            Limited seats · Cohort 2025
+            Limited seats
           </div>
         </motion.div>
       </div>
@@ -881,8 +792,6 @@ const FinalCTASection = ({ onNavigate }: { onNavigate: (page: string) => void })
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-base text-gray-600 font-medium">
             <span className="flex items-center gap-2"><Mail className="w-5 h-5 text-purple-500" /> admissions@sereniche.com</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-gray-300 hidden sm:block" />
-            <span className="flex items-center gap-2"><Globe className="w-5 h-5 text-purple-500" /> www.sereniche.com</span>
             <span className="w-1.5 h-1.5 rounded-full bg-gray-300 hidden sm:block" />
             <span className="flex items-center gap-2"><MapPin className="w-5 h-5 text-purple-500" /> Kerala, India</span>
           </div>
@@ -1009,6 +918,9 @@ function AppContent() {
         {/* Background Glows */}
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#7C3AED]/20 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-pink-500/10 blur-[120px] rounded-full" />
+        
+        {/* Contact & More Page Glow */}
+        <div className={`absolute top-[200px] md:top-[150px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-purple-600/20 blur-[150px] rounded-full transition-opacity duration-700 delay-150 ${(currentPage === 'contact' || currentPage === 'more') ? 'opacity-100' : 'opacity-0'}`} />
 
         {/* Particles */}
         <div className="absolute top-[20%] left-[10%] w-2 h-2 bg-purple-400/40 rounded-full blur-[1px] animate-particle" style={{ animationDelay: '0s' }} />
@@ -1135,7 +1047,7 @@ function AppContent() {
                 <div className="relative w-full min-h-[calc(100vh-100px)] flex items-center overflow-hidden">
 
                   {/* Right Column - Tilted Floating Columns (Moved outside max-w container to bleed to edge) */}
-                  <div className="absolute top-0 right-0 w-[60vw] h-full pointer-events-none z-0 hidden lg:flex items-center justify-center" style={{ perspective: '1000px', maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)' }}>
+                  <div className="absolute top-0 right-0 w-[150vw] sm:w-[100vw] lg:w-[60vw] h-full pointer-events-none z-0 flex items-center justify-center opacity-20 lg:opacity-100" style={{ perspective: '1000px', maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)' }}>
                     <div className="absolute top-[-50%] right-[-15%] w-[130%] h-[200%] flex gap-6 justify-center items-center [transform:rotateX(10deg)_rotateY(-15deg)_rotateZ(-15deg)_scale(0.95)] origin-center">
 
                       {/* Column 1 (Scrolls Down) */}
@@ -1223,53 +1135,24 @@ function AppContent() {
                         transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="flex items-center gap-8"
                       >
-                        <div className="flex items-center gap-4">
-                          <div className="flex -space-x-3">
-                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0B0410] object-cover" />
-                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0B0410] object-cover" />
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0B0410] object-cover" />
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0B0410] object-cover" />
-                          </div>
-                          <div className="text-sm text-gray-500 leading-tight">
-                            Loved by 500+<br />Founders
-                          </div>
-                        </div>
-                        <div className="w-px h-10 bg-gray-100" />
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                            <span className="text-black font-extrabold text-xl tracking-tighter">C.</span>
-                          </div>
-                          <div>
-                            <div className="flex text-[#FFB800] mb-1 gap-0.5">
-                              <Star className="w-3.5 h-3.5 fill-current" />
-                              <Star className="w-3.5 h-3.5 fill-current" />
-                              <Star className="w-3.5 h-3.5 fill-current" />
-                              <Star className="w-3.5 h-3.5 fill-current" />
-                              <Star className="w-3.5 h-3.5 fill-current" />
-                            </div>
-                            <div className="text-xs text-gray-500 font-medium">13 Reviews</div>
-                          </div>
-                        </div>
+
                       </motion.div>
                     </div>
 
                   </main>
                 </div>
 
-                {/* Admission Process Section */}
-                <AdmissionProcessSection onNavigate={setCurrentPage} />
-
-                {/* Light Section */}
-                <LightSection onNavigate={setCurrentPage} />
-
-                {/* Featured Courses Section */}
-                <FeaturedCoursesSection onNavigate={setCurrentPage} />
-
                 {/* Program Positioning Section */}
                 <ProgramPositioningSection />
 
                 {/* Curriculum Section */}
                 <CurriculumSection />
+
+                {/* Admission Process Section */}
+                <AdmissionProcessSection onNavigate={setCurrentPage} />
+
+                {/* Light Section */}
+                <LightSection onNavigate={setCurrentPage} />
 
 
 
