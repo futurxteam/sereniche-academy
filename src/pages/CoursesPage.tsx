@@ -40,11 +40,10 @@ export default function CoursesPage() {
           <button
             key={f.id}
             onClick={() => setActiveFilter(f.id)}
-            className={`px-6 py-2.5 rounded-full text-sm font-bold border transition-all duration-300 ${
-              activeFilter === f.id
-                ? "bg-[#7C3AED] text-white border-purple-600 shadow-[0_10px_20px_rgba(124,58,237,0.2)] scale-105"
-                : "bg-white text-gray-600 border-gray-200 hover:border-purple-400 hover:text-purple-600 hover:scale-105"
-            }`}
+            className={`px-6 py-2.5 rounded-full text-sm font-bold border transition-all duration-300 ${activeFilter === f.id
+              ? "bg-[#7C3AED] text-white border-purple-600 shadow-[0_10px_20px_rgba(124,58,237,0.2)] scale-105"
+              : "bg-white text-gray-600 border-gray-200 hover:border-purple-400 hover:text-purple-600 hover:scale-105"
+              }`}
           >
             {f.label}
           </button>
@@ -56,8 +55,9 @@ export default function CoursesPage() {
           <motion.div
             key={course.id}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4 }}
             onClick={() => navigate(`/courses/${course.slug}`)}
             className="bg-white border border-gray-100 rounded-[32px] overflow-hidden flex flex-col cursor-pointer hover:-translate-y-2 hover:border-purple-200 hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-500 group"
           >
@@ -67,10 +67,7 @@ export default function CoursesPage() {
                 alt={course.title}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
-              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-sm font-bold text-gray-900 flex items-center gap-1 border border-white/20 shadow-lg">
-                <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
-                {course.rating}
-              </div>
+
             </div>
 
             <div className="p-8 flex flex-col flex-grow">
@@ -92,10 +89,7 @@ export default function CoursesPage() {
 
               <div className="flex items-center justify-between pt-6 border-t border-gray-50 mt-auto">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center text-xs font-bold text-purple-600 border border-purple-100">
-                    {course.instructor.charAt(0)}
-                  </div>
-                  <span className="text-xs font-semibold text-gray-600">{course.instructor}</span>
+
                 </div>
                 <div className="text-sm font-bold text-purple-600 flex items-center gap-1 group-hover:gap-2 transition-all">
                   Details <ArrowRight className="w-4 h-4" />

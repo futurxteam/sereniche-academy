@@ -24,6 +24,16 @@ const instructors = [
     courses: ["Behavioural Interventions", "Client Motivation Strategies"]
   },
   {
+    id: 2,
+    name: "Uveysudheen KH",
+    title: "Consultant Psychotherapist",
+    image: "/Uveysudheen%20KH.jpg",
+    bio: "Uveysudheen KH specialises in integrative psychotherapy approaches, supporting clients through complex emotional and relational difficulties with a person-centred lens.",
+    expertise: ["Integrative Therapy", "Person-Centered", "Relational Work"],
+    experience: "10+ Years",
+    courses: ["Managing Client Dynamics", "Core Counselling Skills"]
+  },
+  {
     id: 4,
     name: "Dr Aswathy Anand",
     title: "Child & Adolescent Psychologist",
@@ -53,6 +63,7 @@ const instructors = [
     experience: "15+ Years",
     courses: ["Therapist Ethics & Development", "Grief & Bereavement"]
   },
+
   {
     id: 3,
     name: "Mary Anusha Sebastain",
@@ -62,17 +73,8 @@ const instructors = [
     expertise: ["Family Therapy", "Couples Counseling", "Systemic Work"],
     experience: "11+ Years",
     courses: ["Relational & Systemic Work", "Emotional Regulation"]
-  },
-  {
-    id: 2,
-    name: "Uveysudheen KH",
-    title: "Consultant Psychotherapist",
-    image: "/Uveysudheen%20KH.jpg",
-    bio: "Uveysudheen KH specialises in integrative psychotherapy approaches, supporting clients through complex emotional and relational difficulties with a person-centred lens.",
-    expertise: ["Integrative Therapy", "Person-Centered", "Relational Work"],
-    experience: "10+ Years",
-    courses: ["Managing Client Dynamics", "Core Counselling Skills"]
   }
+
 ];
 
 export default function InstructorPage() {
@@ -100,8 +102,9 @@ export default function InstructorPage() {
           <motion.div
             key={instructor.id}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4 }}
             onClick={() => setSelectedInstructor(instructor)}
             className="bg-white border border-gray-100 rounded-[20px] overflow-hidden cursor-pointer hover:-translate-y-2.5 shadow-[0_10px_25px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all duration-500 group"
           >

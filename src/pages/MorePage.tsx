@@ -160,10 +160,63 @@ const PsychiatricSection = ({ onNavigate }: { onNavigate?: (page: string) => voi
     {/* Book Appointment CTA */}
     <div className="bg-gradient-to-br from-purple-700 to-purple-900 rounded-[28px] p-10 text-center text-white">
       <h3 className="text-2xl font-bold mb-2">Book an Appointment</h3>
-      <p className="text-purple-200 mb-6 max-w-xl mx-auto">
+      <p className="text-purple-200 mb-8 max-w-xl mx-auto">
         Connect with our clinical team for an initial assessment. Appointments are available in-person and online.
       </p>
-      <CTABlock onNavigate={onNavigate} />
+
+      <div className="flex flex-wrap justify-center gap-4">
+
+        {/* Visit Website */}
+        <a
+          href="https://www.sereniche.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 bg-white text-purple-800 px-6 py-3 rounded-xl font-semibold hover:bg-purple-100 transition"
+        >
+          <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="9" cy="9" r="7" />
+            <path d="M2 9h14M9 2c2.5 2.5 2.5 11 0 14M9 2c-2.5 2.5-2.5 11 0 14" />
+          </svg>
+          Visit Website
+        </a>
+
+        {/* Book Appointment */}
+        <button
+          onClick={() => onNavigate('appointment')}
+          className="flex items-center gap-2 bg-purple-500 px-6 py-3 rounded-xl font-semibold hover:bg-purple-600 transition"
+        >
+          <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+            <rect x="3" y="5" width="12" height="10" rx="2" />
+            <path d="M3 8h12M6 2v3M12 2v3" />
+          </svg>
+          Book Appointment
+        </button>
+
+        {/* WhatsApp */}
+        <a
+          href="https://wa.me/919999999999" // replace number
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 bg-green-500 px-6 py-3 rounded-xl font-semibold hover:bg-green-600 transition"
+        >
+          <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 9a6 6 0 1111 3l1 3-3-1A6 6 0 013 9z" />
+          </svg>
+          WhatsApp
+        </a>
+
+        {/* Call */}
+        <a
+          href="tel:+919999999999" // replace number
+          className="flex items-center gap-2 bg-blue-500 px-6 py-3 rounded-xl font-semibold hover:bg-blue-600 transition"
+        >
+          <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M4 2h3l2 5-2 2a10 10 0 005 5l2-2 5 2v3a2 2 0 01-2 2C8 19 1 12 1 4a2 2 0 012-2z" />
+          </svg>
+          Call Now
+        </a>
+
+      </div>
     </div>
   </SectionWrap>
 );
@@ -525,11 +578,9 @@ export default function MorePage({ onNavigate }: { onNavigate?: (page: string) =
   };
 
   return (
-    <div className="bg-white">
+    <div className="w-full relative">
       {/* Hero */}
-      <section className="pt-36 pb-16 bg-gradient-to-br from-[#F3F0FF] via-white to-[#FFFBEB] relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-purple-400/10 blur-[150px] rounded-full pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-yellow-400/10 blur-[120px] rounded-full pointer-events-none" />
+      <section className="pt-32 pb-24 relative overflow-hidden z-10">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -578,8 +629,8 @@ export default function MorePage({ onNavigate }: { onNavigate?: (page: string) =
                 key={tab.id}
                 onClick={() => scrollTo(tab.id)}
                 className={`flex items-center gap-3 px-7 py-3.5 rounded-full text-base font-bold whitespace-nowrap transition-all duration-300 flex-shrink-0 border-2 ${activeTab === tab.id
-                    ? 'bg-gradient-to-r from-[#7C3AED] to-[#5B21B6] text-white border-purple-400/30 shadow-[0_15px_30px_-8px_rgba(124,58,237,0.5)] scale-[1.05] relative z-10'
-                    : 'bg-gray-100/80 text-gray-800 border-gray-200 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-700 hover:scale-[1.02] shadow-sm'
+                  ? 'bg-gradient-to-r from-[#7C3AED] to-[#5B21B6] text-white border-purple-400/30 shadow-[0_15px_30px_-8px_rgba(124,58,237,0.5)] scale-[1.05] relative z-10'
+                  : 'bg-gray-100/80 text-gray-800 border-gray-200 hover:bg-purple-50 hover:border-purple-200 hover:text-purple-700 hover:scale-[1.02] shadow-sm'
                   }`}
               >
                 <tab.icon className={`w-5 h-5 ${activeTab === tab.id ? 'text-white' : 'text-purple-500'}`} />

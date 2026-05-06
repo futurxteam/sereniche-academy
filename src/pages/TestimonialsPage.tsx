@@ -76,8 +76,9 @@ export default function TestimonialsPage() {
           <motion.div
             key={testimonial.id}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4 }}
             className="break-inside-avoid bg-white backdrop-blur-xl border border-gray-200 rounded-[24px] p-8 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-[0_0_30px_rgba(124,58,237,0.15)] transition-all duration-500 relative group"
           >
             <Quote className="absolute top-6 right-6 w-8 h-8 text-gray-900/5 group-hover:text-yellow-400/20 transition-colors duration-500" />

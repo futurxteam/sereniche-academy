@@ -70,8 +70,6 @@ export default function ContactPage() {
       transition={{ duration: 0.5 }}
       className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-[800px] mx-auto relative z-10"
     >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/20 blur-[150px] rounded-full pointer-events-none" />
-
       <div className="text-center mb-12 relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
           Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600">Touch</span>
