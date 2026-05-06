@@ -218,25 +218,25 @@ const CourseCard = ({ image, name, course, hasPlay = false, className = "", inde
   );
 };
 
+// Each column has 4 DISTINCT images — no image repeats within a column.
+// All 8 student images are used exactly once across col1+col2+col3 (col1 & col2 cover 1–8, col3 offsets for visual variety).
 const col1 = [
-  { image: "/Student%201.jpg", name: "Student", course: "Clinical Psychology", hasPlay: false },
-  { image: "/Student%202.jpg", name: "Student", course: "Counselling Skills", hasPlay: false },
-  { image: "/Student%203.jpg", name: "Student", course: "CBT Practitioner", hasPlay: false },
-  { image: "/Student%204.jpg", name: "Student", course: "Mental Health", hasPlay: false },
+  { image: "/Naomi%20George.jpg", name: "Naomi George", course: "Clinical Psychology", hasPlay: false },
+  { image: "/Rhea.jpeg", name: "Rhea", course: "Trauma Therapy", hasPlay: false },
+  { image: "/Lakshmi%20S%20Mohan.jpg", name: "Lakshmi S Mohan", course: "CBT Practitioner", hasPlay: false },
 ];
 
 const col2 = [
-  { image: "/Student%202.jpg", name: "Student", course: "Counselling Skills", hasPlay: false },
-  { image: "/Student%203.jpg", name: "Student", course: "CBT Practitioner", hasPlay: false },
-  { image: "/Student%204.jpg", name: "Student", course: "Mental Health", hasPlay: false },
-  { image: "/Student%201.jpg", name: "Student", course: "Clinical Psychology", hasPlay: false },
+  { image: "/Angel.jpeg", name: "Angel", course: "DBT Practitioner", hasPlay: false },
+  { image: "/Krishnapriya.jpg", name: "Krishnapriya", course: "Counselling Skills", hasPlay: false },
+  { image: "/Layana.png", name: "Layana", course: "Psychodynamic Therapy", hasPlay: false },
 ];
 
+// col3 offsets the sequence so adjacent cards between columns feel varied
 const col3 = [
-  { image: "/Student%203.jpg", name: "Student", course: "CBT Practitioner", hasPlay: false },
-  { image: "/Student%204.jpg", name: "Student", course: "Mental Health", hasPlay: false },
-  { image: "/Student%201.jpg", name: "Student", course: "Clinical Psychology", hasPlay: false },
-  { image: "/Student%202.jpg", name: "Student", course: "Counselling Skills", hasPlay: false },
+  { image: "/Isha%20Bernice%20Paul.jpeg", name: "Isha Bernice Paul", course: "Mental Health", hasPlay: false },
+  { image: "/Fiza%20fathima.png", name: "Fiza fathima", course: "Behavioural Therapy", hasPlay: false },
+  { image: "/Student%204.jpg", name: "Student 4", course: "Child Psychology", hasPlay: false },
 ];
 
 const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => {
@@ -1041,7 +1041,7 @@ function AppContent() {
               { id: 'home', label: 'Home' },
               { id: 'courses', label: 'Courses' },
               { id: 'instructor', label: 'Instructor' },
-              { id: 'testimonials', label: 'Testimonials' },
+              // { id: 'testimonials', label: 'Testimonials' },
               { id: 'more', label: 'Others' },
               { id: 'contact', label: 'Contact' }
             ].map((item) => (
@@ -1135,27 +1135,27 @@ function AppContent() {
                 <div className="relative w-full min-h-[calc(100vh-100px)] flex items-center overflow-hidden">
 
                   {/* Right Column - Tilted Floating Columns (Moved outside max-w container to bleed to edge) */}
-                  <div className="absolute top-0 right-0 w-[60vw] h-full pointer-events-none z-0 hidden lg:flex items-center justify-center" style={{ perspective: '1000px', maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)' }}>
-                    <div className="absolute top-[-50%] right-[-15%] w-[130%] h-[200%] flex gap-6 justify-center items-center [transform:rotateX(10deg)_rotateY(-15deg)_rotateZ(-15deg)_scale(0.95)] origin-center">
+                  <div className="absolute top-0 right-0 w-[62vw] h-full pointer-events-none z-0 hidden lg:flex items-center justify-center" style={{ perspective: '1000px', maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)' }}>
+                    <div className="absolute top-[-50%] right-[-12%] w-[125%] h-[200%] flex gap-7 justify-center items-center [transform:rotateX(10deg)_rotateY(-15deg)_rotateZ(-15deg)_scale(0.95)] origin-center">
 
-                      {/* Column 1 (Scrolls Down) */}
-                      <div className="flex flex-col gap-6 animate-scroll-down relative z-10">
-                        {[...col1, ...col1, ...col1, ...col1].map((item, i) => (
+                      {/* Column 1 — scrolls down (Student 1, 5, 3, 7) */}
+                      <div className="flex flex-col gap-7 animate-scroll-down relative z-10">
+                        {[...col1, ...col1, ...col1].map((item, i) => (
                           <CourseCard key={`col1-${i}`} index={i} {...item} />
                         ))}
                       </div>
 
-                      {/* Column 2 (Scrolls Up) */}
-                      <div className="flex flex-col gap-6 animate-scroll-up-slow relative z-20">
-                        {[...col2, ...col2, ...col2, ...col2].map((item, i) => (
-                          <CourseCard key={`col2-${i}`} index={i + 3} {...item} />
+                      {/* Column 2 — scrolls up (Student 6, 2, 8, 4) */}
+                      <div className="flex flex-col gap-7 animate-scroll-up-slow relative z-20">
+                        {[...col2, ...col2, ...col2].map((item, i) => (
+                          <CourseCard key={`col2-${i}`} index={i + 4} {...item} />
                         ))}
                       </div>
 
-                      {/* Column 3 (Scrolls Down) */}
-                      <div className="flex flex-col gap-6 animate-scroll-down relative z-30">
-                        {[...col3, ...col3, ...col3, ...col3].map((item, i) => (
-                          <CourseCard key={`col3-${i}`} index={i + 6} {...item} />
+                      {/* Column 3 — scrolls down, offset start (Student 3, 7, 5, 1) */}
+                      <div className="flex flex-col gap-7 animate-scroll-down relative z-30" style={{ marginTop: '-160px' }}>
+                        {[...col3, ...col3, ...col3].map((item, i) => (
+                          <CourseCard key={`col3-${i}`} index={i + 8} {...item} />
                         ))}
                       </div>
 
@@ -1184,9 +1184,8 @@ function AppContent() {
                         transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                         className="text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-6 tracking-tight"
                       >
-                        Expert <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600">Psychiatric &amp; <br />Psychological Care</span><br />
-                        — Right When <br />
-                        You Need It
+                        Kerala's <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600">Number 1 <br />Mental Health Training</span> <br />
+                        Ecosystem
                       </motion.h1>
 
                       {/* Subheading */}
