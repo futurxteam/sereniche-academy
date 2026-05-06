@@ -14,7 +14,7 @@ import TestimonialsPage from './pages/TestimonialsPage';
 import MorePage from './pages/MorePage';
 import ContactPage from './pages/ContactPage';
 import CourseDetailPage from './pages/CourseDetailPage';
-import { SerenicheLogo } from './components/Logo';
+
 
 
 
@@ -72,9 +72,9 @@ const FeaturedCourseCard = ({ course, index, onNavigate }: { course: any, index:
 
 
 
-const CourseCard = ({ image, name, course, hasPlay = false, className = "", index = 0 }: { image: string, name: string, course: string, hasPlay?: boolean, className?: string, index?: number, key?: React.Key }) => {
+const CourseCard = ({ image, name, course, hasPlay = false, className = "", index = 0, containerClassName = "w-[240px] h-[320px]" }: { image: string, name: string, course: string, hasPlay?: boolean, className?: string, index?: number, key?: React.Key, containerClassName?: string }) => {
   return (
-    <div className={`w-[240px] h-[320px] flex-shrink-0`}>
+    <div className={`${containerClassName} flex-shrink-0`}>
       <div
         className={`relative rounded-[2rem] overflow-hidden w-full h-full shadow-[0_8px_32px_rgba(124,58,237,0.15)] border border-gray-200 bg-white transition-all duration-500 hover:scale-[1.02] hover:border-purple-500/30 hover:shadow-[0_8px_32px_rgba(124,58,237,0.3)] ${className}`}
       >
@@ -100,6 +100,45 @@ const CourseCard = ({ image, name, course, hasPlay = false, className = "", inde
   );
 };
 
+const MobileCarousel = () => {
+  const allStudents = [...col1, ...col2, ...col3];
+
+  return (
+    <div className="w-full lg:hidden py-16 bg-gray-50/50 border-y border-gray-200/60 relative overflow-hidden">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="px-6 mb-8 text-center">
+          <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Our Psychology Graduates</h3>
+          <p className="text-gray-500 text-sm mt-1">Success stories from Sereniche Academy</p>
+        </div>
+
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-gray-50 to-transparent z-10" />
+          <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-gray-50 to-transparent z-10" />
+
+          <motion.div
+            className="flex gap-5 w-max px-6"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              duration: 40,
+              ease: "linear",
+              repeat: Infinity
+            }}
+          >
+            {[...allStudents, ...allStudents].map((student, i) => (
+              <CourseCard
+                key={i}
+                {...student}
+                containerClassName="w-[260px] h-[340px]"
+                className="rounded-[2rem]"
+              />
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Each column has 4 DISTINCT images — no image repeats within a column.
 // All 8 student images are used exactly once across col1+col2+col3 (col1 & col2 cover 1–8, col3 offsets for visual variety).
 const col1 = [
@@ -118,7 +157,7 @@ const col2 = [
 const col3 = [
   { image: "/Isha%20Bernice%20Paul.jpeg", name: "Isha Bernice Paul", course: "Mental Health", hasPlay: false },
   { image: "/Fiza%20fathima.png", name: "Fiza fathima", course: "Behavioural Therapy", hasPlay: false },
-  { image: "/Student%204.jpg", name: "Fathima fida", course: "Child Psychology", hasPlay: false },
+  { image: "/Fathima%20fida.jpg", name: "Fathima fida", course: "Child Psychology", hasPlay: false },
 ];
 
 const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => {
@@ -805,7 +844,7 @@ const Footer = () => {
           {/* Left */}
           <div>
             <div className="mb-6">
-              <SerenicheLogo className="scale-90 origin-left" />
+              <img src="/logo.png" alt="Sereniche Academy" className="h-12 w-auto" />
             </div>
             <p className="text-gray-500 text-sm">
               Kerala's #1 Mental Health Training Ecosystem
@@ -944,7 +983,7 @@ function AppContent() {
             className="flex items-center pl-2 cursor-pointer"
             onClick={() => setCurrentPage('home')}
           >
-            <SerenicheLogo />
+            <img src="/logo.png" alt="Sereniche Academy" className="h-10 w-auto" />
           </div>
 
           {/* Desktop Links - Hidden on Mobile */}
@@ -1140,6 +1179,9 @@ function AppContent() {
 
                   </main>
                 </div>
+
+                {/* Mobile Alumni Carousel */}
+                <MobileCarousel />
 
                 {/* Program Positioning Section */}
                 <ProgramPositioningSection />
