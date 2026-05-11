@@ -14,6 +14,7 @@ import TestimonialsPage from './pages/TestimonialsPage';
 import MorePage from './pages/MorePage';
 import ContactPage from './pages/ContactPage';
 import CourseDetailPage from './pages/CourseDetailPage';
+import VideoShowcase from './components/VideoShowcase';
 
 
 
@@ -1179,6 +1180,9 @@ function AppContent() {
 
                   </main>
                 </div>
+
+                {/* Video Showcase Section */}
+                <VideoShowcase />
 
                 {/* Mobile Alumni Carousel */}
                 <MobileCarousel />
