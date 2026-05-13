@@ -1135,7 +1135,7 @@ function AppContent() {
                         transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                         className="text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-6 tracking-tight"
                       >
-                        Kerala's <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600">Number 1 <br />Mental Health Training</span> <br />
+                        Kerala's <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600">Number #1 <br />Mental Health Training</span> <br />
                         Ecosystem
                       </motion.h1>
 
