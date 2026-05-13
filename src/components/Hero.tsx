@@ -2,10 +2,10 @@ import { Play, Star, ArrowUpRight, User, GraduationCap } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
 
 const instructors = [
-  { name: "Student", role: "Clinical Psychology", img: "/Student%201.jpg" },
-  { name: "Student", role: "Counselling Skills", img: "/Student%202.jpg" },
-  { name: "Student", role: "CBT Practitioner", img: "/Student%203.jpg" },
-  { name: "Student", role: "Mental Health", img: "/Student%204.jpg" },
+  { name: "Student", role: "Intern", img: "/Student%201.jpg" },
+  { name: "Student", role: "Intern", img: "/Student%202.jpg" },
+  { name: "Student", role: "Intern", img: "/Student%203.jpg" },
+  { name: "Student", role: "Intern", img: "/Student%204.jpg" },
 ];
 
 export default function Hero() {

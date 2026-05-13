@@ -95,7 +95,7 @@ const PsychiatricSection = ({ onNavigate }: { onNavigate?: (page: string) => voi
     <SectionHeader
       tag="Psychiatric Services"
       title={<>Professional Mental Health <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-500">Care</span></>}
-      subtitle="Sereniche Academy's clinical services wing provides hospital-grade psychiatric and psychological care delivered by qualified professionals."
+      subtitle="Sereniche Centre for Behaviour Medicine, Futureace Hospital provides hospital-grade psychiatric and psychological care delivered by qualified professionals."
     />
 
     {/* Intro */}
@@ -107,7 +107,7 @@ const PsychiatricSection = ({ onNavigate }: { onNavigate?: (page: string) => voi
       className="bg-[#F3F0FF] border border-purple-200 rounded-2xl p-7 mb-12 max-w-3xl mx-auto text-center"
     >
       <p className="text-gray-700 leading-relaxed">
-        Sereniche Academy isn't just a training institute — it operates a full clinical services wing that delivers
+        Sereniche Academy isn't just a training institute — it operates the Sereniche Centre for Behaviour Medicine, Futureace Hospital that delivers
         evidence-based psychiatric, psychological and counselling care to individuals, families and organisations.
         Our team of psychiatrists, clinical psychologists and licensed counsellors work within a collaborative,
         hospital-integrated ecosystem.

@@ -143,22 +143,22 @@ const MobileCarousel = () => {
 // Each column has 4 DISTINCT images — no image repeats within a column.
 // All 8 student images are used exactly once across col1+col2+col3 (col1 & col2 cover 1–8, col3 offsets for visual variety).
 const col1 = [
-  { image: "/Naomi%20George.jpg", name: "Naomi George", course: "Clinical Psychology", hasPlay: false },
-  { image: "/Rhea.jpeg", name: "Rhea", course: "Trauma Therapy", hasPlay: false },
-  { image: "/Lakshmi%20S%20Mohan.jpg", name: "Lakshmi S Mohan", course: "CBT Practitioner", hasPlay: false },
+  { image: "/Naomi%20George.jpg", name: "Naomi George", course: "Intern", hasPlay: false },
+  { image: "/Rhea.jpeg", name: "Rhea", course: "Intern", hasPlay: false },
+  { image: "/Lakshmi%20S%20Mohan.jpg", name: "Lakshmi S Mohan", course: "Intern", hasPlay: false },
 ];
 
 const col2 = [
-  { image: "/Angel.jpeg", name: "Angel", course: "DBT Practitioner", hasPlay: false },
-  { image: "/Krishnapriya.jpg", name: "Krishnapriya", course: "Counselling Skills", hasPlay: false },
-  { image: "/Layana.png", name: "Layana", course: "Psychodynamic Therapy", hasPlay: false },
+  { image: "/Angel.jpeg", name: "Angel", course: "Intern", hasPlay: false },
+  { image: "/Krishnapriya.jpg", name: "Krishnapriya", course: "Intern", hasPlay: false },
+  { image: "/Layana.png", name: "Layana", course: "Intern", hasPlay: false },
 ];
 
 // col3 offsets the sequence so adjacent cards between columns feel varied
 const col3 = [
-  { image: "/Isha%20Bernice%20Paul.jpeg", name: "Isha Bernice Paul", course: "Mental Health", hasPlay: false },
-  { image: "/Fiza%20fathima.png", name: "Fiza fathima", course: "Behavioural Therapy", hasPlay: false },
-  { image: "/Fathima%20fida.jpg", name: "Fathima fida", course: "Child Psychology", hasPlay: false },
+  { image: "/Isha%20Bernice%20Paul.jpeg", name: "Isha Bernice Paul", course: "Intern", hasPlay: false },
+  { image: "/Fiza%20fathima.png", name: "Fiza fathima", course: "Intern", hasPlay: false },
+  { image: "/Fathima%20fida.jpg", name: "Fathima fida", course: "Intern", hasPlay: false },
 ];
 
 const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => {
@@ -241,7 +241,7 @@ const AdmissionProcessSection = ({ onNavigate }: { onNavigate: (page: string) =>
     { text: "Hospital Ecosystem", icon: Building2, iconColor: "text-yellow-500" },
     { text: "Psychiatric Expert Panel", icon: Users, iconColor: "text-purple-600" },
     { text: "50 Days Intensive", icon: Clock, iconColor: "text-yellow-500" },
-    { text: "90+ Training Hours", icon: BookOpen, iconColor: "text-purple-600" },
+
     { text: "Clinical Portfolio", icon: FileText, iconColor: "text-yellow-500" }
   ];
 
@@ -497,8 +497,7 @@ const LightSection = ({ onNavigate }: { onNavigate: (page: string) => void }) =>
 const ProgramPositioningSection = () => {
   const stats = [
     { value: "50", label: "Intensive Days", icon: <Calendar className="w-6 h-6 text-purple-600" /> },
-    { value: "90+", label: "Training Hours", icon: <Clock className="w-6 h-6 text-purple-600" /> },
-    { value: "10+", label: "Therapy Models", icon: <Brain className="w-6 h-6 text-purple-600" /> },
+
     { value: "#1", label: "In Kerala", icon: <Award className="w-6 h-6 text-purple-600" /> }
   ];
 
@@ -1147,7 +1146,7 @@ function AppContent() {
                         transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                         className="text-gray-500 text-lg mb-10 max-w-xl leading-relaxed"
                       >
-                        Clinical expertise, compassionate care, and evidence-based treatment available to you through Sereniche Academy's mental health services wing.
+                        The only hospital-integrated finishing school in Kerala, where psychology graduates train alongside a functioning multidisciplinary mental health team.
                       </motion.p>
 
                       {/* Buttons */}
@@ -1158,7 +1157,7 @@ function AppContent() {
                         className="flex flex-wrap items-center gap-4 mb-16"
                       >
                         <button onClick={() => setCurrentPage('courses')} className="bg-[#7C3AED] hover:bg-purple-700 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 active:scale-95 text-white px-8 py-4 rounded-full font-medium flex items-center gap-2 transition-all duration-300">
-                          View Courses
+                          View Programme
                           <ArrowUpRight className="w-5 h-5" />
                         </button>
                         <button className="bg-gray-50 hover:bg-gray-100 hover:scale-105 active:scale-95 border border-gray-200 text-gray-900 px-8 py-4 rounded-full font-medium flex items-center gap-2 transition-all duration-300 backdrop-blur-sm">

@@ -7,18 +7,18 @@ const VideoShowcase = () => {
   const features = [
     {
       icon: <Heart className="w-5 h-5" />,
-      title: "Compassionate Learning",
-      description: "Healing-focused education that nurtures personal and professional growth"
+      title: "Hospital-Integrated Training",
+      description: "Your training happens alongside a real psychiatrist, clinical psychologist, counselling psychologist, psychiatric social worker, and special educator."
     },
     {
       icon: <Users className="w-5 h-5" />,
-      title: "Expert Mentorship",
-      description: "Direct guidance from Kerala's leading mental health professionals"
+      title: "10+ Expert Clinicians",
+      description: "Guided by psychiatrists, RCI-registered clinical psychologists, and specialist faculty — not visiting lecturers, but your actual clinical team."
     },
     {
       icon: <Sparkles className="w-5 h-5" />,
-      title: "Clinical Excellence",
-      description: "Evidence-based curriculum grounded in real-world clinical expertise"
+      title: "Graduate with Proof",
+      description: "Clinical portfolio, case diary, therapy skill logs, and a letter of recommendation that no employer can ignore."
     }
   ];
 
@@ -44,11 +44,11 @@ const VideoShowcase = () => {
             <span className="text-sm font-semibold text-purple-700">Experience Sereniche</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-indigo-950">
-            See Our <span className="text-purple-600">Premium</span> <br className="hidden md:block" />
-            <span className="text-[#D4A017]">Learning Environment</span>
+            See Our <span className="text-purple-600">Learning</span> <br className="hidden md:block" />
+            <span className="text-[#D4A017]">Ecosystem</span>
           </h2>
           <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Discover the healing-focused ecosystem that sets Sereniche Academy apart as a leader in clinical excellence.
+            Train inside the real hospital ecosystem, not a classroom.
           </p>
         </motion.div>
 
@@ -105,7 +105,7 @@ const VideoShowcase = () => {
 
             {/* Subtext */}
             <p className="text-lg md:text-xl text-gray-500 leading-relaxed mb-12">
-              Experience the environment, mentorship, and healing-focused learning ecosystem at Sereniche Academy.
+              Sereniche Academy operates within the Sereniche Centre for Behaviour Medicine, Futureace Hospital, Kerala — the only finishing school in Kerala where your learning environment is an active, functioning mental health system.
             </p>
 
             {/* Feature Bullets */}
@@ -147,7 +147,7 @@ const VideoShowcase = () => {
               whileTap={{ scale: 0.98 }}
               className="w-fit px-10 py-5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3 group"
             >
-              <span>Explore Our Campus</span>
+              <span>Explore the Ecosystem</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </motion.div>

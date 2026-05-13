@@ -5,8 +5,8 @@ import { User, X, ArrowRight, BookOpen, Star, Award, Briefcase } from 'lucide-re
 const instructors = [
   {
     id: 7,
-    name: "Dr Benzir Hussain",
-    title: "Crisis & Trauma Specialist",
+    name: "Dr. Benzir Hussain",
+    title: "MBBS, MBA, MD | Consultant Psychiatrist",
     image: "/Dr%20Benzir%20Hussain.jpg",
     bio: "Dr Benzir Hussain specialises in crisis intervention and trauma recovery, working with clients in acute hospital settings and community rehabilitation programmes.",
     expertise: ["Trauma-Informed Care", "Crisis Intervention", "PTSD"],
@@ -15,8 +15,8 @@ const instructors = [
   },
   {
     id: 5,
-    name: "Dr Femi Mol",
-    title: "Behavioral Health Consultant",
+    name: "Dr. Femi",
+    title: "MBBS, MD, FPSM | Consultant Psychiatrist",
     image: "/Dr%20Femi%20Mol.jpg",
     bio: "Dr Femi Mol is an expert in motivational interviewing and behaviour change, helping clients and trainees develop practical strategies for lasting transformation.",
     expertise: ["Motivational Interviewing", "Behaviour Therapy", "Health Psychology"],
@@ -25,8 +25,8 @@ const instructors = [
   },
   {
     id: 2,
-    name: "Uveysudheen KH",
-    title: "Consultant Psychotherapist",
+    name: "Uveysudheen K H",
+    title: "MSc Counselling Psychology | Counselling Psychologist",
     image: "/Uveysudheen%20KH.jpg",
     bio: "Uveysudheen KH specialises in integrative psychotherapy approaches, supporting clients through complex emotional and relational difficulties with a person-centred lens.",
     expertise: ["Integrative Therapy", "Person-Centered", "Relational Work"],
@@ -35,8 +35,8 @@ const instructors = [
   },
   {
     id: 4,
-    name: "Dr Aswathy Anand",
-    title: "Child & Adolescent Psychologist",
+    name: "Dr. Aswathy Anand",
+    title: "MPhil, PhD, PGCFM | Consultant Psychologist",
     image: "/Dr%20Aswathy%20Anand.jpg",
     bio: "Dr Aswathy Anand works with children and young people experiencing emotional, behavioural, and developmental challenges, combining DBT and play-based therapeutic methods.",
     expertise: ["Child Psychology", "DBT", "Developmental Support"],
@@ -45,8 +45,8 @@ const instructors = [
   },
   {
     id: 1,
-    name: "Dr Shemeena",
-    title: "Senior Clinical Psychologist",
+    name: "Dr. Shemeena",
+    title: "MBBS, MD | Consultant Psychiatrist",
     image: "/Dr%20Shemeena.jpg",
     bio: "Dr Shemeena brings deep clinical expertise in evidence-based psychological interventions, having worked across hospital and community mental health settings for over a decade.",
     expertise: ["CBT", "Trauma-Informed Care", "Anxiety Disorders"],
@@ -56,7 +56,7 @@ const instructors = [
   {
     id: 6,
     name: "Fr. Ritto Mathew",
-    title: "Counsellor & Pastoral Therapist",
+    title: "MSW, DCP | Psychiatric Social Worker",
     image: "/Fr.%20Ritto%20Mathew.jpg",
     bio: "Fr. Ritto Mathew integrates spiritual and psychological frameworks to provide holistic support, drawing on over 15 years of pastoral counselling and community mental health work.",
     expertise: ["Pastoral Counselling", "Psychodynamic", "Grief & Loss"],
@@ -66,13 +66,23 @@ const instructors = [
 
   {
     id: 3,
-    name: "Mary Anusha Sebastain",
-    title: "Family & Couples Therapist",
+    name: "Mary Anusha",
+    title: "MSc, MPhil Clinical Psychology (RCI) | Clinical Psychologist",
     image: "/Mary%20Anusha%20Sebastain.jpg",
     bio: "Mary Anusha Sebastain is a specialist in systemic and relational therapy, helping individuals and families navigate complex interpersonal challenges with empathy and skill.",
     expertise: ["Family Therapy", "Couples Counseling", "Systemic Work"],
     experience: "11+ Years",
     courses: ["Relational & Systemic Work", "Emotional Regulation"]
+  },
+  {
+    id: 8,
+    name: "Aayisha Salim",
+    title: "MSc Psychology | Consultant Psychologist",
+    image: "/Aayisha%20Salim.jpg",
+    bio: "Aayisha Salim is a consultant psychologist focusing on holistic mental health support and clinical assessments within a hospital-integrated ecosystem.",
+    expertise: ["Clinical Assessment", "General Psychology", "Mental Health Support"],
+    experience: "5+ Years",
+    courses: ["Introduction to Clinical Practice", "Foundation Skills"]
   }
 
 ];
@@ -90,7 +100,7 @@ export default function InstructorPage() {
     >
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
-          Meet Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600">Expert Faculty</span>
+          Our Facilitators — <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600">Real Clinicians. Real Experts.</span>
         </h1>
         <p className="text-gray-500 text-lg max-w-2xl mx-auto">
           Learn directly from senior clinical psychologists, psychiatrists, and specialized therapists who bring decades of real-world hospital experience.
