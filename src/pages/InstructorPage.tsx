@@ -36,9 +36,9 @@ const instructors = [
   {
     id: 4,
     name: "Dr. Aswathy Anand",
-    title: "MPhil, PhD, PGCFM | Consultant Psychologist",
+    title: "PG Clinical Psychology, MPhil Psychology, PhD, PGCFM | Consultant Psychologist",
     image: "/Dr%20Aswathy%20Anand.jpg",
-    bio: "Dr Aswathy Anand works with children and young people experiencing emotional, behavioural, and developmental challenges, combining DBT and play-based therapeutic methods.",
+    bio: "Works with children, adolescents, and adults, providing evidence-based psychological care. Focuses on Child & Adolescent Mental Health, Clinical Psychology, CBT, Autism Spectrum Interventions, Behaviour Therapy, Learning Disabilities, Psycho-oncology, Corporate Training, and Family & Marital Therapy, with an approach that integrates clinical expertise and empathy to support growth and well-being.",
     expertise: ["Child Psychology", "DBT", "Developmental Support"],
     experience: "9+ Years",
     courses: ["Child & Adolescent Therapy", "Behaviour Interventions"]
@@ -56,9 +56,9 @@ const instructors = [
   {
     id: 6,
     name: "Fr. Ritto Mathew",
-    title: "MSW, DCP | Psychiatric Social Worker",
+    title: "MSW (Medical & Psychiatry), DCP, Certified Hypnotherapist, MH Registration No: 5168 | Mental Health Professional",
     image: "/Fr.%20Ritto%20Mathew.jpg",
-    bio: "Fr. Ritto Mathew integrates spiritual and psychological frameworks to provide holistic support, drawing on over 15 years of pastoral counselling and community mental health work.",
+    bio: "Provides psychosocial support, clinical counselling, and hypnotherapy, working with individuals to manage emotional, psychological, and behavioral challenges. Follows a client-centered, ethical approach, creating a safe and confidential space, using evidence-based techniques to enhance coping skills, promote personal growth, and support overall mental well-being.",
     expertise: ["Pastoral Counselling", "Psychodynamic", "Grief & Loss"],
     experience: "15+ Years",
     courses: ["Therapist Ethics & Development", "Grief & Bereavement"]
@@ -66,10 +66,10 @@ const instructors = [
 
   {
     id: 3,
-    name: "Mary Anusha",
-    title: "MSc, MPhil Clinical Psychology (RCI) | Clinical Psychologist",
+    name: "Mary Anusha Sebastian",
+    title: "BSc Psychology, MSc Clinical Psychology – Manipal Academy of Higher Education, M.Phil Clinical Psychology – IMHANS | RCI Licensed Clinical Psychologist",
     image: "/Mary%20Anusha%20Sebastain.jpg",
-    bio: "Mary Anusha Sebastain is a specialist in systemic and relational therapy, helping individuals and families navigate complex interpersonal challenges with empathy and skill.",
+    bio: "Provides psychological interventions using CBT, DBT, ACT, MET, Narrative Therapy, Behaviour Therapy, PMT and Couple Therapy, with additional training in Emotion-Focused Therapy (EFT). Conducts psychological assessments for diagnostic clarification, personality, cognitive functioning, attention, and emotional/behavioural concerns.",
     expertise: ["Family Therapy", "Couples Counseling", "Systemic Work"],
     experience: "11+ Years",
     courses: ["Relational & Systemic Work", "Emotional Regulation"]

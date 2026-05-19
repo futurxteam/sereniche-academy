@@ -139,7 +139,6 @@ const PsychiatricSection = ({ onNavigate }: { onNavigate?: (page: string) => voi
           'Psychological testing & assessment',
           'Neuropsychological evaluation',
           'Child & adolescent psychology',
-          'Crisis stabilisation sessions',
         ]}
       />
       <FeatureCard
@@ -228,10 +227,10 @@ const SchoolSection = ({ onNavigate }: { onNavigate?: (page: string) => void }) 
   const programmes = [
     {
       tag: 'SMHP',
-      title: 'School Mental Health Programme (SMHP)',
+      title: 'School Adoption Program',
       icon: Shield,
       accent: 'purple' as const,
-      desc: 'A structured, long-term mental health programme embedded into the school calendar to proactively support student wellbeing.',
+      desc: 'Our School Mental Health Programme is a structured, long-term mental health programme embedded into the school calendar to proactively support student wellbeing.',
       points: [
         'Monthly awareness sessions for students',
         'Individual counselling support on referral',
@@ -587,11 +586,7 @@ export default function MorePage({ onNavigate }: { onNavigate?: (page: string) =
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
-              The Complete Ecosystem
-            </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
-              More Than Training.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-purple-500 to-yellow-500">
                 A Complete Mental Health Ecosystem.
               </span>
@@ -599,23 +594,10 @@ export default function MorePage({ onNavigate }: { onNavigate?: (page: string) =
             <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
               Sereniche Academy goes beyond education — delivering psychiatric services, school wellbeing programmes,
               corporate wellness solutions and community outreach that together form Kerala's most comprehensive
-              mental health ecosystem.
+              school system.
             </p>
 
-            {/* Stats Row */}
-            <div className="flex flex-wrap justify-center gap-8 mb-8">
-              {[
-                { label: 'Lives Reached', value: '10,000+' },
-                { label: 'Partner Schools', value: '40+' },
-                { label: 'Corporate Clients', value: '25+' },
-                { label: 'Community Camps', value: '60+' },
-              ].map((s, i) => (
-                <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 + i * 0.1 }} className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">{s.value}</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">{s.label}</div>
-                </motion.div>
-              ))}
-            </div>
+
           </motion.div>
         </div>
       </section>

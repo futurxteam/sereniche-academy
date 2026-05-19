@@ -826,7 +826,7 @@ const FinalCTASection = ({ onNavigate }: { onNavigate: (page: string) => void })
       <div className="relative w-full border-t border-gray-200/60 bg-white/50 backdrop-blur-sm py-4">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-base text-gray-600 font-medium">
-            <span className="flex items-center gap-2"><Mail className="w-5 h-5 text-purple-500" /> admissions@sereniche.com</span>
+            <span className="flex items-center gap-2"><Mail className="w-5 h-5 text-purple-500" /> hello@sereniche.com</span>
             <span className="w-1.5 h-1.5 rounded-full bg-gray-300 hidden sm:block" />
             <span className="flex items-center gap-2"><MapPin className="w-5 h-5 text-purple-500" /> Kerala, India</span>
           </div>
@@ -871,9 +871,9 @@ const Footer = () => {
             <h4 className="text-gray-900 font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-3">
               <li>
-                <a href="mailto:admissions@sereniche.com" className="text-gray-500 hover:text-purple-600 transition-colors duration-300 text-sm flex items-center gap-3 group">
+                <a href="mailto:hello@sereniche.com" className="text-gray-500 hover:text-purple-600 transition-colors duration-300 text-sm flex items-center gap-3 group">
                   <Mail className="w-4 h-4 text-purple-400 group-hover:text-yellow-500 transition-colors duration-300" />
-                  admissions@sereniche.com
+                  hello@sereniche.com
                 </a>
               </li>
               <li>
@@ -991,9 +991,9 @@ function AppContent() {
             {[
               { id: 'home', label: 'Home' },
               { id: 'courses', label: 'Courses' },
-              { id: 'instructor', label: 'Instructor' },
+              { id: 'instructor', label: 'Facilitators' },
               // { id: 'testimonials', label: 'Testimonials' },
-              { id: 'more', label: 'Others' },
+              { id: 'more', label: 'Programs' },
               { id: 'contact', label: 'Contact' }
             ].map((item) => (
               <button
@@ -1047,9 +1047,9 @@ function AppContent() {
                   {[
                     { id: 'home', label: 'Home' },
                     { id: 'courses', label: 'Courses' },
-                    { id: 'instructor', label: 'Instructor' },
+                    { id: 'instructor', label: 'Facilitators' },
                     { id: 'testimonials', label: 'Testimonials' },
-                    { id: 'more', label: 'Others' },
+                    { id: 'more', label: 'Programs' },
                     { id: 'contact', label: 'Contact' }
                   ].map((item) => (
                     <button
