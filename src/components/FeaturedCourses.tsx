@@ -28,11 +28,10 @@ export default function FeaturedCourses() {
             <button
               key={level}
               onClick={() => setFilter(level)}
-              className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
-                filter === level 
-                  ? 'bg-[#6D28D9] text-white shadow-[0_0_15px_rgba(109,40,217,0.4)]' 
+              className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${filter === level
+                  ? 'bg-[#6D28D9] text-white shadow-[0_0_15px_rgba(109,40,217,0.4)]'
                   : 'glass-panel text-gray-400 hover:text-white hover:bg-white/10'
-              }`}
+                }`}
             >
               {level}
             </button>
@@ -42,69 +41,69 @@ export default function FeaturedCourses() {
         <motion.div layout className="space-y-8">
           <AnimatePresence mode="popLayout">
             {filteredCourses.map((course, index) => (
-              <motion.div 
+              <motion.div
                 layout
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.4 }}
-                key={course.id} 
+                key={course.id}
                 className="glass-panel rounded-3xl p-6 md:p-8 flex flex-col lg:flex-row gap-8 items-center group hover:-translate-y-2 transition-transform duration-300"
               >
-              {/* Image Side */}
-              <div className={`w-full lg:w-1/2 overflow-hidden rounded-2xl ${index % 2 !== 0 ? 'lg:order-2' : ''}`}>
-                <div className="relative aspect-[4/3] transform group-hover:scale-105 transition-transform duration-500">
-                  <img src={course.image} alt={course.title} className="w-full h-full object-cover rounded-2xl" referrerPolicy="no-referrer" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                {/* Image Side */}
+                <div className={`w-full lg:w-1/2 overflow-hidden rounded-2xl ${index % 2 !== 0 ? 'lg:order-2' : ''}`}>
+                  <div className="relative aspect-[4/3] transform group-hover:scale-105 transition-transform duration-500">
+                    <img src={course.image} alt={course.title} className="w-full h-full object-cover rounded-2xl" referrerPolicy="no-referrer" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  </div>
                 </div>
-              </div>
 
-              {/* Content Side */}
-              <div className={`w-full lg:w-1/2 flex flex-col ${index % 2 !== 0 ? 'lg:order-1' : ''}`}>
-                <div className="flex justify-between items-start mb-6">
-                  <div className="flex items-center gap-2">
-                    <div className="flex text-pink-500">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className={`w-4 h-4 ${i < Math.floor(course.rating) ? 'fill-current' : ''}`} />
-                      ))}
+                {/* Content Side */}
+                <div className={`w-full lg:w-1/2 flex flex-col ${index % 2 !== 0 ? 'lg:order-1' : ''}`}>
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="flex items-center gap-2">
+                      <div className="flex text-pink-500">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className={`w-4 h-4 ${i < Math.floor(course.rating) ? 'fill-current' : ''}`} />
+                        ))}
+                      </div>
+                      <span className="text-sm text-gray-400">Rated {course.rating} Star</span>
                     </div>
-                    <span className="text-sm text-gray-400">Rated {course.rating} Star</span>
+                    <span className="bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-[0_0_10px_rgba(236,72,153,0.5)]">
+                      {course.price}
+                    </span>
                   </div>
-                  <span className="bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-[0_0_10px_rgba(236,72,153,0.5)]">
-                    {course.price}
-                  </span>
-                </div>
 
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold text-xs uppercase">{course.instructor.charAt(0)}</div>
-                  <span className="text-sm font-medium text-gray-300">{course.instructor}</span>
-                </div>
-
-                <h3 className="text-2xl md:text-3xl font-bold mb-4">{course.title}</h3>
-                <p className="text-gray-400 mb-8 leading-relaxed">
-                  {course.description}
-                </p>
-
-                <div className="flex items-center gap-6 mb-8 text-sm text-gray-400 border-t border-white/10 pt-6">
-                  <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4" />
-                    <span>{course.reviews}</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold text-xs uppercase">{course.instructor.charAt(0)}</div>
+                    <span className="text-sm font-medium text-gray-300">{course.instructor}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <BookOpen className="w-4 h-4" />
-                    <span>{course.level}</span>
-                  </div>
-                </div>
 
-                <button className="w-full bg-purple-600 hover:bg-purple-500 transition-colors py-4 rounded-xl font-semibold text-white">
-                  View Course
-                </button>
-              </div>
-            </motion.div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">{course.title}</h3>
+                  <p className="text-gray-400 mb-8 leading-relaxed">
+                    {course.description}
+                  </p>
+
+                  <div className="flex items-center gap-6 mb-8 text-sm text-gray-400 border-t border-white/10 pt-6">
+                    <div className="flex items-center gap-2">
+                      <Users className="w-4 h-4" />
+                      <span>{course.reviews}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <BookOpen className="w-4 h-4" />
+                      <span>{course.level}</span>
+                    </div>
+                  </div>
+
+                  <button className="w-full bg-purple-600 hover:bg-purple-500 transition-colors py-4 rounded-xl font-semibold text-white">
+                    View Course
+                  </button>
+                </div>
+              </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
-        
+
         <div className="mt-16 text-center">
           <button className="glass-panel hover:bg-white/10 transition-colors px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2">
             View All Courses

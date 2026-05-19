@@ -140,7 +140,7 @@ const MobileCarousel = () => {
   );
 };
 
-// Each column has 4 DISTINCT images — no image repeats within a column.
+// Each column has 4 DISTINCT images    no image repeats within a column.
 // All 8 student images are used exactly once across col1+col2+col3 (col1 & col2 cover 1–8, col3 offsets for visual variety).
 const col1 = [
   { image: "/Naomi%20George.jpg", name: "Naomi George", course: "Intern", hasPlay: false },
@@ -329,7 +329,7 @@ const AdmissionProcessSection = ({ onNavigate }: { onNavigate: (page: string) =>
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center"
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Apply Today — Seats Are Limited</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">Apply Today    Seats Are Limited</h3>
           <button
             onClick={() => onNavigate('contact')}
             className="group bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 hover:scale-105 hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] active:scale-95 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 flex items-center gap-2 mx-auto cursor-pointer border border-transparent hover:border-purple-300"
@@ -521,7 +521,7 @@ const ProgramPositioningSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-gray-500 text-lg max-w-3xl mx-auto"
           >
-            Transform your psychology degree into confident, real-world clinical practice — in just 50 days.
+            Transform your psychology degree into confident, real-world clinical practice    in just 50 days.
           </motion.p>
         </div>
 
@@ -836,7 +836,23 @@ const FinalCTASection = ({ onNavigate }: { onNavigate: (page: string) => void })
   );
 };
 
-const Footer = () => {
+const Footer = ({ onNavigate }: { onNavigate?: (page: string) => void }) => {
+  const handleLinkClick = (e: React.MouseEvent, link: string) => {
+    e.preventDefault();
+    if (!onNavigate) return;
+    const pageMap: Record<string, string> = {
+      'Courses': 'courses',
+      'Instructors': 'instructor',
+      'Testimonials': 'testimonials',
+      'Contact': 'contact'
+    };
+    const targetPage = pageMap[link];
+    if (targetPage) {
+      onNavigate(targetPage);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-white border-t border-gray-100 pt-16 pb-8 relative z-20">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -857,7 +873,11 @@ const Footer = () => {
             <ul className="space-y-3">
               {['Courses', 'Instructors', 'Testimonials', 'Contact'].map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-gray-500 hover:text-purple-600 transition-colors duration-300 text-base flex items-center gap-2 group">
+                  <a
+                    href={`/${link.toLowerCase()}`}
+                    onClick={(e) => handleLinkClick(e, link)}
+                    className="text-gray-500 hover:text-purple-600 transition-colors duration-300 text-base flex items-center gap-2 group"
+                  >
                     <span className="w-2 h-2 rounded-full bg-purple-200 group-hover:bg-yellow-400 transition-colors duration-300" />
                     {link}
                   </a>
@@ -877,9 +897,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="tel:+910000000000" className="text-gray-500 hover:text-purple-600 transition-colors duration-300 text-sm flex items-center gap-3 group">
+                <a href="tel:+919567670993" className="text-gray-500 hover:text-purple-600 transition-colors duration-300 text-sm flex items-center gap-3 group">
                   <Headphones className="w-4 h-4 text-purple-400 group-hover:text-yellow-500 transition-colors duration-300" />
-                  +91 00000 00000
+                  +91 95676 70993
                 </a>
               </li>
               <li className="text-gray-500 text-sm flex items-center gap-3">
@@ -992,7 +1012,7 @@ function AppContent() {
               { id: 'home', label: 'Home' },
               { id: 'courses', label: 'Courses' },
               { id: 'instructor', label: 'Facilitators' },
-              // { id: 'testimonials', label: 'Testimonials' },
+              { id: 'testimonials', label: 'Testimonials' },
               { id: 'more', label: 'Programs' },
               { id: 'contact', label: 'Contact' }
             ].map((item) => (
@@ -1089,21 +1109,21 @@ function AppContent() {
                   <div className="absolute top-0 right-0 w-[62vw] h-full pointer-events-none z-0 hidden lg:flex items-center justify-center" style={{ perspective: '1000px', maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)' }}>
                     <div className="absolute top-[-50%] right-[-12%] w-[125%] h-[200%] flex gap-7 justify-center items-center [transform:rotateX(10deg)_rotateY(-15deg)_rotateZ(-15deg)_scale(0.95)] origin-center">
 
-                      {/* Column 1 — scrolls down (Student 1, 5, 3, 7) */}
+                      {/* Column 1    scrolls down (Student 1, 5, 3, 7) */}
                       <div className="flex flex-col gap-7 animate-scroll-down relative z-10">
                         {[...col1, ...col1, ...col1].map((item, i) => (
                           <CourseCard key={`col1-${i}`} index={i} {...item} />
                         ))}
                       </div>
 
-                      {/* Column 2 — scrolls up (Student 6, 2, 8, 4) */}
+                      {/* Column 2    scrolls up (Student 6, 2, 8, 4) */}
                       <div className="flex flex-col gap-7 animate-scroll-up-slow relative z-20">
                         {[...col2, ...col2, ...col2].map((item, i) => (
                           <CourseCard key={`col2-${i}`} index={i + 4} {...item} />
                         ))}
                       </div>
 
-                      {/* Column 3 — scrolls down, offset start (Student 3, 7, 5, 1) */}
+                      {/* Column 3    scrolls down, offset start (Student 3, 7, 5, 1) */}
                       <div className="flex flex-col gap-7 animate-scroll-down relative z-30" style={{ marginTop: '-160px' }}>
                         {[...col3, ...col3, ...col3].map((item, i) => (
                           <CourseCard key={`col3-${i}`} index={i + 8} {...item} />
@@ -1269,7 +1289,7 @@ function AppContent() {
       </Routes>
 
       {currentPage !== 'contact' && <FinalCTASection onNavigate={setCurrentPage} />}
-      <Footer />
+      <Footer onNavigate={setCurrentPage} />
 
       {/* Live Chat Widget */}
       <LiveChat />

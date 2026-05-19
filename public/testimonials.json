@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "title": "Clinical Internship Programme Gallery",
+    "tag": "Internship Highlights",
+    "coverImage": "/internship/DSC09137.JPG",
+    "description": "Explore the hands-on clinical exposure, active hospital learning, and case review sessions from our clinical internship programme.",
+    "assets": [
+      {
+        "type": "image",
+        "path": "/internship/DSC09137.JPG",
+        "caption": "Interns review clinical case formulations in the training ward."
+      },
+      {
+        "type": "image",
+        "path": "/internship/DSC09166.JPG",
+        "caption": "Direct mentoring session and clinical discussions under expert guidance."
+      }
+    ]
+  }
+]

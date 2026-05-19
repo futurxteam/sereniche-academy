@@ -13,7 +13,7 @@ const VideoShowcase = () => {
     {
       icon: <Users className="w-5 h-5" />,
       title: "10+ Expert Clinicians",
-      description: "Guided by psychiatrists, RCI-registered clinical psychologists, and specialist faculty — not visiting lecturers, but your actual clinical team."
+      description: "Guided by psychiatrists, RCI-registered clinical psychologists, and specialist faculty    not visiting lecturers, but your actual clinical team."
     },
     {
       icon: <Sparkles className="w-5 h-5" />,
@@ -75,7 +75,7 @@ const VideoShowcase = () => {
               >
                 <source src="/Sereniche.mp4" type="video/mp4" />
               </video>
-              
+
               {/* Subtle Cinematic Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
@@ -105,7 +105,7 @@ const VideoShowcase = () => {
 
             {/* Subtext */}
             <p className="text-lg md:text-xl text-gray-500 leading-relaxed mb-12">
-              Sereniche Academy operates within the Sereniche Centre for Behaviour Medicine, Futureace Hospital, Kerala — the only finishing school in Kerala where your learning environment is an active, functioning mental health system.
+              Sereniche Academy operates within the Sereniche Centre for Behaviour Medicine, Futureace Hospital, Kerala    the only finishing school in Kerala where your learning environment is an active, functioning mental health system.
             </p>
 
             {/* Feature Bullets */}

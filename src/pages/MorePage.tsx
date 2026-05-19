@@ -107,7 +107,7 @@ const PsychiatricSection = ({ onNavigate }: { onNavigate?: (page: string) => voi
       className="bg-[#F3F0FF] border border-purple-200 rounded-2xl p-7 mb-12 max-w-3xl mx-auto text-center"
     >
       <p className="text-gray-700 leading-relaxed">
-        Sereniche Academy isn't just a training institute — it operates the Sereniche Centre for Behaviour Medicine, Futureace Hospital that delivers
+        Sereniche Academy isn't just a training institute    it operates the Sereniche Centre for Behaviour Medicine, Futureace Hospital that delivers
         evidence-based psychiatric, psychological and counselling care to individuals, families and organisations.
         Our team of psychiatrists, clinical psychologists and licensed counsellors work within a collaborative,
         hospital-integrated ecosystem.
@@ -146,9 +146,9 @@ const PsychiatricSection = ({ onNavigate }: { onNavigate?: (page: string) => voi
         title="Professional Counselling"
         accent="yellow"
         points={[
-          'Grief & loss counselling',
-          'Relationship & couples counselling',
-          'Career & life-transition counselling',
+          'Grief counselling',
+          'Couple counselling',
+          'Career counselling',
           'Stress & burnout management',
           'Family systems counselling',
           'Online session availability',
@@ -294,7 +294,7 @@ const SchoolSection = ({ onNavigate }: { onNavigate?: (page: string) => void }) 
       <SectionHeader
         tag="School Programmes"
         title={<>Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-500">Mentally Healthy</span> Schools</>}
-        subtitle="Comprehensive mental health support programmes for students, teachers, parents and school management — built around India's school calendar."
+        subtitle="Comprehensive mental health support programmes for students, teachers, parents and school management    built around India's school calendar."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-7 mb-12">
         {programmes.map((p, i) => (
@@ -519,7 +519,7 @@ const CommunitySection = ({ onNavigate }: { onNavigate?: (page: string) => void 
       <SectionHeader
         tag="Community Enrichment"
         title={<>Mental Health for <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-green-500">Everyone</span></>}
-        subtitle="Beyond the classroom and clinic — Sereniche Academy reaches communities, families, NGOs and grassroots organisations to make mental health support accessible and destigmatised."
+        subtitle="Beyond the classroom and clinic    Sereniche Academy reaches communities, families, NGOs and grassroots organisations to make mental health support accessible and destigmatised."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {programmes.map((p, i) => (
@@ -592,7 +592,7 @@ export default function MorePage({ onNavigate }: { onNavigate?: (page: string) =
               </span>
             </h1>
             <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-              Sereniche Academy goes beyond education — delivering psychiatric services, school wellbeing programmes,
+              Sereniche Academy goes beyond education    delivering psychiatric services, school wellbeing programmes,
               corporate wellness solutions and community outreach that together form Kerala's most comprehensive
               school system.
             </p>

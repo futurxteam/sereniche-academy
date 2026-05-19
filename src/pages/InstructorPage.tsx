@@ -4,16 +4,6 @@ import { User, X, ArrowRight, BookOpen, Star, Award, Briefcase } from 'lucide-re
 
 const instructors = [
   {
-    id: 7,
-    name: "Dr. Benzir Hussain",
-    title: "MBBS, MBA, MD | Consultant Psychiatrist",
-    image: "/Dr%20Benzir%20Hussain.jpg",
-    bio: "Dr Benzir Hussain specialises in crisis intervention and trauma recovery, working with clients in acute hospital settings and community rehabilitation programmes.",
-    expertise: ["Trauma-Informed Care", "Crisis Intervention", "PTSD"],
-    experience: "11+ Years",
-    courses: ["Crisis Handling", "Emotional Regulation & Trauma"]
-  },
-  {
     id: 5,
     name: "Dr. Femi",
     title: "MBBS, MD, FPSM | Consultant Psychiatrist",
@@ -24,24 +14,14 @@ const instructors = [
     courses: ["Behavioural Interventions", "Client Motivation Strategies"]
   },
   {
-    id: 2,
-    name: "Uveysudheen K H",
-    title: "MSc Counselling Psychology | Counselling Psychologist",
-    image: "/Uveysudheen%20KH.jpg",
-    bio: "Uveysudheen KH specialises in integrative psychotherapy approaches, supporting clients through complex emotional and relational difficulties with a person-centred lens.",
-    expertise: ["Integrative Therapy", "Person-Centered", "Relational Work"],
-    experience: "10+ Years",
-    courses: ["Managing Client Dynamics", "Core Counselling Skills"]
-  },
-  {
-    id: 4,
-    name: "Dr. Aswathy Anand",
-    title: "PG Clinical Psychology, MPhil Psychology, PhD, PGCFM | Consultant Psychologist",
-    image: "/Dr%20Aswathy%20Anand.jpg",
-    bio: "Works with children, adolescents, and adults, providing evidence-based psychological care. Focuses on Child & Adolescent Mental Health, Clinical Psychology, CBT, Autism Spectrum Interventions, Behaviour Therapy, Learning Disabilities, Psycho-oncology, Corporate Training, and Family & Marital Therapy, with an approach that integrates clinical expertise and empathy to support growth and well-being.",
-    expertise: ["Child Psychology", "DBT", "Developmental Support"],
-    experience: "9+ Years",
-    courses: ["Child & Adolescent Therapy", "Behaviour Interventions"]
+    id: 7,
+    name: "Dr. Benzir Hussain",
+    title: "MBBS, MBA, MD | Consultant Psychiatrist",
+    image: "/Dr%20Benzir%20Hussain.jpg",
+    bio: "Dr Benzir Hussain specialises in crisis intervention and trauma recovery, working with clients in acute hospital settings and community rehabilitation programmes.",
+    expertise: ["Trauma-Informed Care", "Crisis Intervention", "PTSD"],
+    experience: "11+ Years",
+    courses: ["Crisis Handling", "Emotional Regulation & Trauma"]
   },
   {
     id: 1,
@@ -54,25 +34,44 @@ const instructors = [
     courses: ["Cognitive Therapy (CBT, REBT)", "Therapist Foundation"]
   },
   {
+    id: 4,
+    name: "Dr. Aswathy Anand",
+    title: "PG Clinical Psychology, MPhil Psychology, PhD, PGCFM | Consultant Psychologist",
+    image: "/Dr%20Aswathy%20Anand.jpg",
+    bio: "Works with children, adolescents, and adults, providing evidence-based psychological care. Focuses on Child & Adolescent Mental Health, Clinical Psychology, CBT, Autism Spectrum Interventions, Behaviour Therapy, Learning Disabilities, Psycho-oncology, Corporate Training, and Family & Marital Therapy, with an approach that integrates clinical expertise and empathy to support growth and well-being.",
+    expertise: ["Child Psychology", "DBT", "Developmental Support"],
+    experience: "9+ Years",
+    courses: ["Child & Adolescent Therapy", "Behaviour Interventions"]
+  },
+  {
+    id: 3,
+    name: "Mary Anusha Sebastian",
+    title: "MSc Psychology, M.Phil",
+    image: "/Mary%20Anusha%20Sebastain.jpg",
+    bio: "Provides psychological interventions using CBT, DBT, ACT, MET, Narrative Therapy, Behaviour Therapy, PMT and Couple Therapy, with additional training in Emotion-Focused Therapy (EFT). Conducts psychological assessments for diagnostic clarification, personality, cognitive functioning, attention, and emotional/behavioural concerns.",
+    expertise: ["Family Therapy", "Couples Counseling", "Systemic Work"],
+    experience: "11+ Years",
+    courses: ["Relational & Systemic Work", "Emotional Regulation"]
+  },
+  {
     id: 6,
     name: "Fr. Ritto Mathew",
-    title: "MSW (Medical & Psychiatry), DCP, Certified Hypnotherapist, MH Registration No: 5168 | Mental Health Professional",
+    title: "MSW (Medical & Psychiatry), DCP | Mental Health Professional",
     image: "/Fr.%20Ritto%20Mathew.jpg",
     bio: "Provides psychosocial support, clinical counselling, and hypnotherapy, working with individuals to manage emotional, psychological, and behavioral challenges. Follows a client-centered, ethical approach, creating a safe and confidential space, using evidence-based techniques to enhance coping skills, promote personal growth, and support overall mental well-being.",
     expertise: ["Pastoral Counselling", "Psychodynamic", "Grief & Loss"],
     experience: "15+ Years",
     courses: ["Therapist Ethics & Development", "Grief & Bereavement"]
   },
-
   {
-    id: 3,
-    name: "Mary Anusha Sebastian",
-    title: "BSc Psychology, MSc Clinical Psychology – Manipal Academy of Higher Education, M.Phil Clinical Psychology – IMHANS | RCI Licensed Clinical Psychologist",
-    image: "/Mary%20Anusha%20Sebastain.jpg",
-    bio: "Provides psychological interventions using CBT, DBT, ACT, MET, Narrative Therapy, Behaviour Therapy, PMT and Couple Therapy, with additional training in Emotion-Focused Therapy (EFT). Conducts psychological assessments for diagnostic clarification, personality, cognitive functioning, attention, and emotional/behavioural concerns.",
-    expertise: ["Family Therapy", "Couples Counseling", "Systemic Work"],
-    experience: "11+ Years",
-    courses: ["Relational & Systemic Work", "Emotional Regulation"]
+    id: 2,
+    name: "Uveysudheen K H",
+    title: "MSc Counselling Psychology | Counselling Psychologist",
+    image: "/Uveysudheen%20KH.jpg",
+    bio: "Uveysudheen KH specialises in integrative psychotherapy approaches, supporting clients through complex emotional and relational difficulties with a person-centred lens.",
+    expertise: ["Integrative Therapy", "Person-Centered", "Relational Work"],
+    experience: "10+ Years",
+    courses: ["Managing Client Dynamics", "Core Counselling Skills"]
   },
   {
     id: 8,
@@ -100,7 +99,7 @@ export default function InstructorPage() {
     >
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
-          Our Facilitators — <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600">Real Clinicians. Real Experts.</span>
+          Our Facilitators <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600">Real Clinicians. Real Experts.</span>
         </h1>
         <p className="text-gray-500 text-lg max-w-2xl mx-auto">
           Learn directly from senior clinical psychologists, psychiatrists, and specialized therapists who bring decades of real-world hospital experience.
