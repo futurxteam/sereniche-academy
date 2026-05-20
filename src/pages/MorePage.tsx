@@ -115,7 +115,7 @@ const PsychiatricSection = ({ onNavigate }: { onNavigate?: (page: string) => voi
     </motion.div>
 
     {/* Service Cards */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
       <FeatureCard
         icon={Stethoscope}
         title="Psychiatric Consultation & Treatment"
@@ -150,8 +150,20 @@ const PsychiatricSection = ({ onNavigate }: { onNavigate?: (page: string) => voi
           'Couple counselling',
           'Career counselling',
           'Stress & burnout management',
-          'Family systems counselling',
+          'Family counselling',
           'Online session availability',
+        ]}
+      />
+      <FeatureCard
+        icon={Target}
+        title="Evidence Based Management"
+        accent="yellow"
+        points={[
+          'Anxiety',
+          'Depression',
+          'Substance / Behavioural Addiction (Screen, Phone)',
+          'ADHD',
+          'OCD',
         ]}
       />
     </div>
@@ -237,8 +249,7 @@ const SchoolSection = ({ onNavigate }: { onNavigate?: (page: string) => void }) 
         'Teacher sensitisation workshops',
         'Mental health screening & early identification',
         'Parental engagement sessions',
-        'Crisis response protocol training',
-        'Customised annual mental health calendar',
+        'Customised mental health program',
       ],
     },
     {
@@ -258,22 +269,21 @@ const SchoolSection = ({ onNavigate }: { onNavigate?: (page: string) => void }) 
       ],
     },
     {
-      tag: 'FDP',
-      title: 'Faculty Development Programme (FDP)',
+      tag: 'Teachers of tomorrow',
+      title: 'First Step',
       icon: Award,
       accent: 'purple' as const,
-      desc: 'Empowering teachers and school staff with mental health literacy and first-response skills.',
+      desc: 'Our Faculty Development Programme focuses on empowering teachers and school staff with mental health literacy and first-response skills.',
       points: [
         'Recognising signs of student distress',
         'Mental health first aid training',
         'Trauma-informed classroom practices',
         'Communication techniques for sensitive situations',
         'Staff wellbeing and burnout prevention',
-        'Referral pathways and crisis protocols',
       ],
     },
     {
-      tag: 'Parent Programme',
+      tag: 'Mastering Parenting',
       title: 'Parent Mental Health Programme',
       icon: Heart,
       accent: 'yellow' as const,

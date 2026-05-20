@@ -6,9 +6,9 @@ const instructors = [
   {
     id: 5,
     name: "Dr. Femi",
-    title: "MBBS, MD, FPSM | Consultant Psychiatrist",
+    title: "MBBS, MD Psychiatry, Fellowship in Sexual Medicine | Consultant Psychiatrist",
     image: "/Dr%20Femi%20Mol.jpg",
-    bio: "Dr Femi Mol is an expert in motivational interviewing and behaviour change, helping clients and trainees develop practical strategies for lasting transformation.",
+    bio: "With more than a decade of clinical experience in women’s mental health and addiction psychiatry. Focuses on Women’s Mental Health, Addiction Psychiatry, and Sexual Medicine, with experience across academic institutions, deaddiction centres, and both private and government hospitals in Kerala, providing holistic, confidential, and evidence-based psychiatric care.",
     expertise: ["Motivational Interviewing", "Behaviour Therapy", "Health Psychology"],
     experience: "13+ Years",
     courses: ["Behavioural Interventions", "Client Motivation Strategies"]
@@ -25,18 +25,18 @@ const instructors = [
   },
   {
     id: 1,
-    name: "Dr. Shemeena",
-    title: "MBBS, MD | Consultant Psychiatrist",
+    name: "Dr. Shemeena K",
+    title: "MBBS, MD Psychiatry (NIMHANS) | Consultant Psychiatrist",
     image: "/Dr%20Shemeena.jpg",
-    bio: "Dr Shemeena brings deep clinical expertise in evidence-based psychological interventions, having worked across hospital and community mental health settings for over a decade.",
+    bio: " Dr Shemeena brings with over 9 years of experience in the diagnosis and management of diverse psychiatric conditions. Focuses on Psychosis, Anxiety Disorders, Personality Disorders, Child & Adolescent Psychiatry, Perinatal Mental Health, and Substance Use Disorders, while actively engaging in teaching, training, and multidisciplinary mental healthcare.",
     expertise: ["CBT", "Trauma-Informed Care", "Anxiety Disorders"],
-    experience: "12+ Years",
+    experience: "9+ Years",
     courses: ["Cognitive Therapy (CBT, REBT)", "Therapist Foundation"]
   },
   {
     id: 4,
     name: "Dr. Aswathy Anand",
-    title: "PG Clinical Psychology, MPhil Psychology, PhD, PGCFM | Consultant Psychologist",
+    title: "MSc, MPhil, PhD, PGCFM | Consultant Psychologist",
     image: "/Dr%20Aswathy%20Anand.jpg",
     bio: "Works with children, adolescents, and adults, providing evidence-based psychological care. Focuses on Child & Adolescent Mental Health, Clinical Psychology, CBT, Autism Spectrum Interventions, Behaviour Therapy, Learning Disabilities, Psycho-oncology, Corporate Training, and Family & Marital Therapy, with an approach that integrates clinical expertise and empathy to support growth and well-being.",
     expertise: ["Child Psychology", "DBT", "Developmental Support"],
@@ -46,9 +46,9 @@ const instructors = [
   {
     id: 3,
     name: "Mary Anusha Sebastian",
-    title: "MSc Psychology, M.Phil",
+    title: "BSc, MSc, M.Phil Clinical Psychology",
     image: "/Mary%20Anusha%20Sebastain.jpg",
-    bio: "Provides psychological interventions using CBT, DBT, ACT, MET, Narrative Therapy, Behaviour Therapy, PMT and Couple Therapy, with additional training in Emotion-Focused Therapy (EFT). Conducts psychological assessments for diagnostic clarification, personality, cognitive functioning, attention, and emotional/behavioural concerns.",
+    bio: "Experienced in working with diverse populations and a wide range of mental health conditions through evidence-based and individualized interventions. Focuses on Clinical Psychology, Emotion-Focused Therapy (EFT), CBT, DBT, ACT, MET, Narrative Therapy, Behaviour Therapy, PMT, and Couple Therapy, while also conducting psychological assessments for diagnostic clarification, cognitive functioning, personality, attention, and emotional or behavioural concerns.",
     expertise: ["Family Therapy", "Couples Counseling", "Systemic Work"],
     experience: "11+ Years",
     courses: ["Relational & Systemic Work", "Emotional Regulation"]
@@ -66,9 +66,9 @@ const instructors = [
   {
     id: 2,
     name: "Uveysudheen K H",
-    title: "MSc Counselling Psychology | Counselling Psychologist",
+    title: "BSc, MSc Counselling Psychology | Counselling Psychologist, Training and Development Consultant",
     image: "/Uveysudheen%20KH.jpg",
-    bio: "Uveysudheen KH specialises in integrative psychotherapy approaches, supporting clients through complex emotional and relational difficulties with a person-centred lens.",
+    bio: "Executive Director – Academic Innovation and Excellence, Sereniche Academy. Focuses on learning, research, training and development, organizational change, and psychology education, working with educational institutions, organizations, and companies across Kerala as a consultant, trainer, and guest lecturer.",
     expertise: ["Integrative Therapy", "Person-Centered", "Relational Work"],
     experience: "10+ Years",
     courses: ["Managing Client Dynamics", "Core Counselling Skills"]
@@ -83,7 +83,6 @@ const instructors = [
     experience: "5+ Years",
     courses: ["Introduction to Clinical Practice", "Foundation Skills"]
   }
-
 ];
 
 export default function InstructorPage() {

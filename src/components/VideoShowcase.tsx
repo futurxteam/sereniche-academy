@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Heart, Users, ArrowRight, Volume2, VolumeX } from 'lucide-react';
 
-const VideoShowcase = () => {
+const VideoShowcase = ({ onNavigate }: { onNavigate?: (page: string) => void }) => {
   const [isMuted, setIsMuted] = useState(true);
   const features = [
     {
@@ -139,13 +139,19 @@ const VideoShowcase = () => {
 
             {/* CTA Button */}
             <motion.button
+              onClick={() => {
+                if (onNavigate) {
+                  onNavigate('courses');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: 0.7 }}
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(124, 58, 237, 0.2)" }}
               whileTap={{ scale: 0.98 }}
-              className="w-fit px-10 py-5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3 group"
+              className="w-fit px-10 py-5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3 group cursor-pointer"
             >
               <span>Explore the Ecosystem</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

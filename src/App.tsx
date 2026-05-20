@@ -1013,7 +1013,7 @@ function AppContent() {
               { id: 'courses', label: 'Courses' },
               { id: 'instructor', label: 'Facilitators' },
               { id: 'testimonials', label: 'Testimonials' },
-              { id: 'more', label: 'Programs' },
+              { id: 'more', label: 'Programme' },
               { id: 'contact', label: 'Contact' }
             ].map((item) => (
               <button
@@ -1069,7 +1069,7 @@ function AppContent() {
                     { id: 'courses', label: 'Courses' },
                     { id: 'instructor', label: 'Facilitators' },
                     { id: 'testimonials', label: 'Testimonials' },
-                    { id: 'more', label: 'Programs' },
+                    { id: 'more', label: 'Programme' },
                     { id: 'contact', label: 'Contact' }
                   ].map((item) => (
                     <button
@@ -1166,7 +1166,7 @@ function AppContent() {
                         transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                         className="text-gray-500 text-lg mb-10 max-w-xl leading-relaxed"
                       >
-                        The only hospital-integrated finishing school in Kerala, where psychology graduates train alongside a functioning multidisciplinary mental health team.
+                        The only hospital integrated finishing school in Kerala, where psychology graduates train alongside a functioning multidisciplinary mental health team.
                       </motion.p>
 
                       {/* Buttons */}
@@ -1179,10 +1179,6 @@ function AppContent() {
                         <button onClick={() => setCurrentPage('courses')} className="bg-[#7C3AED] hover:bg-purple-700 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 active:scale-95 text-white px-8 py-4 rounded-full font-medium flex items-center gap-2 transition-all duration-300">
                           View Programme
                           <ArrowUpRight className="w-5 h-5" />
-                        </button>
-                        <button className="bg-gray-50 hover:bg-gray-100 hover:scale-105 active:scale-95 border border-gray-200 text-gray-900 px-8 py-4 rounded-full font-medium flex items-center gap-2 transition-all duration-300 backdrop-blur-sm">
-                          Watch Preview
-                          <Triangle className="w-5 h-5 fill-white rotate-90" />
                         </button>
                       </motion.div>
 
@@ -1201,7 +1197,7 @@ function AppContent() {
                 </div>
 
                 {/* Video Showcase Section */}
-                <VideoShowcase />
+                <VideoShowcase onNavigate={setCurrentPage} />
 
                 {/* Mobile Alumni Carousel */}
                 <MobileCarousel />

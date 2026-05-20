@@ -87,10 +87,6 @@ export default function Hero() {
               View Courses
               <ArrowUpRight className="w-5 h-5" />
             </button>
-            <button className="bg-white/5 hover:bg-white/10 border border-white/10 transition-colors px-6 py-3.5 rounded-xl font-semibold flex items-center gap-2 text-white backdrop-blur-sm">
-              Watch Preview
-              <Play className="w-5 h-5 fill-current" />
-            </button>
           </div>
 
           <div className="mt-12 flex items-center gap-8">
