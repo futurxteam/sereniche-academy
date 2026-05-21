@@ -15,10 +15,10 @@ const instructors = [
   },
   {
     id: 7,
-    name: "Dr. Benzir Hussain",
-    title: "MBBS, MBA, MD | Consultant Psychiatrist",
+    name: "Dr Benzir Hussain",
+    title: "MBBS, MD Psychiatry\nMBA Healthcare Management",
     image: "/Dr%20Benzir%20Hussain.jpg",
-    bio: "Dr Benzir Hussain specialises in crisis intervention and trauma recovery, working with clients in acute hospital settings and community rehabilitation programmes.",
+    bio: "Dr Benzir Hussain has 12+ years of experience in psychiatry and mental healthcare. Focus areas include Deaddiction and Geriatric Medicine, with experience in hospital-based psychiatric care, rehabilitation, and evidence-based mental health interventions.",
     expertise: ["Trauma-Informed Care", "Crisis Intervention", "PTSD"],
     experience: "11+ Years",
     courses: ["Crisis Handling", "Emotional Regulation & Trauma"]
@@ -125,7 +125,7 @@ export default function InstructorPage() {
             </div>
             <div className="p-7 bg-white relative z-20">
               <h3 className="text-xl font-bold text-[#111827] mb-1">{instructor.name}</h3>
-              <p className="text-purple-600 font-bold text-sm mb-4">{instructor.title}</p>
+              <p className="text-purple-600 font-bold text-sm mb-4 whitespace-pre-line">{instructor.title}</p>
               <div className="flex items-center gap-2 text-gray-500 text-sm mb-5">
                 <Briefcase className="w-4 h-4 text-purple-400" />
                 <span className="font-medium">{instructor.experience}</span>
@@ -183,7 +183,7 @@ export default function InstructorPage() {
                 {/* Content */}
                 <div className="w-full md:w-[62%] flex flex-col justify-center">
                   <h2 className="text-3xl font-bold text-white mb-1 leading-tight">{selectedInstructor.name}</h2>
-                  <p className="text-yellow-400 font-semibold text-base mb-1">{selectedInstructor.title}</p>
+                  <p className="text-yellow-400 font-semibold text-base mb-1 whitespace-pre-line">{selectedInstructor.title}</p>
                   <p className="text-purple-300 text-sm font-medium mb-6 flex items-center gap-1.5">
                     <Briefcase className="w-3.5 h-3.5" />
                     {selectedInstructor.experience}
