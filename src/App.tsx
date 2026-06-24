@@ -1035,13 +1035,13 @@ function AppContent() {
 
           {/* Right Side: CTA & Mobile Toggle */}
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setCurrentPage('contact')}
+            <a
+              href="https://learn.serenicheacademy.com"
               className="hover:scale-105 active:scale-95 text-[#7C3AED] px-4 py-2 rounded-full text-base font-bold transition-all duration-300 flex items-center gap-2 group border border-transparent hover:border-purple-100"
             >
-              <span>Enroll Now</span>
+              <span>Login</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-            </button>
+            </a>
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
