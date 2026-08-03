@@ -13,11 +13,11 @@ const faqs = [
   },
   {
     question: "3. What tools will I need for this course?",
-    answer: "You will need a computer with internet access and a free Figma account. No prior software experience is required."
+    answer: "You will need a computer with internet access. No prior clinical experience is required."
   },
   {
     question: "4. What kind of projects will I work on?",
-    answer: "You will build a complete portfolio including a mobile app design, a responsive website, and a complex dashboard interface."
+    answer: "You will build a complete clinical portfolio including case conceptualizations, therapeutic intervention plans, and mock session reflections."
   },
   {
     question: "5. Is there a refund policy?",
@@ -46,7 +46,7 @@ export default function FAQ() {
             Frequently Asked <br /> Questions!
           </h2>
           <p className="text-gray-600 mb-8 max-w-md text-lg">
-            It's your gateway to a career in design. With Sereniche, you'll gain the skills, confidence, and portfolio to stand out in the competitive world of UI/UX design.
+            It's your gateway to a career in mental health. With Sereniche, you'll gain the clinical skills, confidence, and portfolio to stand out in the psychology profession.
           </p>
           <button className="bg-purple-600 hover:bg-purple-700 transition-colors px-8 py-4 rounded-xl font-semibold text-white shadow-lg shadow-purple-200">
             View Courses

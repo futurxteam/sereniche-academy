@@ -45,7 +45,7 @@ export default function LiveChat() {
     try {
       const historyText = messages.map(m => `${m.sender === 'user' ? 'User' : 'Assistant'}: ${m.text}`).join('\n');
       const prompt = `You are a helpful customer support assistant for an edtech platform called Sereniche Academy. 
-Sereniche Academy offers premium UX/UI design courses. Keep your answers concise, friendly, and helpful.
+Sereniche Academy offers premium psychology and mental health training courses. Keep your answers concise, friendly, and helpful.
 
 Chat History:
 ${historyText}

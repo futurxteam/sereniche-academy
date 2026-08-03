@@ -74,12 +74,12 @@ export default function Hero() {
           </div>
           
           <h1 className="text-5xl lg:text-[4.5rem] font-bold leading-[1.1] mb-6 tracking-tight text-white">
-            Learn from Top <span className="text-gradient">UX/UI</span> <br />
+            Learn from Top <span className="text-gradient">Clinical</span> <br />
             Mentors Worldwide
           </h1>
           
           <p className="text-lg text-gray-400 mb-10 max-w-xl leading-relaxed">
-            Learn highly demanded skills through practical online courses, created by trusted industry professionals, that focus on real-world applications.
+            Learn highly demanded clinical skills through practical training, guided by experienced mental health professionals, that focus on real-world therapeutic applications.
           </p>
           
           <div className="flex flex-wrap items-center gap-4">
