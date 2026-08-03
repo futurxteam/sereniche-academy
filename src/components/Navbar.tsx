@@ -18,9 +18,9 @@ export default function Navbar() {
         <a href="#" className="hover:text-white transition-colors">Contact</a>
       </div>
 
-      <button className="bg-[#7C3AED] hover:bg-[#6D28D9] transition-colors px-6 py-2.5 rounded-xl text-sm font-semibold text-white shadow-[0_0_15px_rgba(124,58,237,0.4)]">
-        Enroll Now
-      </button>
+      <a href="https://learn.serenicheacademy.com" className="bg-[#7C3AED] hover:bg-[#6D28D9] transition-colors px-6 py-2.5 rounded-xl text-sm font-semibold text-white shadow-[0_0_15px_rgba(124,58,237,0.4)] inline-flex items-center justify-center">
+        Login
+      </a>
     </nav>
   );
 }
