@@ -416,7 +416,7 @@ const LightSection = ({ onNavigate }: { onNavigate: (page: string) => void }) =>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Build Clinical Confidence, Transform Lives</h2>
             <p className="text-gray-500 text-lg">
-              We equip psychology students and mental health professionals with practical clinical skills, expert supervision, hospital-integrated training, and real-world therapeutic experience. Here's what makes Sereniche Academy different.
+              We equip psychology students and mental health professionals with practical clinical skills, expert supervision, hospital-integrated training , and real-world therapeutic experience. Here's what makes Sereniche Academy different.
             </p>
           </div>
           <button onClick={() => onNavigate('courses')} className="bg-[#7C3AED] hover:bg-purple-700 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 active:scale-95 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 flex-shrink-0">
