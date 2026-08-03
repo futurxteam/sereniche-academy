@@ -957,7 +957,7 @@ function AppContent() {
       'courses': '/courses',
       'instructor': '/instructor',
       'testimonials': '/testimonials',
-      'more': '/more',
+      'more': '/programme',
       'contact': '/contact'
     };
     // Only navigate if we're not already on the correct path
