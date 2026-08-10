@@ -141,5 +141,40 @@ export const courses: Course[] = [
       certification: "Certificate of Internship Completion provided",
       language: "Malayalam / English"
     }
+  },
+  {
+    id: 4,
+    type: 'online',
+    slug: 'art-therapy-certificate-course',
+    title: "Art Therapy",
+    description: "A certificate course in art therapy and expressive arts — therapeutic expression, creative interventions, and hands-on experiential sessions.",
+    image: "/course-art-therapy.png",
+    instructor: "Expert Faculty Panel",
+    duration: "1 Month",
+    level: "Psychology / Social Work",
+    price: "Contact for Details",
+    rating: 4.9,
+    reviews: 42,
+    fullDescription: "A practical certificate course introducing art therapy and expressive arts to candidates from Psychology or Social Work backgrounds. Spanning 30 hours of live online sessions with recorded sessions available, this programme covers therapeutic expression, creative interventions, and meaningful case discussions — all delivered through hands-on experiential learning. Participants will explore the intersection of creativity and psychological healing, developing skills to facilitate art-based therapeutic processes across diverse populations.",
+    highlights: [
+      "30 hours of structured live online sessions",
+      "Recorded sessions available for flexible learning",
+      "Hands-on experiential and art-making sessions",
+      "Introduction to art therapy theory and expressive arts frameworks",
+      "Principles of creativity, symbolism and therapeutic expression",
+      "Art therapy interventions for children, adolescents and adults",
+      "Group art therapy activities and workshop facilitation skills",
+      "Ethics, professional boundaries and scope of practice",
+      "Case discussions and treatment planning in art therapy",
+      "Certificate of completion from Sereniche Academy"
+    ],
+    whoThisIsFor: "Candidates from a Psychology or Social Work background who wish to integrate creative and expressive arts into their therapeutic practice. Ideal for counsellors, psychologists, social workers, and mental health students seeking a structured foundation in art therapy.",
+    formatDetails: {
+      mode: "Live Online",
+      duration: "1 Month (30 Hours)",
+      schedule: "Recorded sessions also available",
+      certification: "Certificate Course — Sereniche Academy",
+      language: "Malayalam / English"
+    }
   }
 ];
