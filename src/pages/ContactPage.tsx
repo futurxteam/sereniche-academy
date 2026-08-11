@@ -58,6 +58,25 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
+      const email = 'hello@sereniche.com';
+      const subject = 'Course Enquiry - Interested in this Course';
+      
+      const body = `New Course Enquiry
+
+Interested in this course
+
+Full Name: ${formData.name}
+
+Contact Number: ${formData.phone}
+
+Email ID: ${formData.email}
+
+Message:
+${formData.message}`;
+
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.open(gmailUrl, '_blank');
+      
       setIsSubmitted(true);
     }
   };

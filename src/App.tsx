@@ -11,6 +11,7 @@ import LiveChat from './components/LiveChat';
 import InstructorPage from './pages/InstructorPage';
 import CoursesPage from './pages/CoursesPage';
 import TestimonialsPage from './pages/TestimonialsPage';
+import Mano2026Page from './pages/Mano2026Page';
 import MorePage from './pages/MorePage';
 import ContactPage from './pages/ContactPage';
 import CourseDetailPage from './pages/CourseDetailPage';
@@ -843,6 +844,7 @@ const Footer = ({ onNavigate }: { onNavigate?: (page: string) => void }) => {
     const pageMap: Record<string, string> = {
       'Courses': 'courses',
       'Instructors': 'instructor',
+      'MANO 2026': 'mano-2026',
       'Testimonials': 'testimonials',
       'Contact': 'contact'
     };
@@ -871,7 +873,7 @@ const Footer = ({ onNavigate }: { onNavigate?: (page: string) => void }) => {
           <div>
             <h4 className="text-gray-900 font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              {['Courses', 'Instructors', 'Testimonials', 'Contact'].map((link) => (
+              {['Courses', 'Instructors', 'MANO 2026', 'Testimonials', 'Contact'].map((link) => (
                 <li key={link}>
                   <a
                     href={`/${link.toLowerCase()}`}
@@ -941,6 +943,7 @@ function AppContent() {
       '/': 'home',
       '/courses': 'courses',
       '/instructor': 'instructor',
+      '/mano-2026': 'mano-2026',
       '/testimonials': 'testimonials',
       '/more': 'more',
       '/contact': 'contact'
@@ -956,6 +959,7 @@ function AppContent() {
       'home': '/',
       'courses': '/courses',
       'instructor': '/instructor',
+      'mano-2026': '/mano-2026',
       'testimonials': '/testimonials',
       'more': '/programme',
       'contact': '/contact'
@@ -1012,6 +1016,7 @@ function AppContent() {
               { id: 'home', label: 'Home' },
               { id: 'courses', label: 'Courses' },
               { id: 'instructor', label: 'Facilitators' },
+              { id: 'mano-2026', label: 'MANO 2026' },
               { id: 'testimonials', label: 'Testimonials' },
               { id: 'more', label: 'Programme' },
               { id: 'contact', label: 'Contact' }
@@ -1068,6 +1073,7 @@ function AppContent() {
                     { id: 'home', label: 'Home' },
                     { id: 'courses', label: 'Courses' },
                     { id: 'instructor', label: 'Facilitators' },
+                    { id: 'mano-2026', label: 'MANO 2026' },
                     { id: 'testimonials', label: 'Testimonials' },
                     { id: 'more', label: 'Programme' },
                     { id: 'contact', label: 'Contact' }
@@ -1254,6 +1260,18 @@ function AppContent() {
                 transition={{ duration: 0.5 }}
               >
                 <TestimonialsPage />
+              </motion.div>
+            )}
+
+            {currentPage === 'mano-2026' && (
+              <motion.div
+                key="mano-2026"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Mano2026Page />
               </motion.div>
             )}
 
