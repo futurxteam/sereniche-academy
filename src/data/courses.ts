@@ -176,5 +176,35 @@ export const courses: Course[] = [
       certification: "Certificate Course — Sereniche Academy",
       language: "Malayalam / English"
     }
+  },
+  {
+    id: 5,
+    type: 'online',
+    slug: 'strategic-diploma-school-counselling',
+    title: "Strategic Diploma in School Counselling",
+    description: "Finishing School for School Counsellors",
+    image: "/course-finishing school-online.jpg",
+    instructor: "Expert Faculty Panel",
+    duration: "03 Months",
+    level: "Psychology / Social Work",
+    price: "Contact for Details",
+    rating: 4.9,
+    reviews: 62,
+    fullDescription: "A fully online, 3-month Strategic Diploma in School Counselling. This programme is designed as a finishing school for school counsellors, providing an intensive 40-hour training breakdown with 35 hours of online sessions and 5 hours of practical school hours. The curriculum is meticulously crafted to cover every essential aspect of working with children and adolescents within a school system.",
+    highlights: [
+      "35 Hours of Online Sessions",
+      "05 Hours Practical School Hours",
+      "Mini Project Completion",
+      "Comprehensive modules on Child & Adolescent Development",
+      "Training in Learning, Behaviour & Neurodiversity",
+      "Practical focus on Collaboration and Consultation in Schools"
+    ],
+    whoThisIsFor: "Candidates from Psychology or Social Work backgrounds looking to specialize in school counselling and establish a firm foundation in educational and child psychology systems.",
+    formatDetails: {
+      mode: "Online Programme",
+      duration: "03 Months (40 Hours Total Training)",
+      language: "English / Malayalam",
+      certification: "Strategic Diploma in School Counselling"
+    }
   }
 ];
