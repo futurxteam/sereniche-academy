@@ -7,6 +7,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { Triangle, ArrowUpRight, Star, GraduationCap, User, Hexagon, Clock, BookOpen, Users, FileText, ArrowRight, ArrowLeft, Headphones, Brain, PenTool, BadgeCheck, BookMarked, Sparkles, Activity, Box, Layers, Circle, Building2, Stethoscope, CheckCircle2, Calendar, MonitorPlay, Mail, Globe, XCircle, Quote, Target, Award, Briefcase, MapPin, ShieldCheck, TrendingUp, HeartHandshake, FileCheck, Lightbulb, Check, Plus, Minus, Menu, X } from 'lucide-react';
 import { motion, useMotionValue, useTransform, animate, useInView, useScroll, AnimatePresence } from 'motion/react';
+import { FiBriefcase } from 'react-icons/fi';
 import LiveChat from './components/LiveChat';
 import InstructorPage from './pages/InstructorPage';
 import CoursesPage from './pages/CoursesPage';
@@ -498,7 +499,7 @@ const LightSection = ({ onNavigate }: { onNavigate: (page: string) => void }) =>
 const ProgramPositioningSection = () => {
   const stats = [
     { value: "50", label: "Intensive Days", icon: <Calendar className="w-6 h-6 text-purple-600" /> },
-
+    { value: "10+", label: "Years of Clinical Expertise", icon: <FiBriefcase className="w-6 h-6 text-purple-600" /> },
     { value: "#1", label: "In Kerala", icon: <Award className="w-6 h-6 text-purple-600" /> }
   ];
 
@@ -523,6 +524,15 @@ const ProgramPositioningSection = () => {
             className="text-gray-500 text-lg max-w-3xl mx-auto"
           >
             Transform your psychology degree into confident, real-world clinical practice    in just 50 days.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-gray-500 text-lg max-w-3xl mx-auto mt-4 font-medium"
+          >
+            Sereniche Academy operates within the Sereniche Centre for Behavioural Medicine at Futureace Hospital, Kerala the only finishing school in Kerala where your learning environment is an active, functioning mental health system.
           </motion.p>
         </div>
 

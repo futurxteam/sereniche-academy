@@ -105,7 +105,7 @@ const VideoShowcase = ({ onNavigate }: { onNavigate?: (page: string) => void }) 
 
             {/* Subtext */}
             <p className="text-lg md:text-xl text-gray-500 leading-relaxed mb-12">
-              Sereniche Academy operates within the Sereniche Centre for Behaviour Medicine, Futureace Hospital, Kerala    the only finishing school in Kerala where your learning environment is an active, functioning mental health system.
+              Sereniche AcaSereniche Academy operates within the Sereniche Centre for Behavioural Medicine at Futureace Hospital, Kerala the only finishing school in Kerala where your learning environment is an active, functioning mental health system.
             </p>
 
             {/* Feature Bullets */}

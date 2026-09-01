@@ -4,6 +4,26 @@ import { User, X, ArrowRight, BookOpen, Star, Award, Briefcase } from 'lucide-re
 
 const instructors = [
   {
+    id: 9,
+    name: "Mr. Miqdad Sulaiman",
+    title: "Founder & Psychologist\nTera Wellbeing",
+    image: "/Miqdad Sulaiman.jpg",
+    bio: "Founder & Psychologist at Tera Wellbeing.",
+    expertise: [],
+    experience: "",
+    courses: []
+  },
+  {
+    id: 10,
+    name: "Ashritha",
+    title: "Counselling Psychologist",
+    image: "/Ashritha.jpg",
+    bio: "Ashritha is a Counselling Psychologist with over five years of experience designing and delivering experiential training programmes across higher education institutions, schools, corporate organisations, and mental health settings. She has facilitated over 300 workshops for audiences ranging from small groups to 1,000+ participants on communication, emotional intelligence, workplace wellbeing, leadership, interpersonal effectiveness, and professional development. She is passionate about equipping students with practical workplace skills that enhance confidence, employability, and career readiness through engaging, evidence-informed, and learner-centred training.",
+    expertise: [],
+    experience: "5+ Years",
+    courses: []
+  },
+  {
     id: 5,
     name: "Dr. Femi",
     title: "MBBS, MD Psychiatry, Fellowship in Sexual Medicine | Consultant Psychiatrist",

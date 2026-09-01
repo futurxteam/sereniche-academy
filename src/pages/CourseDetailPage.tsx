@@ -94,10 +94,18 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Who This Is For</h2>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  {course.whoThisIsFor}
-                </p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Who Should Enrol</h2>
+                {Array.isArray(course.whoThisIsFor) ? (
+                  <ul className="list-disc pl-5 text-gray-600 text-lg leading-relaxed space-y-2">
+                    {course.whoThisIsFor.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    {course.whoThisIsFor}
+                  </p>
+                )}
               </section>
 
               {course.trackOptions && (

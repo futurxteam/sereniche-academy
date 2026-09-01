@@ -14,7 +14,7 @@ export interface Course {
   fullDescription: string;
   highlights: string[];
   trackOptions?: { title: string; description: string; }[];
-  whoThisIsFor: string;
+  whoThisIsFor: string | string[];
   formatDetails: {
     mode: string;
     duration: string;
@@ -155,7 +155,7 @@ export const courses: Course[] = [
     price: "Contact for Details",
     rating: 4.9,
     reviews: 42,
-    fullDescription: "A practical certificate course introducing art therapy and expressive arts to candidates from Psychology or Social Work backgrounds. Spanning 30 hours of live online sessions with recorded sessions available, this programme covers therapeutic expression, creative interventions, and meaningful case discussions — all delivered through hands-on experiential learning. Participants will explore the intersection of creativity and psychological healing, developing skills to facilitate art-based therapeutic processes across diverse populations.",
+    fullDescription: "A practical certificate course introducing Art Therapy and expressive arts to candidates from Psychology or Social Work backgrounds. Spanning 30 hours of live online sessions with recorded sessions available, this programme covers therapeutic expression, creative interventions, and meaningful case discussions — all delivered through hands-on experiential learning. Participants will explore the intersection of creativity and psychological healing, developing skills to facilitate art-based therapeutic processes across diverse populations. It is made clear that expressive-arts and Art Therapy skills are an integral part of the learning focus.",
     highlights: [
       "30 hours of structured live online sessions",
       "Recorded sessions available for flexible learning",
@@ -168,7 +168,12 @@ export const courses: Course[] = [
       "Case discussions and treatment planning in art therapy",
       "Certificate of completion from Sereniche Academy"
     ],
-    whoThisIsFor: "Candidates from a Psychology or Social Work background who wish to integrate creative and expressive arts into their therapeutic practice. Ideal for counsellors, psychologists, social workers, and mental health students seeking a structured foundation in art therapy.",
+    whoThisIsFor: [
+      "UG & PG students of Psychology and Medical Social Work (MSW)",
+      "Practicing counsellors, psychologists, and special educators",
+      "Working professionals in schools, NGOs, and corporate wellness",
+      "Professionals looking to add expressive-arts skills"
+    ],
     formatDetails: {
       mode: "Live Online",
       duration: "1 Month (30 Hours)",
