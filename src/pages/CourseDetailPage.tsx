@@ -45,6 +45,8 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
           Back to Courses
         </Link>
 
+
+
         <div className="bg-white border border-gray-100 rounded-[32px] overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.03)]">
           {/* Hero Section */}
           <div className="h-64 sm:h-[400px] relative w-full">

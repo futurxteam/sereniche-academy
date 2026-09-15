@@ -16,7 +16,6 @@ import Mano2026Page from './pages/Mano2026Page';
 import MorePage from './pages/MorePage';
 import ContactPage from './pages/ContactPage';
 import CourseDetailPage from './pages/CourseDetailPage';
-import ABATCoursePage from './pages/ABATCoursePage';
 import VideoShowcase from './components/VideoShowcase';
 
 
@@ -1108,7 +1107,6 @@ function AppContent() {
       </motion.nav>
 
       <Routes>
-        <Route path="/courses/applied-behaviour-analysis-technician" element={<ABATCoursePage onNavigate={setCurrentPage} />} />
         <Route path="/courses/:slug" element={<CourseDetailPage onNavigate={setCurrentPage} />} />
         <Route path="*" element={
           <AnimatePresence mode="wait">
@@ -1220,29 +1218,7 @@ function AppContent() {
                 {/* Mobile Alumni Carousel */}
                 <MobileCarousel />
 
-                {/* QABA Accreditation Status Notice */}
-                <div className="w-full py-6">
-                  <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="relative flex items-start gap-4 bg-[#FAF8FF] border border-[#7C3AED]/10 rounded-2xl px-6 py-5 shadow-[0_2px_12px_rgba(124,58,237,0.04)] overflow-hidden">
-                      {/* Gold left accent bar */}
-                      <div className="absolute left-0 top-0 h-full w-[3px] bg-[#C4A661] rounded-l-2xl" />
-                      <div className="flex items-start gap-4 relative w-full">
-                        {/* Icon */}
-                        <div className="flex-shrink-0 mt-0.5">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-[#C4A661]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-                          </svg>
-                        </div>
-                        {/* Text */}
-                        <p className="text-[#2D3148] text-sm leading-relaxed">
-                          Sereniche Academy is currently in the process of obtaining{' '}
-                          <span className="font-semibold text-[#6D28D9]">QABA Approved Coursework Provider</span>{' '}
-                          status. Our programme is designed in full alignment with QABA standards and competency requirements. Students who enrol now will receive their Certificate of Completion upon QABA approval being granted.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
 
                 {/* Program Positioning Section */}
                 <ProgramPositioningSection />

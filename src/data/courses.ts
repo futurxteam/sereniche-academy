@@ -15,6 +15,7 @@ export interface Course {
   highlights: string[];
   trackOptions?: { title: string; description: string; }[];
   whoThisIsFor: string | string[];
+  notices?: string[];
   formatDetails: {
     mode: string;
     duration: string;
@@ -222,7 +223,7 @@ export const courses: Course[] = [
     instructor: "Expert Faculty Panel",
     duration: "2–3 Months",
     level: "Bachelor's degree min.",
-    price: "₹28,000",
+    price: "Contact for Details",
     rating: 5.0,
     reviews: 0,
     fullDescription: "The ABAT (Applied Behaviour Analysis Technician) certification, awarded by the QABA Board (USA), is an internationally recognised entry-level credential for professionals working in Applied Behaviour Analysis and autism services. It qualifies holders to implement evidence-based behaviour interventions under the supervision of a certified professional in clinical, educational, and community settings.",
@@ -237,6 +238,9 @@ export const courses: Course[] = [
     whoThisIsFor: [
       "Minimum Age: 18 years",
       "Minimum Qualification: Bachelor's degree in any discipline from a recognised university"
+    ],
+    notices: [
+      "Sereniche Academy is currently in the process of obtaining QABA Approved Coursework Provider status. Our programme is designed in full alignment with QABA standards and competency requirements. Students who enrol now will receive their Certificate of Completion upon QABA approval being granted."
     ],
     formatDetails: {
       mode: "Online (Live & Self-paced)",
