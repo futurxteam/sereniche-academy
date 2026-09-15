@@ -211,5 +211,38 @@ export const courses: Course[] = [
       language: "English / Malayalam",
       certification: "Strategic Diploma in School Counselling"
     }
+  },
+  {
+    id: 6,
+    type: 'online',
+    slug: 'applied-behaviour-analysis-technician',
+    title: "Applied Behaviour Analysis Technician (ABAT)",
+    description: "An internationally recognised certification in Applied Behaviour Analysis.",
+    image: "/course-abat.jpg",
+    instructor: "Expert Faculty Panel",
+    duration: "2–3 Months",
+    level: "Bachelor's degree min.",
+    price: "₹28,000",
+    rating: 5.0,
+    reviews: 0,
+    fullDescription: "The ABAT (Applied Behaviour Analysis Technician) certification, awarded by the QABA Board (USA), is an internationally recognised entry-level credential for professionals working in Applied Behaviour Analysis and autism services. It qualifies holders to implement evidence-based behaviour interventions under the supervision of a certified professional in clinical, educational, and community settings.",
+    highlights: [
+      "40 Hours Coursework",
+      "15 Hours Supervised Fieldwork",
+      "Core principles and theories of Applied Behaviour Analysis (ABA)",
+      "Behaviour assessment techniques and functional behaviour analysis",
+      "Data collection methods and progress monitoring",
+      "Designing and implementing individualised behaviour intervention plans"
+    ],
+    whoThisIsFor: [
+      "Minimum Age: 18 years",
+      "Minimum Qualification: Bachelor's degree in any discipline from a recognised university"
+    ],
+    formatDetails: {
+      mode: "Online (Live & Self-paced)",
+      duration: "2–3 Months",
+      certification: "QABA Board, USA (pending approval)",
+      language: "English"
+    }
   }
 ];

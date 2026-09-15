@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FaFilePdf, FaArrowRight, FaBookOpen, FaUserMd, FaUsers, FaStethoscope, FaBrain } from 'react-icons/fa';
-import { MdOutlineTopic } from 'react-icons/md';
 
 const pdfResources = [
   {
@@ -41,7 +40,7 @@ const pdfResources = [
     icon: FaUsers
   },
   {
-    title: 'How Psychotherapy Is Evolving — Panel',
+    title: 'How Psychotherapy Is Evolving  Panel',
     filename: 'How Psychotherapy Is Evolving - Panel Discussion.pdf',
     category: 'Panel Discussion',
     icon: FaUsers
@@ -71,7 +70,7 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
@@ -98,99 +97,130 @@ export default function Mano2026Page() {
 
     const interval = setInterval(() => {
       setCurrentLogoIndex((prev) => (prev + 1) % manoLogos.length);
-    }, 2000);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="pt-32 pb-32 min-h-screen bg-[#FFFDF7] relative z-10 overflow-hidden font-sans">
+    <div className="pt-28 pb-32 min-h-screen bg-[#FDFBF7] text-[#1C2434] relative z-10 font-sans selection:bg-[#2F1B41] selection:text-[#FDFBF7]">
+      
+      {/* Subtle paper/texture pattern (CSS dot pattern) */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.03]" 
+        style={{ backgroundImage: 'radial-gradient(#1C2434 1px, transparent 1px)', backgroundSize: '40px 40px' }}
+      ></div>
 
-      {/* =========================================
-          BACKGROUND GLOWS (Very Subtle Purple + Gold)
-      ========================================= */}
-      <div className="absolute top-[5%] left-[5%] w-[600px] h-[600px] bg-[#6C3FC7]/[0.03] blur-[100px] rounded-full pointer-events-none" />
-      <div className="absolute top-[20%] right-[-10%] w-[700px] h-[700px] bg-[#F4C430]/[0.04] blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[5%] left-[20%] w-[800px] h-[800px] bg-[#8B5CF6]/[0.02] blur-[150px] rounded-full pointer-events-none" />
-
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-
+      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        
         {/* =========================================
-            HERO / INTRO SECTION 
+            HERO / INTRODUCTION (Dramatic Asymmetrical Layout)
         ========================================= */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-24 flex flex-col items-center text-center"
-        >
-          {/* Eyebrow */}
-          <div className="inline-block border border-[#F4C430]/50 bg-[#FFD84D]/10 text-[#6C3FC7] px-5 py-2 rounded-full text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-8 shadow-sm backdrop-blur-sm">
-            MANO • KERALA PSYCHOLOGY CONCLAVE • 2026
+        <div className="relative pt-12 pb-24 md:pt-24 md:pb-32 mb-16 border-b border-[#C4A661]/30">
+          
+          {/* Subtle Background Motif: Oversized "M" & Neural/Flowing Curve */}
+          <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none select-none z-0">
+             {/* Oversized Abstract "M" */}
+             <div 
+                className="absolute -top-10 right-[-10%] md:right-[-5%] text-[25rem] md:text-[45rem] text-[#2F1B41] opacity-[0.02] leading-none"
+                style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontWeight: 900 }}
+             >
+                M
+             </div>
+             
+             {/* Custom subtle neural/backwater line art (SVG) */}
+             <svg className="absolute inset-0 w-full h-full opacity-40" viewBox="0 0 100 100" preserveAspectRatio="none">
+               <path d="M0,50 Q25,20 50,50 T100,50" fill="none" stroke="#C4A661" strokeWidth="0.1" className="opacity-40" />
+               <path d="M0,60 Q35,10 60,60 T100,60" fill="none" stroke="#2F1B41" strokeWidth="0.05" className="opacity-30" />
+               <path d="M0,40 Q15,80 40,40 T100,40" fill="none" stroke="#C4A661" strokeWidth="0.05" className="opacity-30" />
+               <path d="M20,0 Q30,50 80,100" fill="none" stroke="#2F1B41" strokeWidth="0.03" className="opacity-20" />
+             </svg>
           </div>
 
-          {/* Heading and Logo */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 mb-12">
-            <h1
-              className="text-6xl md:text-7xl lg:text-[5.5rem] font-bold text-[#6C3FC7] tracking-tight leading-[0.9] relative inline-block"
-              style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-            >
-              MANO 2026
-              {/* Subtle Golden Accent */}
-              <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1/3 h-1.5 bg-gradient-to-r from-transparent via-[#F4C430] to-transparent rounded-full opacity-70" />
-            </h1>
-
-            <div className="relative w-32 h-16 md:w-48 md:h-24 flex items-center justify-center flex-shrink-0">
-              <AnimatePresence>
-                <motion.img
-                  key={currentLogoIndex}
-                  src={manoLogos[currentLogoIndex]}
-                  alt="MANO Logo"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 w-full h-full object-contain"
-                />
-              </AnimatePresence>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+            
+            {/* Left: Brand Identity */}
+            <div className="lg:col-span-5 flex flex-col justify-center">
+               <div className="mb-8">
+                 <span className="text-[10px] md:text-xs font-bold tracking-[0.3em] text-[#C4A661] uppercase border-b border-[#C4A661]/30 pb-2 inline-block">
+                   KERALA PSYCHOLOGY CONCLAVE
+                 </span>
+               </div>
+               
+               <div className="flex items-start">
+                 <h1 
+                    className="text-[5.5rem] md:text-[8rem] lg:text-[9rem] leading-[0.8] text-[#2F1B41]" 
+                    style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontWeight: 700, letterSpacing: '-0.02em' }}
+                 >
+                   MANO
+                 </h1>
+                 <div className="ml-2 md:ml-4 mt-2 md:mt-3 text-2xl md:text-3xl lg:text-4xl font-light text-[#4A5568] tracking-[0.3em] [writing-mode:vertical-rl] rotate-180">
+                   2026
+                 </div>
+               </div>
+               
+               <div className="mt-10">
+                 <span className="text-[9px] md:text-[10px] font-bold tracking-[0.25em] text-[#4A5568] uppercase bg-white/50 backdrop-blur-sm px-4 py-2 border border-[#C4A661]/30 shadow-sm">
+                   02 DAYS • RESIDENTIAL CONCLAVE
+                 </span>
+               </div>
             </div>
-          </div>
 
-          {/* Premium Intro Card */}
-          <div className="max-w-4xl w-full bg-white rounded-[1.5rem] p-8 md:p-12 shadow-[0_4px_30px_rgba(108,63,199,0.06)] border border-[#6C3FC7]/10 relative overflow-hidden text-left">
-            {/* Golden Top Accent Line */}
-            <div className="absolute top-0 left-0 w-full h-1.5 bg-[#F4C430]" />
-
-            <div className="relative z-10 space-y-8 text-[#374151] text-[1.1rem] md:text-xl leading-[1.8] font-medium">
-              <p>
-                MANO: Kerala Psychology Conclave is a 2-Day Residential Conclave organized by <span className="font-bold text-[#6C3FC7]">Sereniche Academy</span> in association with the <span className="font-bold text-[#6C3FC7]">PG Department of Psychology</span>, <span className="font-bold text-[#6C3FC7]">KMM College of Arts and Science</span>.
-              </p>
-              <p>
-                The conclave bridges the gap between academic learning and real-world professional psychology practice, bringing together 250+ psychology students, educators, researchers, clinicians, counsellors, and industry professionals from across Kerala.
-              </p>
+            {/* Vertical Divider (Hidden on mobile, visible on lg) */}
+            <div className="hidden lg:flex lg:col-span-1 justify-center">
+               <div className="w-[1px] h-full bg-gradient-to-b from-transparent via-[#C4A661]/50 to-transparent"></div>
             </div>
+
+            {/* Right: Information Panel & Logo */}
+            <div className="lg:col-span-6 flex flex-col justify-center border-t border-[#C4A661]/20 lg:border-t-0 pt-10 lg:pt-0">
+               
+               {/* Logo Top Right */}
+               <div className="flex justify-start lg:justify-end mb-12">
+                  <div className="h-20 w-40 md:h-28 md:w-56 relative">
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        key={currentLogoIndex}
+                        src={manoLogos[currentLogoIndex]}
+                        alt="MANO Logo"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="absolute inset-0 w-full h-full object-contain scale-110"
+                      />
+                    </AnimatePresence>
+                  </div>
+               </div>
+
+               {/* Intro Text */}
+               <div className="space-y-8 text-[#2D3748] text-lg md:text-xl leading-[1.9] md:leading-[2.1] font-light">
+                 <p className="first-letter:text-6xl first-letter:font-bold first-letter:text-[#2F1B41] first-letter:mr-2 first-letter:float-left first-letter:leading-[0.8] first-letter:font-serif">
+                   MANO: Kerala Psychology Conclave is a 2-Day Residential Conclave organized by <span className="font-semibold text-[#2F1B41]">Sereniche Academy</span> in association with the <span className="font-semibold text-[#2F1B41]">PG Department of Psychology</span>, <span className="font-semibold text-[#2F1B41]">KMM College of Arts and Science</span>.
+                 </p>
+                 <p>
+                   The conclave bridges the gap between academic learning and real-world professional psychology practice, bringing together 250+ psychology students, educators, researchers, clinicians, counsellors, and industry professionals from across Kerala.
+                 </p>
+               </div>
+               
+            </div>
+
           </div>
-        </motion.div>
+        </div>
 
         {/* =========================================
             RESOURCE SECTION HEADER
         ========================================= */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 text-center flex flex-col items-center"
-        >
-          <h2 className="text-4xl md:text-5xl font-black text-[#6C3FC7] tracking-tight leading-none mb-4">
+        <div className="mb-12 border-l-2 border-[#C4A661] pl-6 md:pl-8 py-2">
+          <h2 
+            className="text-3xl md:text-[2.5rem] font-bold text-[#2F1B41] leading-tight mb-3" 
+            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+          >
             MANO Resources
           </h2>
-          {/* Golden underline */}
-          <div className="h-1 w-20 bg-[#F4C430] rounded-full mb-6" />
-          <p className="text-[#8B5CF6] font-bold tracking-widest text-sm uppercase">
+          <p className="text-[10px] md:text-xs font-semibold tracking-[0.25em] uppercase text-[#718096]">
             SESSIONS • WORKSHOPS • PANELS • RESEARCH
           </p>
-        </motion.div>
+        </div>
 
         {/* =========================================
             PDF CARDS GRID
@@ -200,64 +230,53 @@ export default function Mano2026Page() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {pdfResources.map((resource, index) => {
             const CategoryIcon = resource.icon;
 
             return (
               <motion.div key={index} variants={cardVariants} className="h-full">
-                <div className="bg-white rounded-[24px] p-8 h-full flex flex-col border border-[#6C3FC7]/15 shadow-[0_4px_15px_rgba(108,63,199,0.03)] hover:shadow-[0_15px_35px_rgba(108,63,199,0.08)] hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden cursor-pointer group/card">
-
-                  {/* Decorative golden accent appearing on hover */}
-                  <div className={`absolute top-0 left-0 w-full h-1 bg-transparent group-hover:bg-[#F4C430] transition-colors duration-300`} />
-
-                  {/* Header: Icon & Badge */}
-                  <div className="flex items-start justify-between mb-8 relative z-10">
-                    <div className="relative">
-                      {/* Premium Icon Container - Very light purple */}
-                      <div className="w-16 h-16 bg-[#6C3FC7]/[0.05] border border-[#6C3FC7]/10 text-[#6C3FC7] rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 relative z-10">
-                        <FaFilePdf className="w-8 h-8" />
+                <a
+                  href={`/${resource.filename}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-full group"
+                >
+                  <div className="bg-white h-full p-8 flex flex-col border border-[#E2E8F0] hover:border-[#2F1B41]/30 transition-all duration-500 relative overflow-hidden group-hover:shadow-[0_10px_40px_-10px_rgba(47,27,65,0.1)]">
+                    
+                    {/* Thin top accent on hover */}
+                    <div className="absolute top-0 left-0 w-full h-[2px] bg-transparent group-hover:bg-[#C4A661] transition-colors duration-500" />
+                    
+                    <div className="flex justify-between items-start mb-6">
+                      <div className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#C4A661]">
+                        {resource.category}
+                      </div>
+                      <div className="text-[#A0AEC0] group-hover:text-[#2F1B41] transition-colors duration-300">
+                        <FaFilePdf className="w-5 h-5" />
                       </div>
                     </div>
 
-                    {/* Small gold PDF badge */}
-                    <span className="bg-[#FFD84D]/20 text-[#B8860B] text-xs font-black px-3 py-1.5 rounded-full border border-[#F4C430]/30 tracking-wide shadow-sm flex items-center">
-                      PDF
-                    </span>
-                  </div>
+                    <div className="mb-8 flex-grow">
+                      <h3 
+                        className="text-xl md:text-2xl font-bold text-[#1C2434] leading-snug group-hover:text-[#2F1B41] transition-colors duration-300"
+                        style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+                      >
+                        {resource.title}
+                      </h3>
+                    </div>
 
-                  {/* Content area */}
-                  <div className="mb-6 flex-grow relative z-10">
-                    <h3 className="text-[1.35rem] font-bold text-[#111827] leading-tight mb-2 group-hover:text-[#6C3FC7] transition-colors duration-300">
-                      {resource.title}
-                    </h3>
-                    <div className="flex items-center gap-1.5 text-[#8B5CF6] text-xs font-bold uppercase tracking-widest opacity-80">
-                      {resource.category} • MANO 2026
+                    <div className="flex items-center gap-3 text-xs font-semibold tracking-widest uppercase text-[#718096] group-hover:text-[#2F1B41] transition-colors duration-300">
+                      <span>View Document</span>
+                      <FaArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
-
-                  {/* Divider */}
-                  <div className="h-px w-full bg-[#6C3FC7]/10 mb-6 relative z-10" />
-
-                  {/* Action Button */}
-                  <a
-                    href={`/${resource.filename}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-[#6C3FC7] text-white px-5 py-3.5 rounded-xl font-bold text-sm flex items-center justify-between w-full relative z-10 overflow-hidden group/btn hover:bg-[#5833A2] transition-colors duration-300 border border-transparent hover:border-[#F4C430]/50"
-                  >
-                    {/* Golden subtle hover glow inside button */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F4C430]/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700 ease-out" />
-
-                    <span className="relative z-10">View Session</span>
-                    <FaArrowRight className="w-4 h-4 text-[#FFD84D] group-hover/btn:translate-x-1 transition-transform duration-300 relative z-10" />
-                  </a>
-                </div>
+                </a>
               </motion.div>
             );
           })}
         </motion.div>
+
       </div>
     </div>
   );
