@@ -978,8 +978,14 @@ function AppContent() {
     };
     // Only navigate if we're not already on the correct path
     if (stateMap[currentPage] && location.pathname !== stateMap[currentPage]) {
-      // Prevent redirecting to /courses if we are already seeing a specific course
-      if (location.pathname.startsWith('/courses/') && currentPage === 'courses') {
+      // Prevent redirecting to /courses if we are already seeing a specific course or dedicated standalone page
+      if (
+        (location.pathname.startsWith('/courses/') ||
+         location.pathname === '/payment' ||
+         location.pathname === '/payment/abat' ||
+         location.pathname === '/refund-policy') &&
+        currentPage === 'courses'
+      ) {
         return;
       }
       navigate(stateMap[currentPage]);
@@ -1017,7 +1023,10 @@ function AppContent() {
           {/* Logo */}
           <div
             className="flex items-center pl-2 cursor-pointer"
-            onClick={() => setCurrentPage('home')}
+            onClick={() => {
+              navigate('/');
+              setCurrentPage('home');
+            }}
           >
             <img src="/logo.png" alt="Sereniche Academy" className="h-10 w-auto" />
           </div>
@@ -1035,7 +1044,21 @@ function AppContent() {
             ].map((item) => (
               <button
                 key={item.id}
-                onClick={() => setCurrentPage(item.id)}
+                onClick={() => {
+                  const stateMap: Record<string, string> = {
+                    'home': '/',
+                    'courses': '/courses',
+                    'instructor': '/instructor',
+                    'mano-2026': '/mano-2026',
+                    'testimonials': '/testimonials',
+                    'more': '/programme',
+                    'contact': '/contact'
+                  };
+                  if (location.pathname !== stateMap[item.id]) {
+                    navigate(stateMap[item.id]);
+                  }
+                  setCurrentPage(item.id);
+                }}
                 className={`relative px-1 py-2 transition-all duration-300 ${currentPage === item.id ? 'text-purple-600' : 'hover:text-purple-600 text-gray-600'}`}
               >
                 {item.label}
@@ -1093,6 +1116,18 @@ function AppContent() {
                     <button
                       key={item.id}
                       onClick={() => {
+                        const stateMap: Record<string, string> = {
+                          'home': '/',
+                          'courses': '/courses',
+                          'instructor': '/instructor',
+                          'mano-2026': '/mano-2026',
+                          'testimonials': '/testimonials',
+                          'more': '/programme',
+                          'contact': '/contact'
+                        };
+                        if (location.pathname !== stateMap[item.id]) {
+                          navigate(stateMap[item.id]);
+                        }
                         setCurrentPage(item.id);
                         setIsMenuOpen(false);
                       }}
@@ -1110,6 +1145,7 @@ function AppContent() {
 
       <Routes>
         <Route path="/courses/:slug" element={<CourseDetailPage onNavigate={setCurrentPage} />} />
+        <Route path="/payment" element={<PaymentPage onNavigate={setCurrentPage} />} />
         <Route path="/payment/abat" element={<PaymentPage onNavigate={setCurrentPage} />} />
         <Route path="/refund-policy" element={<RefundPolicyPage onNavigate={setCurrentPage} />} />
         <Route path="*" element={

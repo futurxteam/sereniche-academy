@@ -125,7 +125,7 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
                 {course.slug === 'applied-behaviour-analysis-technician' && (
                   <div className="mt-6 flex flex-wrap items-center gap-4">
                     <button
-                      onClick={() => navigate('/payment/abat')}
+                      onClick={() => navigate('/payment')}
                       className="bg-[#7C3AED] hover:bg-purple-700 text-white py-4 px-8 rounded-2xl font-bold text-lg transition-all duration-300 shadow-[0_10px_20px_rgba(124,58,237,0.2)] hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(124,58,237,0.4)] flex items-center justify-center gap-2 group"
                     >
                       Payment

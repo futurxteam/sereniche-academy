@@ -10,10 +10,7 @@ export default function PaymentPage({ onNavigate }: { onNavigate?: (page: string
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (onNavigate) {
-      onNavigate('courses');
-    }
-  }, [onNavigate]);
+  }, []);
 
   if (!course) return null;
 
