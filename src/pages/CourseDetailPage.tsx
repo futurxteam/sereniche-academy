@@ -68,6 +68,34 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
               <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
                 {course.title}
               </h1>
+
+              {course.slug === 'applied-behaviour-analysis-technician' && (
+                <div className="mt-2 overflow-hidden">
+                  <div
+                    className="flex whitespace-nowrap py-1"
+                    style={{
+                      animation: 'abat-ticker 22s linear infinite',
+                    }}
+                  >
+                    {[0, 1, 2].map((i) => (
+                      <span
+                        key={i}
+                        className="inline-flex items-center gap-3 px-6 text-sm font-semibold shrink-0"
+                        style={{ color: '#b8860b', textShadow: '0 0 8px rgba(212,168,67,0.3)' }}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: '#d4a843' }} />
+                        Sereniche Academy is currently in the process of obtaining QABA Approved Coursework Provider status. Our programme is designed in full alignment with QABA standards and competency requirements. Students who enrol now will receive their Certificate of Completion upon QABA approval being granted.
+                      </span>
+                    ))}
+                  </div>
+                  <style>{`
+                    @keyframes abat-ticker {
+                      0% { transform: translateX(0); }
+                      100% { transform: translateX(-33.333%); }
+                    }
+                  `}</style>
+                </div>
+              )}
             </div>
           </div>
 
@@ -93,6 +121,24 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
                     </div>
                   ))}
                 </div>
+
+                {course.slug === 'applied-behaviour-analysis-technician' && (
+                  <div className="mt-6 flex flex-wrap items-center gap-4">
+                    <button
+                      onClick={() => navigate('/payment/abat')}
+                      className="bg-[#7C3AED] hover:bg-purple-700 text-white py-4 px-8 rounded-2xl font-bold text-lg transition-all duration-300 shadow-[0_10px_20px_rgba(124,58,237,0.2)] hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(124,58,237,0.4)] flex items-center justify-center gap-2 group"
+                    >
+                      Payment
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                    <button
+                      onClick={() => navigate('/refund-policy')}
+                      className="text-sm font-semibold text-purple-600 hover:text-purple-800 hover:underline transition-colors py-4 px-2"
+                    >
+                      Refund Policy
+                    </button>
+                  </div>
+                )}
               </section>
 
               <section>

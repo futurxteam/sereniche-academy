@@ -223,7 +223,7 @@ export const courses: Course[] = [
     instructor: "Expert Faculty Panel",
     duration: "2–3 Months",
     level: "Bachelor's degree min.",
-    price: "Contact for Details",
+    price: "₹28,000",
     rating: 5.0,
     reviews: 0,
     fullDescription: "The ABAT (Applied Behaviour Analysis Technician) certification, awarded by the QABA Board (USA), is an internationally recognised entry-level credential for professionals working in Applied Behaviour Analysis and autism services. It qualifies holders to implement evidence-based behaviour interventions under the supervision of a certified professional in clinical, educational, and community settings.",

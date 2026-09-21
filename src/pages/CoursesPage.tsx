@@ -58,10 +58,7 @@ export default function CoursesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.4 }}
-            onClick={() => {
-              if (course.slug === 'applied-behaviour-analysis-technician') return;
-              navigate(`/courses/${course.slug}`);
-            }}
+            onClick={() => navigate(`/courses/${course.slug}`)}
             className="bg-white border border-gray-100 rounded-[32px] overflow-hidden flex flex-col cursor-pointer hover:-translate-y-2 hover:border-purple-200 hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition-all duration-500 group"
           >
             <div className="h-56 overflow-hidden relative">

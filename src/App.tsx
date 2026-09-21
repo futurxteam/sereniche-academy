@@ -16,6 +16,8 @@ import Mano2026Page from './pages/Mano2026Page';
 import MorePage from './pages/MorePage';
 import ContactPage from './pages/ContactPage';
 import CourseDetailPage from './pages/CourseDetailPage';
+import PaymentPage from './pages/PaymentPage';
+import RefundPolicyPage from './pages/RefundPolicyPage';
 import VideoShowcase from './components/VideoShowcase';
 
 
@@ -1108,6 +1110,8 @@ function AppContent() {
 
       <Routes>
         <Route path="/courses/:slug" element={<CourseDetailPage onNavigate={setCurrentPage} />} />
+        <Route path="/payment/abat" element={<PaymentPage onNavigate={setCurrentPage} />} />
+        <Route path="/refund-policy" element={<RefundPolicyPage onNavigate={setCurrentPage} />} />
         <Route path="*" element={
           <AnimatePresence mode="wait">
             {currentPage === 'home' && (
