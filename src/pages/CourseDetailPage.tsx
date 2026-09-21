@@ -47,57 +47,86 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
 
 
 
-        <div className="bg-white border border-gray-100 rounded-[32px] overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.03)]">
+        <div className="bg-white border border-slate-100/80 rounded-[32px] overflow-hidden shadow-[0_16px_48px_rgba(15,23,42,0.05),0_2px_8px_rgba(15,23,42,0.03)]">
           {/* Hero Section */}
-          <div className="h-64 sm:h-[400px] relative w-full">
+          <div className="relative w-full h-[320px] sm:h-[420px] lg:h-[480px] overflow-hidden bg-slate-900">
             <img
               src={course.image}
               alt={course.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-[center_30%] filter brightness-[0.96] transition-transform duration-700 hover:scale-[1.01]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-60" />
-            <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-white to-transparent">
-              <div className="flex flex-wrap items-center gap-4 text-sm font-bold text-purple-600 uppercase tracking-wider mb-3">
-                <span className="flex items-center gap-1.5 bg-purple-50 px-3 py-1 rounded-full border border-purple-100">
-                  <Clock className="w-4 h-4" /> {course.duration}
+            {/* Subtle dark-to-transparent gradient over top/middle for calm depth */}
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-transparent to-transparent pointer-events-none" />
+            
+            {/* Subtle white gradient behind heading and badges for pristine readability */}
+            <div className="absolute inset-x-0 bottom-0 h-44 sm:h-56 bg-gradient-to-t from-white via-white/85 to-transparent pointer-events-none" />
+
+            {/* Content overlay on the lower portion of the hero */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-end">
+              {/* Badges positioned near lower-left as elegant compact glass/white pills */}
+              <div className="flex flex-wrap items-center gap-2.5 mb-3 sm:mb-4">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-xs font-semibold tracking-wider text-purple-900 shadow-sm border border-purple-100/80 ring-1 ring-amber-400/20">
+                  <Clock className="w-3.5 h-3.5 text-purple-600 stroke-[2]" />
+                  <span className="uppercase">{course.duration}</span>
                 </span>
-                <span className="flex items-center gap-1.5 bg-purple-50 px-3 py-1 rounded-full border border-purple-100">
-                  <Activity className="w-4 h-4" /> {course.level}
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-xs font-semibold tracking-wider text-purple-900 shadow-sm border border-purple-100/80 ring-1 ring-amber-400/20">
+                  <Activity className="w-3.5 h-3.5 text-purple-600 stroke-[2]" />
+                  <span className="uppercase">{course.level}</span>
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
+
+              {/* Large, bold, highly readable deep navy typography */}
+              <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-bold text-[#0f172a] leading-[1.2] tracking-tight max-w-4xl">
                 {course.title}
               </h1>
-
-              {course.slug === 'applied-behaviour-analysis-technician' && (
-                <div className="mt-2 overflow-hidden">
-                  <div
-                    className="flex whitespace-nowrap py-1"
-                    style={{
-                      animation: 'abat-ticker 22s linear infinite',
-                    }}
-                  >
-                    {[0, 1, 2].map((i) => (
-                      <span
-                        key={i}
-                        className="inline-flex items-center gap-3 px-6 text-sm font-semibold shrink-0"
-                        style={{ color: '#b8860b', textShadow: '0 0 8px rgba(212,168,67,0.3)' }}
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: '#d4a843' }} />
-                        Sereniche Academy is currently in the process of obtaining QABA Approved Coursework Provider status. Our programme is designed in full alignment with QABA standards and competency requirements. Students who enrol now will receive their Certificate of Completion upon QABA approval being granted.
-                      </span>
-                    ))}
-                  </div>
-                  <style>{`
-                    @keyframes abat-ticker {
-                      0% { transform: translateX(0); }
-                      100% { transform: translateX(-33.333%); }
-                    }
-                  `}</style>
-                </div>
-              )}
             </div>
           </div>
+
+          {/* QABA Information Strip directly below hero image */}
+          {course.slug === 'applied-behaviour-analysis-technician' && (
+            <div className="bg-gradient-to-r from-amber-50/70 via-amber-50/40 to-purple-50/30 py-3.5 sm:py-4 overflow-hidden relative">
+              <div className="flex w-max qaba-marquee-track">
+                {[0, 1].map((groupIndex) => (
+                  <div key={groupIndex} className="flex items-center shrink-0">
+                    {[0, 1].map((itemIndex) => (
+                      <div
+                        key={itemIndex}
+                        className="inline-flex items-center gap-3 px-8 text-xs sm:text-sm leading-relaxed text-slate-700 whitespace-nowrap shrink-0"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0 ring-4 ring-amber-500/20" />
+                        <span>
+                          <span className="font-semibold text-slate-900">Sereniche Academy</span> is currently in the process of obtaining{' '}
+                          <span className="font-bold text-[#b45309]">QABA Approved Coursework Provider status</span>. Our programme is designed in full alignment with QABA standards and competency requirements. Students who enrol now will receive their{' '}
+                          <span className="font-semibold text-[#b45309]">Certificate of Completion upon QABA approval being granted</span>.
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+              <style>{`
+                .qaba-marquee-track {
+                  display: flex;
+                  width: max-content;
+                  animation: qaba-marquee-anim 24s linear infinite;
+                  will-change: transform;
+                }
+                @media (max-width: 768px) {
+                  .qaba-marquee-track {
+                    animation-duration: 32s;
+                  }
+                }
+                @keyframes qaba-marquee-anim {
+                  0% {
+                    transform: translate3d(0, 0, 0);
+                  }
+                  100% {
+                    transform: translate3d(-50%, 0, 0);
+                  }
+                }
+              `}</style>
+            </div>
+          )}
 
           <div className="p-8 grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Left Content */}
