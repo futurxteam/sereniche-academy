@@ -19,6 +19,7 @@ import CourseDetailPage from './pages/CourseDetailPage';
 import PaymentPage from './pages/PaymentPage';
 import RefundPolicyPage from './pages/RefundPolicyPage';
 import VideoShowcase from './components/VideoShowcase';
+import AbatCourseSection from './components/AbatCourseSection';
 
 
 
@@ -1259,6 +1260,9 @@ function AppContent() {
                 <MobileCarousel />
 
 
+
+                {/* ABAT Course Section */}
+                <AbatCourseSection onNavigate={setCurrentPage} />
 
                 {/* Program Positioning Section */}
                 <ProgramPositioningSection />

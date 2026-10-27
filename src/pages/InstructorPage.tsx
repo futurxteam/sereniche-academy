@@ -2,7 +2,20 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { User, X, ArrowRight, BookOpen, Star, Award, Briefcase } from 'lucide-react';
 
-const instructors = [
+interface Instructor {
+  id: number;
+  name: string;
+  title: string;
+  designation?: string;
+  qualifications?: string;
+  image: string;
+  bio: string;
+  expertise: string[];
+  experience: string;
+  courses: string[];
+}
+
+const instructors: Instructor[] = [
   {
     id: 9,
     name: "Mr. Miqdad Sulaiman",
@@ -74,16 +87,6 @@ const instructors = [
     courses: ["Relational & Systemic Work", "Emotional Regulation"]
   },
   {
-    id: 6,
-    name: "Fr. Ritto Mathew",
-    title: "MSW (Medical & Psychiatry), DCP | Mental Health Professional",
-    image: "/Fr.%20Ritto%20Mathew.jpg",
-    bio: "Provides psychosocial support, clinical counselling, and hypnotherapy, working with individuals to manage emotional, psychological, and behavioral challenges. Follows a client-centered, ethical approach, creating a safe and confidential space, using evidence-based techniques to enhance coping skills, promote personal growth, and support overall mental well-being.",
-    expertise: ["Pastoral Counselling", "Psychodynamic", "Grief & Loss"],
-    experience: "15+ Years",
-    courses: ["Therapist Ethics & Development", "Grief & Bereavement"]
-  },
-  {
     id: 2,
     name: "Uveysudheen K H",
     title: "BSc, MSc Counselling Psychology | Counselling Psychologist, Training and Development Consultant",
@@ -94,14 +97,28 @@ const instructors = [
     courses: ["Managing Client Dynamics", "Core Counselling Skills"]
   },
   {
-    id: 8,
-    name: "Aayisha Salim",
-    title: "MSc Psychology | Consultant Psychologist",
-    image: "/Aayisha%20Salim.jpg",
-    bio: "Aayisha Salim is a consultant psychologist focusing on holistic mental health support and clinical assessments within a hospital-integrated ecosystem.",
-    expertise: ["Clinical Assessment", "General Psychology", "Mental Health Support"],
-    experience: "5+ Years",
-    courses: ["Introduction to Clinical Practice", "Foundation Skills"]
+    id: 11,
+    name: "Athifa Farha",
+    title: "CDA Licensed Behavior Analyst\nMSc in Applied Psychology; QBA, IBA, and RBT; PFA-SBT.",
+    designation: "CDA Licensed Behavior Analyst",
+    qualifications: "MSc in Applied Psychology; QBA, IBA, and RBT; PFA-SBT.",
+    image: "/Athifa%20Farha.jpg",
+    bio: "Athifa Farha is a CDA Licensed Behavior Analyst holding an MSc in Applied Psychology, with credentials in QBA, IBA, and RBT, specializing in PFA-SBT and evidence-based behavioral intervention planning.",
+    expertise: ["Behavior Analysis", "PFA-SBT", "Applied Psychology", "QBA / IBA"],
+    experience: "CDA Licensed Behavior Analyst",
+    courses: ["Applied Behaviour Analysis (ABAT)", "Behaviour Interventions & PFA-SBT"]
+  },
+  {
+    id: 12,
+    name: "Farisha Abdul Kareem",
+    title: "Psychologist & Behavior Analyst\nMSc Psychology, QBA, IBA.",
+    designation: "Psychologist & Behavior Analyst",
+    qualifications: "MSc Psychology, QBA, IBA.",
+    image: "/Farisha%20Abdul%20Kareem.jpg",
+    bio: "Farisha Abdul Kareem is a Psychologist and Behavior Analyst holding an MSc in Psychology and QBA, IBA credentials, dedicated to clinical psychology, behavioral assessments, and individualized interventions.",
+    expertise: ["Behavior Analysis", "Clinical Psychology", "QBA / IBA"],
+    experience: "Psychologist & Behavior Analyst",
+    courses: ["Applied Behaviour Analysis (ABAT)", "Core Psychological Skills"]
   }
 ];
 
@@ -145,11 +162,20 @@ export default function InstructorPage() {
             </div>
             <div className="p-7 bg-white relative z-20">
               <h3 className="text-xl font-bold text-[#111827] mb-1">{instructor.name}</h3>
-              <p className="text-purple-600 font-bold text-sm mb-4 whitespace-pre-line">{instructor.title}</p>
-              <div className="flex items-center gap-2 text-gray-500 text-sm mb-5">
-                <Briefcase className="w-4 h-4 text-purple-400" />
-                <span className="font-medium">{instructor.experience}</span>
-              </div>
+              <p className="text-purple-600 font-bold text-sm mb-1.5 whitespace-pre-line">
+                {instructor.designation || instructor.title}
+              </p>
+              {instructor.qualifications && (
+                <p className="text-gray-500 text-xs font-medium mb-3.5 leading-relaxed">
+                  {instructor.qualifications}
+                </p>
+              )}
+              {instructor.experience && (
+                <div className="flex items-center gap-2 text-gray-500 text-sm mb-5">
+                  <Briefcase className="w-4 h-4 text-purple-400" />
+                  <span className="font-medium">{instructor.experience}</span>
+                </div>
+              )}
               <div className="flex flex-wrap gap-2">
                 {instructor.expertise.slice(0, 3).map((exp, i) => (
                   <span key={i} className="text-[11px] font-bold bg-gray-50 border border-gray-100 px-2.5 py-1.5 rounded-lg text-gray-500">
@@ -203,11 +229,20 @@ export default function InstructorPage() {
                 {/* Content */}
                 <div className="w-full md:w-[62%] flex flex-col justify-center">
                   <h2 className="text-3xl font-bold text-white mb-1 leading-tight">{selectedInstructor.name}</h2>
-                  <p className="text-yellow-400 font-semibold text-base mb-1 whitespace-pre-line">{selectedInstructor.title}</p>
-                  <p className="text-purple-300 text-sm font-medium mb-6 flex items-center gap-1.5">
-                    <Briefcase className="w-3.5 h-3.5" />
-                    {selectedInstructor.experience}
+                  <p className="text-yellow-400 font-semibold text-base mb-1 whitespace-pre-line">
+                    {selectedInstructor.designation || selectedInstructor.title}
                   </p>
+                  {selectedInstructor.qualifications && (
+                    <p className="text-purple-200 text-sm font-medium mb-3 leading-relaxed">
+                      {selectedInstructor.qualifications}
+                    </p>
+                  )}
+                  {selectedInstructor.experience && (
+                    <p className="text-purple-300 text-sm font-medium mb-6 flex items-center gap-1.5">
+                      <Briefcase className="w-3.5 h-3.5" />
+                      {selectedInstructor.experience}
+                    </p>
+                  )}
 
                   <div className="space-y-6">
                     {/* About */}
