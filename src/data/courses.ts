@@ -240,8 +240,7 @@ export const courses: Course[] = [
       "Minimum Qualification: Bachelor's degree in any discipline from a recognised university"
     ],
     notices: [
-      "Sereniche Academy is currently in the process of obtaining QABA Approved Coursework Provider status. Our programme is designed in full alignment with QABA standards and competency requirements. Students who enrol now will receive their Certificate of Completion upon QABA approval being granted."
-    ],
+      "Sereniche Academy is a QABA Approved Coursework Provider. Our programme is designed in alignment with QABA standards and competency requirements. Students who enrol in our programme will receive a Certificate of Completion upon successful completion of the course."],
     formatDetails: {
       mode: "Online (Live & Self-paced)",
       duration: "2–3 Months",

@@ -57,7 +57,7 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
             />
             {/* Subtle dark-to-transparent gradient over top/middle for calm depth */}
             <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-transparent to-transparent pointer-events-none" />
-            
+
             {/* Subtle white gradient behind heading and badges for pristine readability */}
             <div className="absolute inset-x-0 bottom-0 h-44 sm:h-56 bg-gradient-to-t from-white via-white/85 to-transparent pointer-events-none" />
 
@@ -211,7 +211,7 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
                     <span className="font-medium text-gray-900">{course.formatDetails.duration}</span>
                   </div>
                   {course.formatDetails.schedule && (
-                     <div className="bg-purple-50 p-5 rounded-xl border border-purple-100">
+                    <div className="bg-purple-50 p-5 rounded-xl border border-purple-100">
                       <span className="block text-xs font-bold text-purple-500 uppercase mb-1">Schedule</span>
                       <span className="font-medium text-gray-900">{course.formatDetails.schedule}</span>
                     </div>
