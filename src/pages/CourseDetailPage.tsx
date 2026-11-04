@@ -289,8 +289,6 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
             {/* Right Sidebar - Pricing Card */}
             <div className="lg:col-span-1">
               <div className="bg-gray-50 border border-gray-100 rounded-[28px] p-8 lg:sticky lg:top-32 shadow-sm">
-                <div className="text-gray-500 text-sm font-semibold uppercase tracking-wider mb-2">Program Fee</div>
-                <div className="text-4xl font-bold text-gray-900 mb-8">{course.price}</div>
 
                 <div className="space-y-5 mb-10">
                   <div className="flex items-center gap-3 text-gray-700 font-medium">
