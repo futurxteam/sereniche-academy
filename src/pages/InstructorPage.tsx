@@ -99,6 +99,18 @@ const instructors: Instructor[] = [
     expertise: ["Behavior Analysis", "Clinical Psychology", "QBA / IBA"],
     experience: "Psychologist & Behavior Analyst",
     courses: ["Applied Behaviour Analysis (ABAT)", "Core Psychological Skills"]
+  },
+  {
+    id: 13,
+    name: "Fathima Nazrin",
+    title: "Psychologist & Behavior Analyst\nMSc Psychology, QBA, IBA",
+    designation: "Psychologist & Behavior Analyst",
+    qualifications: "MSc Psychology, QBA, IBA",
+    image: "/Fathima%20Nazrin.jpg",
+    bio: "Fathima Nazrin is a Psychologist and Behavior Analyst holding an MSc in Psychology and QBA, IBA credentials, dedicated to applied behaviour analysis, comprehensive behavioural assessments, and evidence-based interventions.",
+    expertise: ["Behavior Analysis", "Clinical Psychology", "QBA / IBA"],
+    experience: "Psychologist & Behavior Analyst",
+    courses: ["Applied Behaviour Analysis (ABAT)", "Core Psychological Skills"]
   }
 ];
 

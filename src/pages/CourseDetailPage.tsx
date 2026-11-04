@@ -7,6 +7,27 @@ import {
 } from 'lucide-react';
 import { courses } from '../data/courses';
 
+const abatFacilitators = [
+  {
+    name: 'Fathima Nazrin',
+    designation: 'Psychologist & Behavior Analyst',
+    qualifications: 'MSc Psychology, QBA, IBA',
+    image: '/Fathima%20Nazrin.jpg',
+  },
+  {
+    name: 'Athifa Farha',
+    designation: 'CDA Licensed Behavior Analyst',
+    qualifications: 'MSc in Applied Psychology, QBA, IBA, RBT, PFA-SBT',
+    image: '/Athifa%20Farha.jpg',
+  },
+  {
+    name: 'Farisha Abdul Kareem',
+    designation: 'Psychologist & Behavior Analyst',
+    qualifications: 'MSc Psychology, QBA, IBA',
+    image: '/Farisha%20Abdul%20Kareem.jpg',
+  },
+];
+
 export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: string) => void }) {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -324,6 +345,65 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
             </div>
           </div>
         </div>
+
+        {/* Facilitators Section - Exclusively on the ABAT Course Page */}
+        {course.slug === 'applied-behaviour-analysis-technician' && (
+          <section className="mt-16 sm:mt-24">
+            <div className="text-center mb-10 sm:mb-14">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-purple-700 text-xs sm:text-sm font-semibold tracking-wide shadow-sm mb-4">
+                <GraduationCap className="w-4 h-4 text-purple-600" />
+                <span>Expert Faculty</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Our{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-700">
+                  Facilitators
+                </span>
+              </h2>
+              <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                Learn from experienced professionals in Applied Behaviour Analysis and Psychology.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+              {abatFacilitators.map((fac) => (
+                <div
+                  key={fac.name}
+                  className="bg-white border border-slate-100/90 rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-[0_8px_30px_rgba(15,23,42,0.05)] hover:shadow-[0_20px_40px_rgba(124,58,237,0.12)] hover:border-purple-200 hover:-translate-y-1.5 transition-all duration-500 flex flex-col h-full group"
+                >
+                  <div className="aspect-[3/4] overflow-hidden relative bg-slate-100">
+                    <img
+                      src={fac.image}
+                      alt={fac.name}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  </div>
+
+                  <div className="p-6 sm:p-7 flex flex-col flex-grow justify-between bg-white">
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-purple-700 transition-colors mb-1.5">
+                        {fac.name}
+                      </h3>
+                      <p className="text-purple-600 font-bold text-sm leading-snug mb-3">
+                        {fac.designation}
+                      </p>
+                    </div>
+
+                    <div className="pt-3.5 border-t border-slate-100 mt-2">
+                      <span className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                        Qualifications
+                      </span>
+                      <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">
+                        {fac.qualifications}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </motion.div>
   );
