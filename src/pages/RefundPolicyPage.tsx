@@ -7,7 +7,7 @@ const policies = [
   {
     icon: Ban,
     title: 'Refund & Cancellation Policy',
-    content: 'Once enrolment is confirmed and payment is received, the coursework fee of ₹28,000 is strictly non-refundable and non-transferable under any circumstances. Please review all course details, duration, requirements, and eligibility carefully before completing your registration.\n\nThe QABA Board examination fee is fully managed by the QABA Board. Sereniche Academy has no authority over examination fee refunds or related policies. Please contact the QABA Board directly for all exam-related queries.',
+    content: 'Once enrolment is confirmed and payment is received, the coursework fee of ₹25,000 is strictly non-refundable and non-transferable under any circumstances. Please review all course details, duration, requirements, and eligibility carefully before completing your registration.\n\nThe QABA Board examination fee is fully managed by the QABA Board. Sereniche Academy has no authority over examination fee refunds or related policies. Please contact the QABA Board directly for all exam-related queries.',
   },
   {
     icon: Lock,

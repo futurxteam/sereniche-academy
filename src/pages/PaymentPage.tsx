@@ -79,6 +79,14 @@ export default function PaymentPage({ onNavigate }: { onNavigate?: (page: string
             <ShieldCheck className="w-3.5 h-3.5" />
             Secure checkout &amp; flexible payment options
           </div>
+          <div className="mt-3 text-center">
+            <Link
+              to="/refund-policy"
+              className="text-sm font-semibold text-purple-600 hover:text-purple-800 hover:underline transition-colors"
+            >
+              View Refund Policy
+            </Link>
+          </div>
         </div>
       </div>
     </motion.div>

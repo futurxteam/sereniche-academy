@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import {
   Clock, Users, Star, ArrowLeft, ArrowRight,
-  CheckCircle2, MonitorPlay, Activity, BookOpen
+  CheckCircle2, MonitorPlay, Activity, BookOpen, GraduationCap, Laptop, ShieldCheck, Award, FileText
 } from 'lucide-react';
 import { courses } from '../data/courses';
 
@@ -95,9 +95,9 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
                       >
                         <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0 ring-4 ring-amber-500/20" />
                         <span>
-                          <span className="font-semibold text-slate-900">Sereniche Academy</span> is currently in the process of obtaining{' '}
-                          <span className="font-bold text-[#b45309]">QABA Approved Coursework Provider status</span>. Our programme is designed in full alignment with QABA standards and competency requirements. Students who enrol now will receive their{' '}
-                          <span className="font-semibold text-[#b45309]">Certificate of Completion upon QABA approval being granted</span>.
+                          <span className="font-semibold text-slate-900">Sereniche Academy</span> is a{' '}
+                          <span className="font-bold text-[#b45309]">QABA Approved Coursework Provider</span>. Our programme is designed in alignment with QABA standards and competency requirements. Students who enrol in our programme will receive a{' '}
+                          <span className="font-semibold text-[#b45309]">Certificate of Completion upon successful completion of the course</span>.
                         </span>
                       </div>
                     ))}
@@ -131,6 +131,55 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
           <div className="p-8 grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Left Content */}
             <div className="lg:col-span-2 space-y-10">
+              {course.slug === 'applied-behaviour-analysis-technician' && (
+                <>
+                  {/* ABAT Overview & Course Highlights */}
+                  <section>
+                    <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                      {course.description}
+                    </p>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-5">Course Highlights</h2>
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
+                      {[
+                        { label: 'Duration', value: '2–3 Months', icon: Clock, gold: true },
+                        { label: 'Mode', value: 'Online (Live & Self-paced)', icon: Laptop, gold: false },
+                        { label: 'Coursework', value: '40 Hours', icon: BookOpen, gold: true },
+                        { label: 'Eligibility', value: "Any Graduate (Bachelor's degree in any discipline)", icon: GraduationCap, gold: false },
+                      ].map(({ label, value, icon: Icon, gold }) => (
+                        <div
+                          key={label}
+                          className="bg-white rounded-2xl border border-slate-100 p-4 shadow-[0_4px_16px_rgba(15,23,42,0.03)] hover:shadow-[0_8px_24px_rgba(124,58,237,0.08)] hover:border-purple-200 hover:-translate-y-0.5 transition-all duration-300"
+                        >
+                          <div className={`w-9 h-9 rounded-full flex items-center justify-center mb-3 ${gold ? 'bg-amber-100/70 border border-amber-200/60' : 'bg-purple-100/70 border border-purple-200/60'}`}>
+                            <Icon className={`w-4 h-4 ${gold ? 'text-amber-600' : 'text-purple-600'}`} />
+                          </div>
+                          <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">{label}</span>
+                          <span className="block text-sm font-bold text-slate-900 leading-snug">{value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+
+                  {/* QABA Accreditation */}
+                  <section className="rounded-3xl border border-amber-200/90 bg-gradient-to-br from-[#FFFDF7] via-white to-[#FAF7FD] p-6 sm:p-8 shadow-[0_12px_36px_rgba(124,58,237,0.06)]">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 text-white flex items-center justify-center flex-shrink-0 shadow-md ring-4 ring-amber-100">
+                        <ShieldCheck className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800 block mb-1">QABA Accreditation</span>
+                        <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+                          QABA Approved Coursework Provider
+                          <Award className="w-5 h-5 text-purple-600" />
+                        </h2>
+                        <p className="text-slate-700 leading-relaxed">
+                          Sereniche Academy is a QABA Approved Coursework Provider. Our programme is designed in alignment with QABA standards and competency requirements. Students who enrol in our programme will receive a Certificate of Completion upon successful completion of the course.
+                        </p>
+                      </div>
+                    </div>
+                  </section>
+                </>
+              )}
               <section>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">About This Program</h2>
                 <p className="text-gray-600 text-lg leading-relaxed">
@@ -162,8 +211,9 @@ export default function CourseDetailPage({ onNavigate }: { onNavigate?: (page: s
                     </button>
                     <button
                       onClick={() => navigate('/refund-policy')}
-                      className="text-sm font-semibold text-purple-600 hover:text-purple-800 hover:underline transition-colors py-4 px-2"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-600 hover:text-purple-800 hover:underline transition-colors py-4 px-2"
                     >
+                      <FileText className="w-4 h-4 text-amber-600" />
                       Refund Policy
                     </button>
                   </div>

@@ -949,6 +949,10 @@ function AppContent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  // ABAT nav item opens the existing ABAT course details page (and its payment / policy sub-pages)
+  const ABAT_PATH = '/courses/applied-behaviour-analysis-technician';
+  const isAbatRoute = [ABAT_PATH, '/payment', '/payment/abat', '/refund-policy'].includes(location.pathname);
+  const isNavActive = (id: string) => (id === 'abat' ? isAbatRoute : !isAbatRoute && currentPage === id);
 
   useEffect(() => {
     // 1. Sync URL to State (Direct links, Back button)
@@ -1039,6 +1043,7 @@ function AppContent() {
               { id: 'courses', label: 'Courses' },
               { id: 'instructor', label: 'Facilitators' },
               { id: 'mano-2026', label: 'MANO 2026' },
+              { id: 'abat', label: 'ABAT' },
               { id: 'testimonials', label: 'Testimonials' },
               { id: 'more', label: 'Programme' },
               { id: 'contact', label: 'Contact' }
@@ -1055,15 +1060,20 @@ function AppContent() {
                     'more': '/programme',
                     'contact': '/contact'
                   };
+                  if (item.id === 'abat') {
+                    if (location.pathname !== ABAT_PATH) navigate(ABAT_PATH);
+                    setIsMenuOpen(false);
+                    return;
+                  }
                   if (location.pathname !== stateMap[item.id]) {
                     navigate(stateMap[item.id]);
                   }
                   setCurrentPage(item.id);
                 }}
-                className={`relative px-1 py-2 transition-all duration-300 ${currentPage === item.id ? 'text-purple-600' : 'hover:text-purple-600 text-gray-600'}`}
+                className={`relative px-1 py-2 transition-all duration-300 ${isNavActive(item.id) ? 'text-purple-600' : 'hover:text-purple-600 text-gray-600'}`}
               >
                 {item.label}
-                {currentPage === item.id && (
+                {isNavActive(item.id) && (
                   <motion.span
                     layoutId="nav-underline"
                     className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-600 rounded-full"
@@ -1110,6 +1120,7 @@ function AppContent() {
                     { id: 'courses', label: 'Courses' },
                     { id: 'instructor', label: 'Facilitators' },
                     { id: 'mano-2026', label: 'MANO 2026' },
+                    { id: 'abat', label: 'ABAT' },
                     { id: 'testimonials', label: 'Testimonials' },
                     { id: 'more', label: 'Programme' },
                     { id: 'contact', label: 'Contact' }
@@ -1126,13 +1137,18 @@ function AppContent() {
                           'more': '/programme',
                           'contact': '/contact'
                         };
+                        if (item.id === 'abat') {
+                          if (location.pathname !== ABAT_PATH) navigate(ABAT_PATH);
+                          setIsMenuOpen(false);
+                          return;
+                        }
                         if (location.pathname !== stateMap[item.id]) {
                           navigate(stateMap[item.id]);
                         }
                         setCurrentPage(item.id);
                         setIsMenuOpen(false);
                       }}
-                      className={`text-lg font-bold text-left px-5 py-4 rounded-2xl transition-colors ${currentPage === item.id ? 'bg-purple-50 text-purple-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                      className={`text-lg font-bold text-left px-5 py-4 rounded-2xl transition-colors ${isNavActive(item.id) ? 'bg-purple-50 text-purple-600' : 'text-gray-700 hover:bg-gray-50'}`}
                     >
                       {item.label}
                     </button>
