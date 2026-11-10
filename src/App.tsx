@@ -1107,7 +1107,7 @@ function AppContent() {
               <button
                 type="button"
                 onClick={() => setIsStudentCornerOpen(!isStudentCornerOpen)}
-                className="hover:scale-105 active:scale-95 text-[#7C3AED] px-4 py-2 rounded-full text-base font-bold transition-all duration-300 flex items-center gap-1.5 border border-purple-200 hover:border-purple-400 bg-purple-50/60 shadow-sm"
+                className="hover:scale-105 active:scale-95 text-[#7C3AED] px-3 py-2 text-base font-bold transition-all duration-300 flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
               >
                 <span>Student Corner</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isStudentCornerOpen ? 'rotate-180' : ''}`} />

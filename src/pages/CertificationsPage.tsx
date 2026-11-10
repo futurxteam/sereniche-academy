@@ -129,9 +129,7 @@ export default function CertificationsPage({ onNavigate }: { onNavigate?: (page:
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                      Verified & Valid
-                    </span>
+
                   </div>
                   <h3 className="text-xl font-extrabold text-gray-900 mt-0.5">
                     Official Certificate
@@ -215,13 +213,7 @@ export default function CertificationsPage({ onNavigate }: { onNavigate?: (page:
               </div>
             </div>
 
-            {/* Authenticity footer notice */}
-            <div className="mt-8 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
-              <span className="flex items-center gap-1.5 text-emerald-600 font-semibold">
-                <ShieldCheck className="w-4 h-4" /> Authenticated by Sereniche Academy Registry
-              </span>
-              <span>Status: <strong className="text-emerald-700">Valid</strong></span>
-            </div>
+
           </motion.div>
         )}
 
@@ -241,12 +233,10 @@ export default function CertificationsPage({ onNavigate }: { onNavigate?: (page:
             </h3>
 
             <p className="text-sm text-gray-600 max-w-md mx-auto leading-relaxed">
-              Invalid or wrong Certificate ID entered. This certificate either does not exist, or has not been marked with valid status by academy administrators.
+              Invalid or wrong Certificate ID entered.
             </p>
 
-            <div className="mt-6 inline-flex items-center gap-2 text-xs font-semibold text-gray-400 bg-gray-50 px-4 py-2 rounded-xl">
-              <span>Please double-check the ID printed on the top-right corner of your certificate.</span>
-            </div>
+
           </motion.div>
         )}
       </div>
