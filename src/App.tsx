@@ -5,7 +5,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
-import { Triangle, ArrowUpRight, Star, GraduationCap, User, Hexagon, Clock, BookOpen, Users, FileText, ArrowRight, ArrowLeft, Headphones, Brain, PenTool, BadgeCheck, BookMarked, Sparkles, Activity, Box, Layers, Circle, Building2, Stethoscope, CheckCircle2, Calendar, MonitorPlay, Mail, Globe, XCircle, Quote, Target, Award, Briefcase, MapPin, ShieldCheck, TrendingUp, HeartHandshake, FileCheck, Lightbulb, Check, Plus, Minus, Menu, X } from 'lucide-react';
+import { Triangle, ArrowUpRight, Star, GraduationCap, User, Hexagon, Clock, BookOpen, Users, FileText, ArrowRight, ArrowLeft, Headphones, Brain, PenTool, BadgeCheck, BookMarked, Sparkles, Activity, Box, Layers, Circle, Building2, Stethoscope, CheckCircle2, Calendar, MonitorPlay, Mail, Globe, XCircle, Quote, Target, Award, Briefcase, MapPin, ShieldCheck, TrendingUp, HeartHandshake, FileCheck, Lightbulb, Check, Plus, Minus, Menu, X, ChevronDown } from 'lucide-react';
 import { motion, useMotionValue, useTransform, animate, useInView, useScroll, AnimatePresence } from 'motion/react';
 import { FiBriefcase } from 'react-icons/fi';
 import LiveChat from './components/LiveChat';
@@ -18,6 +18,7 @@ import ContactPage from './pages/ContactPage';
 import CourseDetailPage from './pages/CourseDetailPage';
 import PaymentPage from './pages/PaymentPage';
 import RefundPolicyPage from './pages/RefundPolicyPage';
+import CertificationsPage from './pages/CertificationsPage';
 import VideoShowcase from './components/VideoShowcase';
 import AbatCourseSection from './components/AbatCourseSection';
 
@@ -947,12 +948,24 @@ export default function App() {
 function AppContent() {
   const [currentPage, setCurrentPage] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isStudentCornerOpen, setIsStudentCornerOpen] = useState(false);
+  const studentCornerRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
   // ABAT nav item opens the existing ABAT course details page (and its payment / policy sub-pages)
   const ABAT_PATH = '/courses/applied-behaviour-analysis-technician';
   const isAbatRoute = [ABAT_PATH, '/payment', '/payment/abat', '/refund-policy'].includes(location.pathname);
   const isNavActive = (id: string) => (id === 'abat' ? isAbatRoute : !isAbatRoute && currentPage === id);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (studentCornerRef.current && !studentCornerRef.current.contains(e.target as Node)) {
+        setIsStudentCornerOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     // 1. Sync URL to State (Direct links, Back button)
@@ -963,7 +976,8 @@ function AppContent() {
       '/mano-2026': 'mano-2026',
       '/testimonials': 'testimonials',
       '/more': 'more',
-      '/contact': 'contact'
+      '/contact': 'contact',
+      '/certifications': 'certifications'
     };
     if (pathMap[location.pathname] && pathMap[location.pathname] !== currentPage) {
       setCurrentPage(pathMap[location.pathname]);
@@ -979,7 +993,8 @@ function AppContent() {
       'mano-2026': '/mano-2026',
       'testimonials': '/testimonials',
       'more': '/programme',
-      'contact': '/contact'
+      'contact': '/contact',
+      'certifications': '/certifications'
     };
     // Only navigate if we're not already on the correct path
     if (stateMap[currentPage] && location.pathname !== stateMap[currentPage]) {
@@ -988,7 +1003,8 @@ function AppContent() {
         (location.pathname.startsWith('/courses/') ||
          location.pathname === '/payment' ||
          location.pathname === '/payment/abat' ||
-         location.pathname === '/refund-policy') &&
+         location.pathname === '/refund-policy' ||
+         location.pathname === '/certifications') &&
         currentPage === 'courses'
       ) {
         return;
@@ -1086,13 +1102,52 @@ function AppContent() {
 
           {/* Right Side: CTA & Mobile Toggle */}
           <div className="flex items-center gap-2">
-            <a
-              href="https://learn.serenicheacademy.com"
-              className="hover:scale-105 active:scale-95 text-[#7C3AED] px-4 py-2 rounded-full text-base font-bold transition-all duration-300 flex items-center gap-2 group border border-transparent hover:border-purple-100"
-            >
-              <span>Login</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-            </a>
+            {/* Student Corner Dropdown (Desktop) */}
+            <div className="relative hidden md:block" ref={studentCornerRef}>
+              <button
+                type="button"
+                onClick={() => setIsStudentCornerOpen(!isStudentCornerOpen)}
+                className="hover:scale-105 active:scale-95 text-[#7C3AED] px-4 py-2 rounded-full text-base font-bold transition-all duration-300 flex items-center gap-1.5 border border-purple-200 hover:border-purple-400 bg-purple-50/60 shadow-sm"
+              >
+                <span>Student Corner</span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isStudentCornerOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              <AnimatePresence>
+                {isStudentCornerOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-2xl shadow-xl py-2 z-50 overflow-hidden"
+                  >
+                    <a
+                      href="https://learn.serenicheacademy.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsStudentCornerOpen(false)}
+                      className="flex items-center justify-between px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors"
+                    >
+                      <span>Login</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsStudentCornerOpen(false);
+                        navigate('/certifications');
+                        setCurrentPage('certifications');
+                      }}
+                      className="w-full flex items-center justify-between px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors text-left"
+                    >
+                      <span>Certifications</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -1153,6 +1208,34 @@ function AppContent() {
                       {item.label}
                     </button>
                   ))}
+
+                  <div className="pt-2 mt-2 border-t border-gray-100 flex flex-col gap-1">
+                    <div className="px-5 py-1 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                      Student Corner
+                    </div>
+                    <a
+                      href="https://learn.serenicheacademy.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="text-lg font-bold text-left px-5 py-3 rounded-2xl text-purple-600 hover:bg-purple-50 flex items-center justify-between"
+                    >
+                      <span>Login</span>
+                      <ArrowRight className="w-5 h-5" />
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        navigate('/certifications');
+                        setCurrentPage('certifications');
+                        setIsMenuOpen(false);
+                      }}
+                      className="text-lg font-bold text-left px-5 py-3 rounded-2xl text-purple-600 hover:bg-purple-50 flex items-center justify-between"
+                    >
+                      <span>Certifications</span>
+                      <ArrowRight className="w-5 h-5" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -1165,6 +1248,7 @@ function AppContent() {
         <Route path="/payment" element={<PaymentPage onNavigate={setCurrentPage} />} />
         <Route path="/payment/abat" element={<PaymentPage onNavigate={setCurrentPage} />} />
         <Route path="/refund-policy" element={<RefundPolicyPage onNavigate={setCurrentPage} />} />
+        <Route path="/certifications" element={<CertificationsPage onNavigate={setCurrentPage} />} />
         <Route path="*" element={
           <AnimatePresence mode="wait">
             {currentPage === 'home' && (
@@ -1368,6 +1452,18 @@ function AppContent() {
                 transition={{ duration: 0.5 }}
               >
                 <ContactPage />
+              </motion.div>
+            )}
+
+            {currentPage === 'certifications' && (
+              <motion.div
+                key="certifications"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+              >
+                <CertificationsPage onNavigate={setCurrentPage} />
               </motion.div>
             )}
           </AnimatePresence>
